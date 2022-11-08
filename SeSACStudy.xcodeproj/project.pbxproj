@@ -152,6 +152,7 @@
 		0A2FE5AD291AB827000C63E3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -159,6 +160,7 @@
 		0A2FE5AE291AB82C000C63E3 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -348,7 +350,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
+				0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
+				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
