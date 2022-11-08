@@ -3,7 +3,7 @@ name: Feature request
 about: 기본 이슈 템플릿
 title: '[Type] Issue Title'
 labels: 'Feature'
-assignees: 'sani'
+assignees: 'dotori-0'
 
 ---
 
