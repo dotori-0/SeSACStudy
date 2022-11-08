@@ -13,6 +13,12 @@
 		0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE588291A3B65000C63E3 /* Main.storyboard */; };
 		0A2FE58C291A3B66000C63E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE58B291A3B66000C63E3 /* Assets.xcassets */; };
 		0A2FE58F291A3B66000C63E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE58D291A3B66000C63E3 /* LaunchScreen.storyboard */; };
+		0A2FE598291A3EE7000C63E3 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE597291A3EE7000C63E3 /* RxCocoa */; };
+		0A2FE59A291A3EE7000C63E3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE599291A3EE7000C63E3 /* RxSwift */; };
+		0A2FE59D291A3F10000C63E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE59C291A3F10000C63E3 /* FirebaseAuth */; };
+		0A2FE5A0291A3F44000C63E3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE59F291A3F44000C63E3 /* SnapKit */; };
+		0A2FE5A3291A3F5E000C63E3 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5A2291A3F5E000C63E3 /* Then */; };
+		0A2FE5A6291A3F97000C63E3 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5A5291A3F97000C63E3 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2FE5A6291A3F97000C63E3 /* Toast in Frameworks */,
+				0A2FE5A3291A3F5E000C63E3 /* Then in Frameworks */,
+				0A2FE59A291A3EE7000C63E3 /* RxSwift in Frameworks */,
+				0A2FE5A0291A3F44000C63E3 /* SnapKit in Frameworks */,
+				0A2FE59D291A3F10000C63E3 /* FirebaseAuth in Frameworks */,
+				0A2FE598291A3EE7000C63E3 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,14 @@
 			dependencies = (
 			);
 			name = SeSACStudy;
+			packageProductDependencies = (
+				0A2FE597291A3EE7000C63E3 /* RxCocoa */,
+				0A2FE599291A3EE7000C63E3 /* RxSwift */,
+				0A2FE59C291A3F10000C63E3 /* FirebaseAuth */,
+				0A2FE59F291A3F44000C63E3 /* SnapKit */,
+				0A2FE5A2291A3F5E000C63E3 /* Then */,
+				0A2FE5A5291A3F97000C63E3 /* Toast */,
+			);
 			productName = SeSACStudy;
 			productReference = 0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,13 @@
 				Base,
 			);
 			mainGroup = 0A2FE576291A3B65000C63E3;
+			packageReferences = (
+				0A2FE596291A3EE7000C63E3 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				0A2FE59B291A3F10000C63E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0A2FE59E291A3F44000C63E3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0A2FE5A1291A3F5E000C63E3 /* XCRemoteSwiftPackageReference "Then" */,
+				0A2FE5A4291A3F97000C63E3 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 0A2FE580291A3B65000C63E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -364,6 +391,82 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A2FE596291A3EE7000C63E3 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		0A2FE59B291A3F10000C63E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.0;
+			};
+		};
+		0A2FE59E291A3F44000C63E3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		0A2FE5A1291A3F5E000C63E3 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		0A2FE5A4291A3F97000C63E3 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A2FE597291A3EE7000C63E3 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE596291A3EE7000C63E3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0A2FE599291A3EE7000C63E3 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE596291A3EE7000C63E3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		0A2FE59C291A3F10000C63E3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE59B291A3F10000C63E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0A2FE59F291A3F44000C63E3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE59E291A3F44000C63E3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		0A2FE5A2291A3F5E000C63E3 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE5A1291A3F5E000C63E3 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		0A2FE5A5291A3F97000C63E3 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2FE5A4291A3F97000C63E3 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A2FE577291A3B65000C63E3 /* Project object */;
 }
