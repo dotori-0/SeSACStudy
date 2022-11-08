@@ -24,6 +24,8 @@
 		0A2FE5CC291AC867000C63E3 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5CA291AC866000C63E3 /* NotoSansKR-Medium.otf */; };
 		0A2FE5CD291AC867000C63E3 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5CB291AC866000C63E3 /* NotoSansKR-Regular.otf */; };
 		0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */; };
+		0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */; };
+		0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		0A2FE5CA291AC866000C63E3 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		0A2FE5CB291AC866000C63E3 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontName+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		0A2FE5AD291AB827000C63E3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 		0A2FE5AE291AB82C000C63E3 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -345,7 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
+				0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
+				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

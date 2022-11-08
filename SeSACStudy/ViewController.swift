@@ -15,6 +15,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         for family in UIFont.familyNames {
             print("====\(family)====")
+            
+            for name in UIFont.fontNames(forFamilyName: family) {
+                print(name)
+            }
         }
     }
     
