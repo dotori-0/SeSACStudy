@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Asset.Colors.BrandColor.whitegreen.color
 
         // Do any additional setup after loading the view.
         for family in UIFont.familyNames {

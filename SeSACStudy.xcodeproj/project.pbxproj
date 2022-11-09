@@ -26,6 +26,8 @@
 		0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */; };
 		0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */; };
 		0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */; };
+		0A2FE5E9291BE8B2000C63E3 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */; };
+		0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A2FE5D0291ACA08000C63E3 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontName+Extension.swift"; sourceTree = "<group>"; };
+		0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		0A2FE576291A3B65000C63E3 = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */,
 				0A2FE5BD291AC1DA000C63E3 /* .gitignore */,
 				0A2FE581291A3B65000C63E3 /* SeSACStudy */,
 				0A2FE580291A3B65000C63E3 /* Products */,
@@ -145,6 +150,7 @@
 		0A2FE5AC291AB822000C63E3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				0A2FE57B291A3B65000C63E3 /* Sources */,
 				0A2FE57C291A3B65000C63E3 /* Frameworks */,
 				0A2FE57D291A3B65000C63E3 /* Resources */,
+				0A2FE5EA291BE930000C63E3 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -336,6 +343,7 @@
 				0A2FE5CC291AC867000C63E3 /* NotoSansKR-Medium.otf in Resources */,
 				0A2FE5BE291AC1DA000C63E3 /* .gitignore in Resources */,
 				0A2FE58F291A3B66000C63E3 /* LaunchScreen.storyboard in Resources */,
+				0A2FE5E9291BE8B2000C63E3 /* swiftgen.yml in Resources */,
 				0A2FE5C4291AC6AC000C63E3 /* GoogleService-Info.plist in Resources */,
 				0A2FE58C291A3B66000C63E3 /* Assets.xcassets in Resources */,
 				0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */,
@@ -345,6 +353,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A2FE5EA291BE930000C63E3 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A2FE57B291A3B65000C63E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,6 +382,7 @@
 				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
 				0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
+				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 			);
