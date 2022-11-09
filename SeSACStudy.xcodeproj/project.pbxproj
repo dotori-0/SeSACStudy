@@ -28,6 +28,8 @@
 		0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */; };
 		0A2FE5E9291BE8B2000C63E3 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */; };
 		0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */; };
+		0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5F4291BFC28000C63E3 /* BaseViewController.swift */; };
+		0A2FE5F7291BFC70000C63E3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE5F6291BFC70000C63E3 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontName+Extension.swift"; sourceTree = "<group>"; };
 		0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		0A2FE5F4291BFC28000C63E3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0A2FE5F6291BFC70000C63E3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 		0A2FE5A9291AB80B000C63E3 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0A2FE5F4291BFC28000C63E3 /* BaseViewController.swift */,
+				0A2FE5F6291BFC70000C63E3 /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -384,7 +390,9 @@
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
+				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
+				0A2FE5F7291BFC70000C63E3 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
