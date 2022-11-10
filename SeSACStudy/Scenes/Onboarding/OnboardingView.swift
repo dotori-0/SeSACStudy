@@ -27,7 +27,7 @@ class OnboardingView: BaseView {
     
     // MARK: - Setting Methods
     override func setUI() {
-
+        setButtonColor()
     }
     
     override func setHierarchy() {
@@ -63,5 +63,10 @@ class OnboardingView: BaseView {
     private func setPageControl() {
         UIPageControl.appearance().currentPageIndicatorTintColor = Asset.Colors.BlackWhite.black.color
         UIPageControl.appearance().pageIndicatorTintColor = Asset.Colors.Grayscale.gray5.color
+    }
+    
+    // MARK: - Design Methods
+    private func setButtonColor() {
+        startButton.changeButtonColorToGreen()
     }
 }

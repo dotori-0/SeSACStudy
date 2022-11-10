@@ -10,6 +10,7 @@ import UIKit
 class GlobalButton: UIButton {
     // MARK: - Properties
     var title: String?
+    var buttonConfiguration = UIButton.Configuration.filled()
 
     // MARK: - Initializers
     init(title: String) {
@@ -34,10 +35,14 @@ class GlobalButton: UIButton {
         container.font = .Body3_R14
 //        container.foregroundColor = Asset.Colors.BlackWhite.white
         
-        var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.baseBackgroundColor = Asset.Colors.BrandColor.green.color
+        buttonConfiguration.baseBackgroundColor = Asset.Colors.Grayscale.gray6.color
         buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
         
+        configuration = buttonConfiguration
+    }
+    
+    func changeButtonColorToGreen() {
+        buttonConfiguration.baseBackgroundColor = Asset.Colors.BrandColor.green.color
         configuration = buttonConfiguration
     }
 }
