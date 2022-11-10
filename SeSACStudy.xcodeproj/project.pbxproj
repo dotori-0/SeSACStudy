@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2FE5B2291AB84A000C63E3 /* Onboarding */,
-				0A2FE5B9291AB866000C63E3 /* Auth */,
+				0A2FE5B9291AB866000C63E3 /* Verification */,
 				0A2FE5B8291AB861000C63E3 /* SignUp */,
 				0A2FE5B6291AB85C000C63E3 /* Main */,
 				0A2FE5B5291AB859000C63E3 /* Shop */,
@@ -275,11 +275,11 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		0A2FE5B9291AB866000C63E3 /* Auth */ = {
+		0A2FE5B9291AB866000C63E3 /* Verification */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Auth;
+			path = Verification;
 			sourceTree = "<group>";
 		};
 		0A2FE5BB291AB895000C63E3 /* Data */ = {
