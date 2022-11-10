@@ -10,6 +10,8 @@ import UIKit
 extension UIFont {
     // NotoSansKR-Regular
     // NotoSansKR-Medium
+    static let Display0_R24 = UIFont(name: .notoSansRegular, size: 24)
+    static let Display0_M24 = UIFont(name: .notoSansMedium, size: 24)
     
     // Display
     static let Display1_R20 = UIFont(name: .notoSansRegular, size: 20)

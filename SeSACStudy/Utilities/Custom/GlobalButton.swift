@@ -35,7 +35,7 @@ class GlobalButton: UIButton {
 //        container.foregroundColor = Asset.Colors.BlackWhite.white
         
         var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.baseBackgroundColor = Asset.Colors.BrandColor.green
+        buttonConfiguration.baseBackgroundColor = Asset.Colors.BrandColor.green.color
         buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
         
         configuration = buttonConfiguration

@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CxG-Rr-tUP">
-                                <rect key="frame" x="78" y="219.00000000000003" width="234" height="280.66666666666674"/>
+                                <rect key="frame" x="80" y="219" width="230" height="276"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CxG-Rr-tUP" secondAttribute="height" multiplier="220:264" id="ERO-9p-SNm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="Ifd-L6-14N">
-                                <rect key="frame" x="60" y="555.66666666666663" width="270" height="43.666666666666629"/>
+                                <rect key="frame" x="60" y="551" width="270" height="43.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ifd-L6-14N" secondAttribute="height" multiplier="780:126" id="Zpq-Qc-77W"/>
                                 </constraints>
@@ -33,9 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CxG-Rr-tUP" secondAttribute="trailing" constant="78" id="70j-N1-TVo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CxG-Rr-tUP" secondAttribute="trailing" constant="80" id="70j-N1-TVo"/>
                             <constraint firstItem="Ifd-L6-14N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="9ag-jO-feG"/>
-                            <constraint firstItem="CxG-Rr-tUP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="DkZ-qZ-fnK"/>
+                            <constraint firstItem="CxG-Rr-tUP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="DkZ-qZ-fnK"/>
                             <constraint firstItem="Ifd-L6-14N" firstAttribute="top" secondItem="CxG-Rr-tUP" secondAttribute="bottom" constant="56" id="Dmg-hd-Q6I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ifd-L6-14N" secondAttribute="trailing" constant="60" id="Oz5-ze-fVC"/>
                             <constraint firstItem="CxG-Rr-tUP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="172" id="lZj-lg-0BP"/>
