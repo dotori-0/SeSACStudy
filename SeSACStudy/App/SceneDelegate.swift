@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let rootNavVC = UINavigationController(rootViewController: OnboardingViewController())
+        let rootNavVC = UINavigationController(rootViewController: UserDefaults.isExistingUser ? VerificationViewController() : OnboardingViewController())
         
         window?.rootViewController = rootNavVC
         window?.makeKeyAndVisible()

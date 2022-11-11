@@ -7,14 +7,11 @@
 
 import UIKit
 
-class OnboardingLabel: UILabel {
+class OnboardingLabel: BaseLabel {
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = .Display0_R24
-        textAlignment = .center
-        numberOfLines = 0
     }
     
     required init?(coder: NSCoder) {
@@ -22,6 +19,12 @@ class OnboardingLabel: UILabel {
     }
     
     // MARK: - Setting Methods
+    override func setUI() {
+        font = .Display0_R24
+        textAlignment = .center
+        numberOfLines = 0
+    }
+    
     func setText(with text: String, highlight: String) {
         let attributedString = NSMutableAttributedString(string: text)
         let range = (text as NSString).range(of: highlight)

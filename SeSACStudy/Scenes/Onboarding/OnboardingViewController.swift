@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class OnboardingViewController: BaseViewController {
     // MARK: - Properties
     private let onboardingView = OnboardingView()
+    private let disposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -19,8 +22,7 @@ class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(self, #function)
-//        onboardingView.backgroundColor = .black
+        bind()
     }
     
     // MARK: - Setting Methods
@@ -28,8 +30,23 @@ class OnboardingViewController: BaseViewController {
         addChild(onboardingView.pageViewController)
         onboardingView.pageViewController.dataSource = self
     }
+    
+    private func bind() {
+        onboardingView.startButton.rx.tap
+            .asDriver()
+            .drive { _ in
+                self.navigationController?.pushViewController(VerificationViewController(), animated: true)
+                UserDefaults.isExistingUser = true
+//                let verificationVC = VerificationViewController()
+//                verificationVC.modalPresentationStyle = .fullScreen
+//                self.present(verificationVC, animated: true, completion: nil)
+//                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
+// MARK: - UIPageViewControllerDataSource
 extension OnboardingViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentVC = viewController as? BaseViewController else { return nil }

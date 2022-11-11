@@ -17,4 +17,9 @@ extension String {
         static let third = "SeSAC Study"
     }
     
+    enum Verification {
+        static let inputPhoneNumber = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
+        static let phoneNumberPlaceholder = "휴대폰 번호(-없이 숫자만 입력)"
+        static let verify = "인증 문자 받기"
+    }
 }

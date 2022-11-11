@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingView: BaseView {
     // MARK: - Properties
-    private let startButton = GlobalButton(title: .Onboarding.start)
+    let startButton = GlobalButton(title: .Onboarding.start)
     private let pageView = UIView()//.then { $0.backgroundColor = .systemBrown }
     let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     let subViewControllers = [FirstViewController(), SecondViewController(), ThirdViewController()]
