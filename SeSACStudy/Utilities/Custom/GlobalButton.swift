@@ -41,10 +41,8 @@ class GlobalButton: UIButton {
         var container = AttributeContainer()
         container.font = .Body3_R14
         
-//        buttonConfiguration.baseBackgroundColor = Asset.Colors.Grayscale.gray6.color
         buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
         
-//        configuration = buttonConfiguration
         setButtonColor()
     }
     

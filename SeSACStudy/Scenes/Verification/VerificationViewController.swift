@@ -13,6 +13,7 @@ class VerificationViewController: BaseViewController {
     private let verificationView = VerificationView()
     private let verificationViewModel = VerificationViewModel()
     private let disposeBag = DisposeBag()
+//    var numCount = 0
 
     // MARK: - Life Cycle
     override func loadView() {
@@ -69,7 +70,19 @@ class VerificationViewController: BaseViewController {
         
         output.number
             .drive(verificationView.phoneNumberInputView.textField.rx.text)
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)        
+        
+//        verificationView.phoneNumberInputView.textField.rx.text
+//            .orEmpty
+//            .map { $0.components(separatedBy: "-").joined().count }
+//            .subscribe { count in
+//                self.numCount = count
+//                print("🤍", self.numCount)
+//            }
+//            .disposed(by: disposeBag)
+        
+
+        
         
 //        verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin])
 //            .asDriver()
