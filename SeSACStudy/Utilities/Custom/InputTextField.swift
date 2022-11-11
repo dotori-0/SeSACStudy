@@ -47,8 +47,7 @@ class InputTextField: UITextField {
     func changeBottomLineColorToFocus() {
         print(#function)
 //        bottomLine.removeFromSuperlayer()
-//        bottomLine.backgroundColor = Asset.Colors.SystemColor.focus.color.cgColor
-        bottomLine.backgroundColor = UIColor.red.cgColor
+        bottomLine.backgroundColor = Asset.Colors.SystemColor.focus.color.cgColor
         layer.addSublayer(bottomLine)
         layoutSubviews()
     }

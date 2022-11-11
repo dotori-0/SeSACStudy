@@ -14,12 +14,13 @@ class VerificationView: BaseView {
         $0.keyboardType = .numberPad
     }
     let verifyButton = GlobalButton(title: String.Verification.verify)
-    let borderLine = UIView()
+    let phoneNumberInputView = InputView(placeholder: String.Verification.phoneNumberPlaceholder)
     
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+//        textFieldWithCALayer()  // CALayer
     }
     
     required init?(coder: NSCoder) {
@@ -32,24 +33,9 @@ class VerificationView: BaseView {
     }
     
     override func setHierarchy() {
-        [label, phoneNumberTextField, borderLine, verifyButton].forEach {
+        [label, phoneNumberInputView, verifyButton].forEach {
             addSubview($0)
         }
-        
-        setBottomLineView()
-    }
-    
-    func setBottomLineView() {
-//        self.addSubview(borderLine)
-//        borderLine.frame = CGRect(x: 0, y: Double(phoneNumberTextField.frame.height) - 5, width: Double(phoneNumberTextField.frame.width), height: 2)
-        borderLine.backgroundColor = UIColor.blue
-
-//        phoneNumberTextField.borderStyle = .none
-
-    }
-    
-    func changeBottomLineColor() {
-        borderLine.backgroundColor = UIColor.systemGreen
     }
     
     override func setConstraints() {
@@ -58,20 +44,25 @@ class VerificationView: BaseView {
             make.horizontalEdges.equalToSuperview()
         }
         
-        phoneNumberTextField.snp.makeConstraints { make in
+        phoneNumberInputView.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(64)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
         }
         
-        borderLine.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberTextField.snp.bottom).offset(10)
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(5)
-        }
-        
         verifyButton.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberTextField.snp.bottom).offset(72)
+            make.top.equalTo(phoneNumberInputView.snp.bottom).offset(72)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(48)
+        }
+    }
+    
+    // MARK: - Experimental Methods
+    func textFieldWithCALayer() {
+        addSubview(phoneNumberTextField)
+        
+        phoneNumberTextField.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(64)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
         }

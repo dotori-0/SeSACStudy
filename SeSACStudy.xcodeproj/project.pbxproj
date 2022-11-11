@@ -47,6 +47,8 @@
 		0AC03A51291D1A8300CBE29C /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A50291D1A8300CBE29C /* UserDefault.swift */; };
 		0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A52291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift */; };
 		0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */; };
+		0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A56291E04CE00CBE29C /* InputView.swift */; };
+		0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A58291E17CF00CBE29C /* VerificationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		0AC03A50291D1A8300CBE29C /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		0AC03A52291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsKey+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		0AC03A56291E04CE00CBE29C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		0AC03A58291E17CF00CBE29C /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				0A2FE602291C0EDC000C63E3 /* OnboardingLabel.swift */,
 				0AC03A4A291CF60600CBE29C /* InputTextField.swift */,
 				0AC03A4C291CFBAA00CBE29C /* VerificationLabel.swift */,
+				0AC03A56291E04CE00CBE29C /* InputView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			children = (
 				0AC03A46291CEE6D00CBE29C /* VerificationViewController.swift */,
 				0AC03A48291CEE7F00CBE29C /* VerificationView.swift */,
+				0AC03A58291E17CF00CBE29C /* VerificationViewModel.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -448,7 +454,9 @@
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
 				0A2FE5FF291C052D000C63E3 /* String+Extension.swift in Sources */,
+				0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */,
 				0A2FE5FB291C0267000C63E3 /* OnboardingView.swift in Sources */,
+				0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
