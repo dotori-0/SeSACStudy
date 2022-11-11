@@ -67,6 +67,6 @@ class OnboardingView: BaseView {
     
     // MARK: - Design Methods
     private func setButtonColor() {
-        startButton.changeButtonColorToGreen()
+        startButton.setButtonColor()
     }
 }
