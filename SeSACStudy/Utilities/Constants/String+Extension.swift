@@ -22,4 +22,11 @@ extension String {
         static let phoneNumberPlaceholder = "휴대폰 번호(-없이 숫자만 입력)"
         static let verify = "인증 문자 받기"
     }
+    
+    enum NetworkError {
+        static let networkError = "네트워크 연결 에러"
+        static let networkErrorMessage = "네트워크 연결이 원활하지 않습니다.\n연결 상태를 확인하고 다시 시도해 주세요."
+    }
+    
+    static let ok = "확인"
 }
