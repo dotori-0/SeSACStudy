@@ -49,6 +49,7 @@
 		0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */; };
 		0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A56291E04CE00CBE29C /* InputView.swift */; };
 		0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A58291E17CF00CBE29C /* VerificationViewModel.swift */; };
+		0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A5A291F664C00CBE29C /* NoActionTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A56291E04CE00CBE29C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		0AC03A58291E17CF00CBE29C /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		0AC03A5A291F664C00CBE29C /* NoActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoActionTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				0AC03A4A291CF60600CBE29C /* InputTextField.swift */,
 				0AC03A4C291CFBAA00CBE29C /* VerificationLabel.swift */,
 				0AC03A56291E04CE00CBE29C /* InputView.swift */,
+				0AC03A5A291F664C00CBE29C /* NoActionTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
+				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
 				0AC03A4D291CFBAA00CBE29C /* VerificationLabel.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 				0AC03A3F291C15CF00CBE29C /* PageView.swift in Sources */,
