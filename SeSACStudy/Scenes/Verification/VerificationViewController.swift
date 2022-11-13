@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import RxCocoa
 import RxSwift
 
 class VerificationViewController: BaseViewController {
@@ -44,9 +46,11 @@ class VerificationViewController: BaseViewController {
     private func bind() {
         let input = VerificationViewModel.Input(editingDidBegin: verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin]),
                                                 editingDidEnd: verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidEnd]),
-                                                phoneNumber: verificationView.phoneNumberInputView.textField.rx.text)
+                                                phoneNumber: verificationView.phoneNumberInputView.textField.rx.text,
+                                                verifyButtonTap: verificationView.verifyButton.rx.tap)
         
         let output = verificationViewModel.transform(input)
+        var isValid = false
         
         // 입력 상태에 따라 TextField의 bottomLine 컬러 바꾸기
         output.editingDidBegin
@@ -63,23 +67,33 @@ class VerificationViewController: BaseViewController {
         
         // 입력한 번호의 유효성에 따라 버튼 컬러 바꾸기
         output.isValidNumber
-//            .withUnretained(self)
-//            .bind(to: verificationView.verifyButton.isActivated)  // rx 객체라면 self가 필요하지 않지만 일반 객체라면 withUnretained(self) 나 [weak self]를 통해 self의 객체로 접근? ❔
-            .bind(to: verificationView.verifyButton.rx.isActivated)
+        //            .bind(to: verificationView.verifyButton.rx.isActivated)  // rx 객체라면 self가 필요하지 않지만 일반 객체라면 withUnretained(self) 나 [weak self]를 통해 self의 객체로 접근? ❔
+            .withUnretained(self)
+            .bind(onNext: { (vc, isValidNumber) in
+                vc.verificationView.verifyButton.isActivated = isValidNumber
+                isValid = isValidNumber
+            })
             .disposed(by: disposeBag)
         
         output.number
             .drive(verificationView.phoneNumberInputView.textField.rx.text)
             .disposed(by: disposeBag)        
         
-//        verificationView.phoneNumberInputView.textField.rx.text
-//            .orEmpty
-//            .map { $0.components(separatedBy: "-").joined().count }
-//            .subscribe { count in
-//                self.numCount = count
-//                print("🤍", self.numCount)
-//            }
-//            .disposed(by: disposeBag)
+
+        output.verifyButtonTap
+            .withUnretained(self)
+            .bind { (vc, _) in
+//                let isValid = BehaviorRelay(value: false)
+//                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
+                if isValid {
+                    vc.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
+                } else {
+                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        
         
 
         

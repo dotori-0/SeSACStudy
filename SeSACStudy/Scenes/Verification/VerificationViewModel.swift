@@ -15,6 +15,7 @@ final class VerificationViewModel {
         let editingDidBegin: ControlEvent<Void>  // verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin])
         let editingDidEnd: ControlEvent<Void>
         let phoneNumber: ControlProperty<String?>
+        let verifyButtonTap: ControlEvent<Void>  // 그대로 내보낼 객체들도 인풋 아웃풋에 넣는 게 나은 건지? ❔
     }
     
     struct Output {
@@ -22,6 +23,7 @@ final class VerificationViewModel {
         let editingDidEnd: Driver<Void>
         let number: Driver<String>
         let isValidNumber: Observable<Bool>
+        let verifyButtonTap: ControlEvent<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -34,7 +36,8 @@ final class VerificationViewModel {
         return Output(editingDidBegin: editingDidBegin,
                       editingDidEnd: editingDidEnd,
                       number: number,
-                      isValidNumber: isValidNumber)
+                      isValidNumber: isValidNumber,
+                      verifyButtonTap: input.verifyButtonTap)
     }
     
     private func unhyphenAndLimit(number: ControlProperty<String?>) -> Observable<String> {

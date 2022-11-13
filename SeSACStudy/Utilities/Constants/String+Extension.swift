@@ -21,6 +21,8 @@ extension String {
         static let inputPhoneNumber = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
         static let phoneNumberPlaceholder = "휴대폰 번호(-없이 숫자만 입력)"
         static let verify = "인증 문자 받기"
+        static let startVerification = "전화 번호 인증 시작"
+        static let wrongNumberFormat = "잘못된 전화번호 형식입니다."
     }
     
     enum NetworkError {
