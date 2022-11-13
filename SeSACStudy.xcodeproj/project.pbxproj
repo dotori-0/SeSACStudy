@@ -78,6 +78,7 @@
 		0A2FE5FC291C0421000C63E3 /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
 		0A2FE5FE291C052D000C63E3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		0A2FE602291C0EDC000C63E3 /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
+		0A50193629213C0E001BB094 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		0A2FE581291A3B65000C63E3 /* SeSACStudy */ = {
 			isa = PBXGroup;
 			children = (
+				0A50193629213C0E001BB094 /* SeSACStudy.entitlements */,
 				0A2FE5A8291AB807000C63E3 /* Utilities */,
 				0A2FE5B0291AB843000C63E3 /* Networking */,
 				0A2FE5B1291AB847000C63E3 /* Scenes */,
@@ -625,6 +627,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D92DSFPJZF;
@@ -641,7 +644,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sani.SeSACStudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sani.study;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -657,6 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D92DSFPJZF;
@@ -673,7 +677,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sani.SeSACStudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sani.study;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

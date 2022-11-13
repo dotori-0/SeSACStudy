@@ -7,6 +7,7 @@
 
 import UIKit
 
+import FirebaseAuth
 import RxCocoa
 import RxSwift
 
@@ -87,6 +88,8 @@ class VerificationViewController: BaseViewController {
 //                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
                 if isValid {
                     vc.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
+                    vc.verifyPhoneNumber(vc.verificationView.phoneNumberInputView.textField.text!)
+//                    vc.verifyFictionalPhoneNumber()  // 가상번호 테스트
                 } else {
                     vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
                 }
@@ -133,5 +136,72 @@ class VerificationViewController: BaseViewController {
 extension VerificationViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+}
+
+extension VerificationViewController {
+    private func verifyPhoneNumber(_ phoneNumber: String) {
+//        let number = "+447893920177"
+        let number = "+447893920172"
+        PhoneAuthProvider.provider()
+          .verifyPhoneNumber(number, uiDelegate: nil) { verificationID, error in
+              print("🆔 \(verificationID)")
+              if let error = error {
+//                self.showMessagePrompt(error.localizedDescription)
+                  print("🥲", error)
+                return
+              }
+              // Sign in using the verificationID and the code sent to the user
+              // ...
+          }
+    }
+    
+    private func logIn(verificationID: String, verificationCode: String) {
+        let credential = PhoneAuthProvider.provider().credential(
+          withVerificationID: verificationID,
+          verificationCode: verificationCode
+        )
+        
+        Auth.auth().signIn(with: credential) { authResult, error in
+            if let error = error {
+                print("❌", error)
+                print("❌", error.localizedDescription)
+            } else {
+                print("⭕️ 성공", authResult.debugDescription)
+            }
+            print("❌", error.debugDescription)
+        }
+    }
+    
+    private func verifyFictionalPhoneNumber() {
+//        let phoneNumber = "+16505554567"
+        let phoneNumber = "+821011112222"
+
+        // This test verification code is specified for the given test phone number in the developer console.
+        let testVerificationCode = "121212"
+
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate:nil) {
+                                                                    verificationID, error in
+            if ((error) != nil) {
+              // Handles error
+//              self.handleError(error)
+                print(error)
+              return
+            }
+            let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "",
+                                                                       verificationCode: testVerificationCode)
+//            Auth.auth().signInAndRetrieveData(with: credential) { authData, error in
+            Auth.auth().signIn(with: credential) { authData, error in
+                if ((error) != nil) {
+                // Handles error
+//                self.handleError(error)
+                print(error)
+                return
+              }
+//              _user = authData.user
+                print("☺️ \(authData!.user)")
+            }
+        }
     }
 }

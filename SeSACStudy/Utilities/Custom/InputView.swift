@@ -10,7 +10,8 @@ import UIKit
 class InputView: BaseView {
     // MARK: - Properties
     private var isNumberPad: Bool?
-    let textField = NoActionTextField()
+//    let textField = NoActionTextField()
+    let textField = UITextField()
     private let bottomLineView = UIView()
     var isTextFieldFocused: Bool {
         didSet {
