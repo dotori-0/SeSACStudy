@@ -76,9 +76,9 @@ class VerificationViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        output.number
-            .drive(verificationView.userInputView.textField.rx.text)
-            .disposed(by: disposeBag)
+//        output.number
+//            .drive(verificationView.userInputView.textField.rx.text)
+//            .disposed(by: disposeBag)
 
         output.verifyButtonTap
             .withUnretained(self)
@@ -86,11 +86,13 @@ class VerificationViewController: BaseViewController {
 //                let isValid = BehaviorRelay(value: false)
 //                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
                 if isValid {
-                    vc.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
+                    vc.showToast(message: String.Verification.startVerification, duration: 2.0)
                     vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
-//                    vc.verifyFictionalPhoneNumber()  // 가상번호 테스트
+//                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
+//                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
                 } else {
-                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
+//                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
+                    vc.showToast(message: String.Verification.wrongNumberFormat)
                 }
             }
             .disposed(by: disposeBag)
@@ -143,33 +145,28 @@ extension VerificationViewController {
 //        let number = "+447893920177"
         let number = "+447893920172"
         PhoneAuthProvider.provider()
-          .verifyPhoneNumber(number, uiDelegate: nil) { verificationID, error in
-              print("🆔 \(verificationID)")
+          .verifyPhoneNumber(number, uiDelegate: nil) { [weak self] verificationID, error in
+              
               if let error = error {
-//                self.showMessagePrompt(error.localizedDescription)
-                  print("🥲", error)
-                return
+                  print(error)
+                  let authError = error as NSError
+                  print(authError)
+                  if authError.code == AuthErrorCode.tooManyRequests.rawValue {
+                      self?.showToast(message: String.Verification.tooManyRequests)
+                  } else {
+                      self?.showToast(message: String.Verification.otherErrors)
+                  }
+                  return
               }
-              // Sign in using the verificationID and the code sent to the user
-              // ...
+              
+              guard let verificationID else { return }
+              print("🆔 \(verificationID)")
+              
+              let logInVC = LogInViewController()
+              logInVC.verificationID = verificationID
+              
+              self?.navigationController?.pushViewController(logInVC, animated: true)
           }
-    }
-    
-    private func logIn(verificationID: String, verificationCode: String) {
-        let credential = PhoneAuthProvider.provider().credential(
-          withVerificationID: verificationID,
-          verificationCode: verificationCode
-        )
-        
-        Auth.auth().signIn(with: credential) { authResult, error in
-            if let error = error {
-                print("❌", error)
-                print("❌", error.localizedDescription)
-            } else {
-                print("⭕️ 성공", authResult.debugDescription)
-            }
-            print("❌", error.debugDescription)
-        }
     }
     
     private func verifyFictionalPhoneNumber() {
@@ -201,6 +198,33 @@ extension VerificationViewController {
 //              _user = authData.user
                 print("☺️ \(authData!.user)")
             }
+        }
+    }
+    
+    private func verifyPhoneNumberWithPush() {
+        let phoneNumber = "+447893920172"
+
+        // This test verification code is specified for the given test phone number in the developer console.
+        let testVerificationCode = "121212"
+
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate:nil) { [weak self] verificationID, error in
+            print("🆔 \(verificationID)")
+            
+            if let error = error {
+                print(error)
+                let authError = error as NSError
+                print(authError)
+                if authError.code == AuthErrorCode.tooManyRequests.rawValue {
+                    self?.showToast(message: String.Verification.tooManyRequests)
+                } else {
+                    self?.showToast(message: String.Verification.otherErrors)
+                }
+                return
+            }
+
+//              self?.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
+            self?.showToast(message: String.Verification.startVerification)
         }
     }
 }

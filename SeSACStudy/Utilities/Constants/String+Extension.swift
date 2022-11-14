@@ -23,6 +23,8 @@ extension String {
         static let verify = "인증 문자 받기"
         static let startVerification = "전화 번호 인증 시작"
         static let wrongNumberFormat = "잘못된 전화번호 형식입니다."
+        static let tooManyRequests = "과도한 인증 시도가 있었습니다.\n나중에 다시 시도해 주세요."
+        static let otherErrors = "에러가 발생했습니다.\n다시 시도해주세요"
     }
     
     enum LogIn {
@@ -30,6 +32,10 @@ extension String {
         static let resend = "재전송"
         static let inputVerificationCode = "인증번호 입력"
         static let verifyAndStart = "인증하고 시작하기"
+        static let verificationCodeSentToastMessage = "인증번호를 보냈습니다."
+        static let wrongCodeFormat = "잘못된 인증번호 형식입니다."  // 기획서 X
+        static let verificationFailed = "전화 번호 인증 실패"
+        static let idTokenError = "에러가 발생했습니다. 잠시 후 다시 시도해 주세요."
     }
     
     enum NetworkError {

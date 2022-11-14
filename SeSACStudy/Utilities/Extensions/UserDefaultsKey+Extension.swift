@@ -10,7 +10,7 @@ import Foundation
 extension UserDefaults {
     enum Key {
         static let isExistingUser = "isExistingUser"
-        static let token = "token"
+        static let idToken = "idToken"
     }
     
     static func delete(_ key: String) {

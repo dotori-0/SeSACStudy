@@ -11,6 +11,6 @@ extension UserDefaults {
     @UserDefault(key: Key.isExistingUser, defaultValue: false)
     static var isExistingUser: Bool
     
-    @UserDefault(key: Key.token, defaultValue: "")
-    static var token: String
+    @UserDefault(key: Key.idToken, defaultValue: "")
+    static var idToken: String
 }

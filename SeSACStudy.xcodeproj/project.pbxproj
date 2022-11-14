@@ -18,7 +18,6 @@
 		0A2FE5A3291A3F5E000C63E3 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5A2291A3F5E000C63E3 /* Then */; };
 		0A2FE5A6291A3F97000C63E3 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5A5291A3F97000C63E3 /* Toast */; };
 		0A2FE5BE291AC1DA000C63E3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5BD291AC1DA000C63E3 /* .gitignore */; };
-		0A2FE5C4291AC6AC000C63E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5C3291AC6AC000C63E3 /* GoogleService-Info.plist */; };
 		0A2FE5C7291AC722000C63E3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5C6291AC722000C63E3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		0A2FE5C9291AC722000C63E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2FE5C8291AC722000C63E3 /* FirebaseAuth */; };
 		0A2FE5CC291AC867000C63E3 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE5CA291AC866000C63E3 /* NotoSansKR-Medium.otf */; };
@@ -41,6 +40,8 @@
 		0A50193E2921763C001BB094 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50193D2921763C001BB094 /* VerificationView.swift */; };
 		0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501943292215CE001BB094 /* LogInViewModel.swift */; };
 		0A50194629221600001BB094 /* InputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50194529221600001BB094 /* InputOutput.swift */; };
+		0A501948292237F6001BB094 /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501947292237F6001BB094 /* Toast+Extension.swift */; };
+		0A50194C29223D70001BB094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A50194B29223D70001BB094 /* GoogleService-Info.plist */; };
 		0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */; };
 		0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85D2920E89D00E77085 /* Alert+Extension.swift */; };
 		0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3B291C154E00CBE29C /* FirstViewController.swift */; };
@@ -69,7 +70,6 @@
 		0A2FE58E291A3B66000C63E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A2FE590291A3B66000C63E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2FE5BD291AC1DA000C63E3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		0A2FE5C3291AC6AC000C63E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/fonts/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A2FE5CA291AC866000C63E3 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		0A2FE5CB291AC866000C63E3 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		0A50193D2921763C001BB094 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		0A501943292215CE001BB094 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		0A50194529221600001BB094 /* InputOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutput.swift; sourceTree = "<group>"; };
+		0A501947292237F6001BB094 /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
+		0A50194B29223D70001BB094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 				0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */,
 				0A2FE58D291A3B66000C63E3 /* LaunchScreen.storyboard */,
 				0A2FE590291A3B66000C63E3 /* Info.plist */,
-				0A2FE5C3291AC6AC000C63E3 /* GoogleService-Info.plist */,
+				0A50194B29223D70001BB094 /* GoogleService-Info.plist */,
 			);
 			path = SeSACStudy;
 			sourceTree = "<group>";
@@ -235,6 +237,7 @@
 				0AC03A52291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift */,
 				0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */,
 				0A66B85D2920E89D00E77085 /* Alert+Extension.swift */,
+				0A501947292237F6001BB094 /* Toast+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -449,10 +452,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2FE5CC291AC867000C63E3 /* NotoSansKR-Medium.otf in Resources */,
+				0A50194C29223D70001BB094 /* GoogleService-Info.plist in Resources */,
 				0A2FE5BE291AC1DA000C63E3 /* .gitignore in Resources */,
 				0A2FE58F291A3B66000C63E3 /* LaunchScreen.storyboard in Resources */,
 				0A2FE5E9291BE8B2000C63E3 /* swiftgen.yml in Resources */,
-				0A2FE5C4291AC6AC000C63E3 /* GoogleService-Info.plist in Resources */,
 				0A2FE58C291A3B66000C63E3 /* Assets.xcassets in Resources */,
 				0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */,
 				0A2FE5CD291AC867000C63E3 /* NotoSansKR-Regular.otf in Resources */,
@@ -494,6 +497,7 @@
 				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
 				0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */,
 				0AC03A49291CEE7F00CBE29C /* VerificationView0.swift in Sources */,
+				0A501948292237F6001BB094 /* Toast+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
 				0A2FE5FD291C0421000C63E3 /* GlobalButton.swift in Sources */,
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
