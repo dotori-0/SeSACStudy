@@ -74,7 +74,10 @@ class InputView: BaseView {
     }
     
     func setPlaceholder(as placeholder: String) {
-        textField.placeholder = placeholder
+//        textField.placeholder = placeholder
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder,
+                                                             attributes: [.font: UIFont.Title4_R14,
+                                                                          .foregroundColor: Asset.Colors.Grayscale.gray7.color])
     }
     
     private func setBottomLineView() {
