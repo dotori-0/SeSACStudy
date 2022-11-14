@@ -12,30 +12,30 @@ import RxSwift
 
 final class VerificationViewModel {
     struct Input {
-        let editingDidBegin: ControlEvent<Void>  // verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin])
-        let editingDidEnd: ControlEvent<Void>
+//        let editingDidBegin: ControlEvent<Void>  // verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin])
+//        let editingDidEnd: ControlEvent<Void>
         let phoneNumber: ControlProperty<String?>
         let verifyButtonTap: ControlEvent<Void>  // 그대로 내보낼 객체들도 인풋 아웃풋에 넣는 게 나은 건지? ❔
     }
     
     struct Output {
-        let editingDidBegin: Driver<Void>  // typealias Driver<Element> = SharedSequence<DriverSharingStrategy, Element>
-        let editingDidEnd: Driver<Void>
+//        let editingDidBegin: Driver<Void>  // typealias Driver<Element> = SharedSequence<DriverSharingStrategy, Element>
+//        let editingDidEnd: Driver<Void>
         let number: Driver<String>
         let isValidNumber: Observable<Bool>
         let verifyButtonTap: ControlEvent<Void>
     }
     
     func transform(_ input: Input) -> Output {
-        let editingDidBegin = input.editingDidBegin.asDriver()  // SharedSequence<DriverSharingStrategy, ()>
-        let editingDidEnd = input.editingDidEnd.asDriver()
+//        let editingDidBegin = input.editingDidBegin.asDriver()  // SharedSequence<DriverSharingStrategy, ()>
+//        let editingDidEnd = input.editingDidEnd.asDriver()
         let unhyphenatedNumber = unhyphenAndLimit(number: input.phoneNumber)
         let number = hyphenate(unhyphenatedNumber)
         let isValidNumber = validate(phoneNumber: unhyphenatedNumber)
         
-        return Output(editingDidBegin: editingDidBegin,
-                      editingDidEnd: editingDidEnd,
-                      number: number,
+//        return Output(editingDidBegin: editingDidBegin,
+//                      editingDidEnd: editingDidEnd,
+        return Output(number: number,
                       isValidNumber: isValidNumber,
                       verifyButtonTap: input.verifyButtonTap)
     }

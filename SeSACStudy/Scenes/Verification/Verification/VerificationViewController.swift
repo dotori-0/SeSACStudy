@@ -45,26 +45,26 @@ class VerificationViewController: BaseViewController {
     
     // MARK: - Binding
     private func bind() {
-        let input = VerificationViewModel.Input(editingDidBegin: verificationView.userInputView.textField.rx.controlEvent([.editingDidBegin]),
-                                                editingDidEnd: verificationView.userInputView.textField.rx.controlEvent([.editingDidEnd]),
-                                                phoneNumber: verificationView.userInputView.textField.rx.text,
+//        let input = VerificationViewModel.Input(editingDidBegin: verificationView.userInputView.textField.rx.controlEvent([.editingDidBegin]),
+//                                                editingDidEnd: verificationView.userInputView.textField.rx.controlEvent([.editingDidEnd]),
+        let input = VerificationViewModel.Input(phoneNumber: verificationView.userInputView.textField.rx.text,
                                                 verifyButtonTap: verificationView.button.rx.tap)
         
         let output = verificationViewModel.transform(input)
         var isValid = false
         
         // 입력 상태에 따라 TextField의 bottomLine 컬러 바꾸기
-        output.editingDidBegin
-            .drive(with: self) { vc, _ in
-                vc.verificationView.userInputView.isTextFieldFocused = true  // UIView
-            }
-            .disposed(by: disposeBag)
-        
-        output.editingDidEnd
-            .drive(with: self) { vc, _ in
-                vc.verificationView.userInputView.isTextFieldFocused = false  // UIView
-            }
-            .disposed(by: disposeBag)
+//        output.editingDidBegin
+//            .drive(with: self) { vc, _ in
+//                vc.verificationView.userInputView.isTextFieldFocused = true  // UIView
+//            }
+//            .disposed(by: disposeBag)
+//
+//        output.editingDidEnd
+//            .drive(with: self) { vc, _ in
+//                vc.verificationView.userInputView.isTextFieldFocused = false  // UIView
+//            }
+//            .disposed(by: disposeBag)
         
         // 입력한 번호의 유효성에 따라 버튼 컬러 바꾸기
         output.isValidNumber

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class InputView: BaseView {
     // MARK: - Properties
     private var isNumberPad: Bool?
@@ -19,6 +22,7 @@ class InputView: BaseView {
             setBottomLineView()
         }
     }
+    let disposeBag = DisposeBag()
     
     // MARK: - Initializers
     init(placeholder: String = "", isNumberPad: Bool = true) {
@@ -64,7 +68,26 @@ class InputView: BaseView {
         textField.borderStyle = .none
         textField.font = .Title4_R14
         textField.textColor = Asset.Colors.BlackWhite.black.color
+        
+        setFocusState()
         addInset()
+    }
+    
+    
+    private func setFocusState() {
+        textField.rx.controlEvent(.editingDidBegin)
+            .asDriver()
+            .drive(with: self) { view, _ in
+                view.isTextFieldFocused = true
+            }
+            .disposed(by: disposeBag)
+            
+        textField.rx.controlEvent(.editingDidEnd)
+            .asDriver()
+            .drive(with: self) { view, _ in
+                view.isTextFieldFocused = false
+            }
+            .disposed(by: disposeBag)
     }
     
     private func addInset() {
