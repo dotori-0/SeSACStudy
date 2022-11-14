@@ -39,6 +39,8 @@
 		0A50193A292164D2001BB094 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501939292164D2001BB094 /* LogInView.swift */; };
 		0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50193B29217197001BB094 /* VerificationAndSignUpView.swift */; };
 		0A50193E2921763C001BB094 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50193D2921763C001BB094 /* VerificationView.swift */; };
+		0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501943292215CE001BB094 /* LogInViewModel.swift */; };
+		0A50194629221600001BB094 /* InputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50194529221600001BB094 /* InputOutput.swift */; };
 		0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */; };
 		0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85D2920E89D00E77085 /* Alert+Extension.swift */; };
 		0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3B291C154E00CBE29C /* FirstViewController.swift */; };
@@ -87,6 +89,8 @@
 		0A501939292164D2001BB094 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		0A50193B29217197001BB094 /* VerificationAndSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationAndSignUpView.swift; sourceTree = "<group>"; };
 		0A50193D2921763C001BB094 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		0A501943292215CE001BB094 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		0A50194529221600001BB094 /* InputOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutput.swift; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		0A2FE5AB291AB81E000C63E3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				0A50194529221600001BB094 /* InputOutput.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			children = (
 				0A5019372921649E001BB094 /* LogInViewController.swift */,
 				0A501939292164D2001BB094 /* LogInView.swift */,
+				0A501943292215CE001BB094 /* LogInViewModel.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -498,10 +504,12 @@
 				0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */,
 				0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */,
 				0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */,
+				0A50194629221600001BB094 /* InputOutput.swift in Sources */,
 				0A5019382921649E001BB094 /* LogInViewController.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
+				0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
 				0AC03A4D291CFBAA00CBE29C /* VerificationLabel.swift in Sources */,

@@ -13,7 +13,7 @@ class GlobalButton: UIButton {
     var buttonConfiguration = UIButton.Configuration.filled()
     var isActivated: Bool {
         didSet {
-            print("GlobalButton didSet")
+//            print("GlobalButton didSet")
             setButtonColor()
         }
     }
@@ -43,7 +43,9 @@ class GlobalButton: UIButton {
 //
 //        buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
         setButtonTitle(as: title)
+//        print("🔘 버튼 컬러를 지정하겠다!")
         setButtonColor()
+//        print("🔘 버튼 컬러를 지정했다!")
     }
     
     func setButtonTitle(as title: String) {
@@ -54,10 +56,13 @@ class GlobalButton: UIButton {
     }
     
     private func setButtonColor() {
+//        print(#function)
+//        print("🧐 버튼이 활성화 되어 있나요? \(isActivated)")
         let buttonColor = isActivated ? Asset.Colors.BrandColor.green.color : Asset.Colors.Grayscale.gray6.color
         let textColor = isActivated ? Asset.Colors.BlackWhite.white.color : Asset.Colors.Grayscale.gray3.color
         buttonConfiguration.baseBackgroundColor = buttonColor
         buttonConfiguration.baseForegroundColor = textColor
         configuration = buttonConfiguration
+//        print("💀 버튼의 텍스트 컬러는: \(configuration!.baseForegroundColor)")
     }
 }

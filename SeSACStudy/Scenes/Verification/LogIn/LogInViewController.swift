@@ -7,10 +7,14 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class LogInViewController: BaseViewController {
     // MARK: - Properties
     private let logInView = LogInView()
-//    private let disposeBag = DisposeBag()
+    private let logInViewModel = LogInViewModel()
+    private let disposeBag = DisposeBag()
 
     // MARK: - Life Cycle
     override func loadView() {
@@ -19,18 +23,28 @@ class LogInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        bind()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Binding
+    private func bind() {
+        let input = LogInViewModel.Input(verificationCode: logInView.userInputView.textField.rx.text)
+        let output = logInViewModel.transform(input)
+        
+        // drive 구현 방법 1
+        output.limitedCode
+            .drive(logInView.userInputView.textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        // drive 구현 방법 2
+        output.isValidCode
+            .drive(with: self, onNext: { vc, isValid in
+                vc.logInView.button.isActivated = isValid
+            })
+//            .drive(onNext: { isValid in
+//                logInView.button.isActivated = isValid
+//            })
+//            .drive(logInView.button.isActivated)
+            .disposed(by: disposeBag)
     }
-    */
-
 }

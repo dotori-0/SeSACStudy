@@ -33,8 +33,11 @@ class LogInView: VerificationAndSignUpView {
                       textFieldPlaceholder: String.LogIn.inputVerificationCode,
                       buttonTitle: String.LogIn.verifyAndStart)
         
+        print("재전송버튼 활성화")
         resendButton.isActivated = true
+//        print("다음버튼 비활성화")
 //        button.isActivated = true
+//        button.isActivated = false
     }
     
     override func setConstraints() {

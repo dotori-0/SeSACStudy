@@ -78,8 +78,7 @@ class VerificationViewController: BaseViewController {
         
         output.number
             .drive(verificationView.userInputView.textField.rx.text)
-            .disposed(by: disposeBag)        
-        
+            .disposed(by: disposeBag)
 
         output.verifyButtonTap
             .withUnretained(self)

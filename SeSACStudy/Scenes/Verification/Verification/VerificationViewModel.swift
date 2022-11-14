@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class VerificationViewModel {
+final class VerificationViewModel: InputOutput {
     struct Input {
 //        let editingDidBegin: ControlEvent<Void>  // verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin])
 //        let editingDidEnd: ControlEvent<Void>
