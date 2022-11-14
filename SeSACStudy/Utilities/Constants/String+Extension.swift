@@ -25,6 +25,13 @@ extension String {
         static let wrongNumberFormat = "잘못된 전화번호 형식입니다."
     }
     
+    enum LogIn {
+        static let verificationCodeSent = "인증번호가 문자로 전송되었어요"
+        static let resend = "재전송"
+        static let inputVerificationCode = "인증번호 입력"
+        static let verifyAndStart = "인증하고 시작하기"
+    }
+    
     enum NetworkError {
         static let networkError = "네트워크 연결 에러"
         static let networkErrorMessage = "네트워크 연결이 원활하지 않습니다.\n연결 상태를 확인하고 다시 시도해 주세요."

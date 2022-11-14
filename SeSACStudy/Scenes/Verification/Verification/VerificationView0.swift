@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VerificationView: BaseView {
+class VerificationView0: BaseView {
     // MARK: - Properties
     private let label = VerificationLabel(text: String.Verification.inputPhoneNumber)
     let phoneNumberTextField = InputTextField(placeholder: String.Verification.phoneNumberPlaceholder).then {

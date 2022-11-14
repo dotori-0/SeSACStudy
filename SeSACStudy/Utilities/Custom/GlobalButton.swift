@@ -19,7 +19,7 @@ class GlobalButton: UIButton {
     }
 
     // MARK: - Initializers
-    init(title: String) {
+    init(title: String = "") {
         self.title = title
         self.isActivated = false
         super.init(frame: .zero)
@@ -38,15 +38,22 @@ class GlobalButton: UIButton {
             return
         }
 
+//        var container = AttributeContainer()
+//        container.font = .Body3_R14
+//
+//        buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
+        setButtonTitle(as: title)
+        setButtonColor()
+    }
+    
+    func setButtonTitle(as title: String) {
         var container = AttributeContainer()
         container.font = .Body3_R14
         
         buttonConfiguration.attributedTitle = AttributedString(title, attributes: container)
-        
-        setButtonColor()
     }
     
-    func setButtonColor() {
+    private func setButtonColor() {
         let buttonColor = isActivated ? Asset.Colors.BrandColor.green.color : Asset.Colors.Grayscale.gray6.color
         let textColor = isActivated ? Asset.Colors.BlackWhite.white.color : Asset.Colors.Grayscale.gray3.color
         buttonConfiguration.baseBackgroundColor = buttonColor

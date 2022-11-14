@@ -9,7 +9,7 @@ import UIKit
 
 class VerificationLabel: BaseLabel {
     // MARK: - Initializers
-    init(text: String) {
+    init(text: String = "") {
         super.init(frame: .zero)
         
         setText(with: text)

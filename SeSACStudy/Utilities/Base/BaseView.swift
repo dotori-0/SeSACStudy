@@ -14,8 +14,8 @@ class BaseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
         setHierarchy()
+        setUI()
         setConstraints()
     }
     
@@ -24,9 +24,9 @@ class BaseView: UIView {
     }
     
     // MARK: - Setting Methods
-    func setUI() { }
-    
     func setHierarchy() { }
+    
+    func setUI() { }
     
     func setConstraints() { }
 }

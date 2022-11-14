@@ -13,7 +13,7 @@ class InputTextField: UITextField {
     let bottomLine = CALayer()
     
     // MARK: - Initializers
-    init(placeholder: String) {
+    init(placeholder: String = "") {
         super.init(frame: .zero)
         
         setUI()

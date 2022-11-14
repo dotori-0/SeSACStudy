@@ -26,16 +26,16 @@ class OnboardingView: BaseView {
     }
     
     // MARK: - Setting Methods
-    override func setUI() {
-        setButtonColor()
-    }
-    
     override func setHierarchy() {
         [pageView, startButton].forEach {
             addSubview($0)
         }
         
         pageView.addSubview(pageViewController.view)
+    }
+    
+    override func setUI() {
+        setButtonColor()
     }
     
     override func setConstraints() {

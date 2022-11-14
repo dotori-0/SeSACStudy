@@ -10,8 +10,8 @@ import UIKit
 class InputView: BaseView {
     // MARK: - Properties
     private var isNumberPad: Bool?
-//    let textField = NoActionTextField()
-    let textField = UITextField()
+    let textField = NoActionTextField()
+//    let textField = UITextField()
     private let bottomLineView = UIView()
     var isTextFieldFocused: Bool {
         didSet {
@@ -21,7 +21,7 @@ class InputView: BaseView {
     }
     
     // MARK: - Initializers
-    init(placeholder: String, isNumberPad: Bool = true) {
+    init(placeholder: String = "", isNumberPad: Bool = true) {
         self.isNumberPad = isNumberPad
         isTextFieldFocused = false  // 이걸로는 didSet이 호출되지 않는다 ❔
         super.init(frame: .zero)
@@ -73,7 +73,7 @@ class InputView: BaseView {
         textField.leftViewMode = .always
     }
     
-    private func setPlaceholder(as placeholder: String) {
+    func setPlaceholder(as placeholder: String) {
         textField.placeholder = placeholder
     }
     

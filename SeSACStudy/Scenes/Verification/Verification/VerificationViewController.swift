@@ -30,7 +30,7 @@ class VerificationViewController: BaseViewController {
         bind()
 //        bindTextFieldWithCALayer()  // CALayer
         
-        verificationView.phoneNumberInputView.textField.becomeFirstResponder()
+        verificationView.userInputView.textField.becomeFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,10 +45,10 @@ class VerificationViewController: BaseViewController {
     
     // MARK: - Binding
     private func bind() {
-        let input = VerificationViewModel.Input(editingDidBegin: verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidBegin]),
-                                                editingDidEnd: verificationView.phoneNumberInputView.textField.rx.controlEvent([.editingDidEnd]),
-                                                phoneNumber: verificationView.phoneNumberInputView.textField.rx.text,
-                                                verifyButtonTap: verificationView.verifyButton.rx.tap)
+        let input = VerificationViewModel.Input(editingDidBegin: verificationView.userInputView.textField.rx.controlEvent([.editingDidBegin]),
+                                                editingDidEnd: verificationView.userInputView.textField.rx.controlEvent([.editingDidEnd]),
+                                                phoneNumber: verificationView.userInputView.textField.rx.text,
+                                                verifyButtonTap: verificationView.button.rx.tap)
         
         let output = verificationViewModel.transform(input)
         var isValid = false
@@ -56,13 +56,13 @@ class VerificationViewController: BaseViewController {
         // 입력 상태에 따라 TextField의 bottomLine 컬러 바꾸기
         output.editingDidBegin
             .drive(with: self) { vc, _ in
-                vc.verificationView.phoneNumberInputView.isTextFieldFocused = true  // UIView
+                vc.verificationView.userInputView.isTextFieldFocused = true  // UIView
             }
             .disposed(by: disposeBag)
         
         output.editingDidEnd
             .drive(with: self) { vc, _ in
-                vc.verificationView.phoneNumberInputView.isTextFieldFocused = false  // UIView
+                vc.verificationView.userInputView.isTextFieldFocused = false  // UIView
             }
             .disposed(by: disposeBag)
         
@@ -71,13 +71,13 @@ class VerificationViewController: BaseViewController {
         //            .bind(to: verificationView.verifyButton.rx.isActivated)  // rx 객체라면 self가 필요하지 않지만 일반 객체라면 withUnretained(self) 나 [weak self]를 통해 self의 객체로 접근? ❔
             .withUnretained(self)
             .bind(onNext: { (vc, isValidNumber) in
-                vc.verificationView.verifyButton.isActivated = isValidNumber
+                vc.verificationView.button.isActivated = isValidNumber
                 isValid = isValidNumber
             })
             .disposed(by: disposeBag)
         
         output.number
-            .drive(verificationView.phoneNumberInputView.textField.rx.text)
+            .drive(verificationView.userInputView.textField.rx.text)
             .disposed(by: disposeBag)        
         
 
@@ -88,7 +88,7 @@ class VerificationViewController: BaseViewController {
 //                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
                 if isValid {
                     vc.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
-                    vc.verifyPhoneNumber(vc.verificationView.phoneNumberInputView.textField.text!)
+                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
 //                    vc.verifyFictionalPhoneNumber()  // 가상번호 테스트
                 } else {
                     vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
@@ -116,21 +116,21 @@ class VerificationViewController: BaseViewController {
 //            .disposed(by: disposeBag)
     }
     
-    private func bindTextFieldWithCALayer() {
-        verificationView.phoneNumberTextField.rx.controlEvent([.editingDidBegin])
-            .asDriver()
-            .drive(with: self) { vc, _ in
-                vc.verificationView.phoneNumberTextField.changeBottomLineColorToFocus()  // CALayer
-            }
-            .disposed(by: disposeBag)
-        
-        verificationView.phoneNumberTextField.rx.controlEvent([.editingDidEnd])
-            .asDriver()
-            .drive(with: self) { vc, _ in
-                vc.verificationView.phoneNumberTextField.changeBottomLineColorToFocus()  // CALayer
-            }
-            .disposed(by: disposeBag)
-    }
+//    private func bindTextFieldWithCALayer() {
+//        verificationView.phoneNumberTextField.rx.controlEvent([.editingDidBegin])
+//            .asDriver()
+//            .drive(with: self) { vc, _ in
+//                vc.verificationView.phoneNumberTextField.changeBottomLineColorToFocus()  // CALayer
+//            }
+//            .disposed(by: disposeBag)
+//
+//        verificationView.phoneNumberTextField.rx.controlEvent([.editingDidEnd])
+//            .asDriver()
+//            .drive(with: self) { vc, _ in
+//                vc.verificationView.phoneNumberTextField.changeBottomLineColorToFocus()  // CALayer
+//            }
+//            .disposed(by: disposeBag)
+//    }
 }
 
 extension VerificationViewController: UITextFieldDelegate {
