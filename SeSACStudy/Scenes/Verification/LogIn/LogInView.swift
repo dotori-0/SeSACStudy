@@ -15,6 +15,7 @@ class LogInView: VerificationAndSignUpView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        setTextFieldTextContentType()
     }
     
     required init?(coder: NSCoder) {
@@ -23,8 +24,6 @@ class LogInView: VerificationAndSignUpView {
     
     // MARK: - Setting Methods
     override func setHierarchy() {
-//        addSubview(label)
-//        addSubview(userInputView)
         super.setHierarchy()
         addSubview(resendButton)
     }
@@ -35,7 +34,7 @@ class LogInView: VerificationAndSignUpView {
                       buttonTitle: String.LogIn.verifyAndStart)
         
         resendButton.isActivated = true
-        button.isActivated = true
+//        button.isActivated = true
     }
     
     override func setConstraints() {
@@ -44,7 +43,6 @@ class LogInView: VerificationAndSignUpView {
             make.width.equalTo(72)
             make.height.equalTo(40)
             make.trailing.equalToSuperview().offset(-16)
-//            make.centerY.equalTo(userInputView)
         }
         
 //        updateConstraints()  //
@@ -55,17 +53,9 @@ class LogInView: VerificationAndSignUpView {
   
     
     private func updateInitialConstraints() {
-        // 왜 superclass에서 이미 레이아웃 잡힌 객체를 updateConstraints하는 걸로는 안 되는지..?
         label.snp.updateConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(80)
         }
-        
-//        userInputView.snp.updateConstraints { make in
-//            make.leading.equalToSuperview()
-//            make.top.equalTo(label.snp.bottom).offset(96)
-//
-//            make.trailing.equalTo(resendButton.snp.leading).offset(-8)
-//        }
         
         userInputView.snp.remakeConstraints { make in
             make.leading.equalToSuperview().inset(16)
@@ -92,4 +82,8 @@ class LogInView: VerificationAndSignUpView {
 //
 ////        super.updateConstraints()
 //    }
+    
+    private func setTextFieldTextContentType() {
+        userInputView.textField.textContentType = .oneTimeCode
+    }
 }
