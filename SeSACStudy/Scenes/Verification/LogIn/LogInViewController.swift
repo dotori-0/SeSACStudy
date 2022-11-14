@@ -86,9 +86,10 @@ class LogInViewController: BaseViewController {
             
             let currentUser = Auth.auth().currentUser
             // objective-c 메서드인 것 같은데... ❔
-            currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
                 if let error = error {
                     print(error)
+                    self?.showToast(message: String.LogIn.idTokenError)
                     return
                 } else if let idToken {
                     print("🪙 \(idToken)")
@@ -96,8 +97,13 @@ class LogInViewController: BaseViewController {
                 }
                 
                 
+                
                 // 서버로부터 사용자 정보 확인 후 기존/신규 사용자 분기처리
             }
+            
+//            currentUser?.getIDTokenResult(forcingRefresh: true) { authTokenResult, error in
+//                authTokenResult?.token
+//            }
         }
     }
 }
