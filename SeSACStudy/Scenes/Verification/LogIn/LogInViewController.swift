@@ -54,9 +54,12 @@ class LogInViewController: BaseViewController {
             .asDriver()
             .drive(with: self) { vc, _ in
                 if isValid {
-//                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)
-//                    vc.logInAndPush()
-                    vc.fetchIDToken()
+                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)  // for service
+//                    vc.logInAndPush()  // 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
+//                    vc.fetchIDToken()
+                    vc.refreshIDToken {
+                        vc.logInAndPush()
+                    }
                 } else {
                     vc.showToast(message: String.LogIn.wrongCodeFormat)
                 }
@@ -85,7 +88,8 @@ class LogInViewController: BaseViewController {
                 }
             } else {
                 print("⭕️ 성공", authResult.debugDescription)
-                self?.fetchIDToken()
+//                self?.fetchIDToken()
+                self?.refreshIDToken()
             }
             print("❎", error.debugDescription)
             
@@ -98,22 +102,22 @@ class LogInViewController: BaseViewController {
         }
     }
     
-    private func fetchIDToken() {
-        let currentUser = Auth.auth().currentUser
-        // objective-c 메서드인 것 같은데... ❔
-        
-        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
-            if let error = error {  // 토큰을 받아오거나 refresh해서 받아오는 데 실패
-                print(error)
-                self?.showToast(message: String.LogIn.idTokenError)
-                return
-            } else if let idToken {
-                print("🪙 '\(idToken)'")
-                UserDefaults.idToken = idToken
-                self?.logInAndPush()
-            }
-        }
-    }
+//    private func fetchIDToken() {
+//        let currentUser = Auth.auth().currentUser
+//        // objective-c 메서드인 것 같은데... ❔
+//
+//        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
+//            if let error = error {  // 토큰을 받아오거나 refresh해서 받아오는 데 실패
+//                print(error)
+//                self?.showToast(message: String.LogIn.idTokenError)
+//                return
+//            } else if let idToken {
+//                print("🪙 '\(idToken)'")
+//                UserDefaults.idToken = idToken
+//                self?.logInAndPush()
+//            }
+//        }
+//    }
     
     private func logInAndPush() {
         logInViewModel.logIn()
@@ -135,7 +139,10 @@ class LogInViewController: BaseViewController {
                 
                 switch error {
                     case .firebaseTokenError:
-                        // fetchIDToken 다시 실행?
+                        // fetchIDToken 다시 실행?👻
+//                        vc.refreshIDToken {
+//                            vc.logInAndPush()
+//                        }
                         print("firebaseTokenError")
                     case .unregisteredUser:
                         print("unregisteredUser")
