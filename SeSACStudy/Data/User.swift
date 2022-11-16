@@ -10,7 +10,7 @@ import Foundation
 struct User: Codable {
     let id: String
     let v: Int
-    let uid, phoneNumber, email, fcmToken: String
+    let uid, phoneNumber, email, FCMtoken: String
     let nick, birth: String
     let gender: Int
     let study: String
@@ -31,7 +31,7 @@ struct User: Codable {
         case id = "_id"
         case v = "__v"
         case uid, phoneNumber, email
-        case fcmToken = "FCMtoken"
+        case FCMtoken
         case nick, birth, gender, study, comment, reputation, sesac, sesacCollection, background, backgroundCollection, purchaseToken
         case transactionID = "transactionId"
         case reviewedBefore, reportedNum, reportedUser, dodgepenalty, dodgeNum, ageMin, ageMax, searchable, createdAt

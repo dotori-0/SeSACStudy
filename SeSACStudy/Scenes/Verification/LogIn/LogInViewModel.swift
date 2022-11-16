@@ -51,4 +51,20 @@ final class LogInViewModel: InputOutput {
         
         return isValid.asDriver(onErrorJustReturn: false)
     }
+
+    // MARK: - 로그인
+    let user = PublishSubject<User>()
+    
+    func logIn() {
+        APIManager.logIn { [weak self] result in
+            switch result {
+                case .success(let user):
+                    self?.user.onNext(user)
+                case .failure(let error):
+                    print("🐣 LogInViewModel logIn() failure")
+                    print("🐣", error)
+                    self?.user.onError(error)
+            }
+        }
+    }
 }

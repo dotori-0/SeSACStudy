@@ -24,7 +24,7 @@ class LogInViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        fetchIDToken()
         showToast(message: String.LogIn.verificationCodeSentToastMessage)
         bind()
     }
@@ -53,7 +53,9 @@ class LogInViewController: BaseViewController {
             .asDriver()
             .drive(with: self) { vc, _ in
                 if isValid {
-                    vc.logIn(verificationCode: vc.logInView.userInputView.textField.text!)
+//                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)
+                    vc.logInAndPush()
+//                    vc.fetchIDToken()
                 } else {
                     vc.showToast(message: String.LogIn.wrongCodeFormat)
                 }
@@ -62,7 +64,7 @@ class LogInViewController: BaseViewController {
     }
     
     
-    private func logIn(verificationCode: String) {
+    private func signInToFirebase(verificationCode: String) {
         let credential = PhoneAuthProvider.provider().credential(
             withVerificationID: verificationID,
             verificationCode: verificationCode
@@ -74,36 +76,67 @@ class LogInViewController: BaseViewController {
                 print("❌", error.localizedDescription)
                 
                 let authError = error as NSError
-                if (authError.code == AuthErrorCode.userTokenExpired.rawValue) ||
+
+                // 유효 기간 만료 혹은 인증 번호 불일치 시 '전화 번호 인증 실패' toast
+                if (authError.code == AuthErrorCode.sessionExpired.rawValue) ||
                     (authError.code == AuthErrorCode.invalidVerificationCode.rawValue) {
                     self?.showToast(message: String.LogIn.verificationFailed)
                 }
             } else {
                 print("⭕️ 성공", authResult.debugDescription)
+                self?.fetchIDToken()
             }
             print("❎", error.debugDescription)
             
-            
-            let currentUser = Auth.auth().currentUser
-            // objective-c 메서드인 것 같은데... ❔
-            currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
-                if let error = error {
-                    print(error)
-                    self?.showToast(message: String.LogIn.idTokenError)
-                    return
-                } else if let idToken {
-                    print("🪙 \(idToken)")
-                    UserDefaults.idToken = idToken
-                }
-                
-                
-                
-                // 서버로부터 사용자 정보 확인 후 기존/신규 사용자 분기처리
-            }
+//            authResult?.user.getIDTokenForcingRefresh(<#T##forceRefresh: Bool##Bool#>)
+//            self?.fetchIDToken()
             
 //            currentUser?.getIDTokenResult(forcingRefresh: true) { authTokenResult, error in
 //                authTokenResult?.token
 //            }
         }
+    }
+    
+    private func fetchIDToken() {
+        let currentUser = Auth.auth().currentUser
+        // objective-c 메서드인 것 같은데... ❔
+        
+        currentUser?.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
+            if let error = error {  // 토큰을 받아오거나 refresh해서 받아오는 데 실패
+                print(error)
+                self?.showToast(message: String.LogIn.idTokenError)
+                return
+            } else if let idToken {
+                print("🪙 '\(idToken)'")
+                UserDefaults.idToken = idToken
+                self?.logInAndPush()
+            }
+        }
+    }
+    
+    private func logInAndPush() {
+        logInViewModel.logIn()
+        
+        logInViewModel.user
+            .withUnretained(self)
+            .subscribe { (vc, user) in
+                print(user)
+                // 홈화면으로 이동
+            } onError: { error in
+                print("🥚 logInViewModel onError")
+                print("🥚", error.localizedDescription)
+                // 에러인데 200이 나오면 이상한거..인듯?
+                // 401 파베토큰 에러가 나오면 fetchIDToken 다시 실행?
+                guard let error = error as? SeSACError else {
+                    print("SeSACError로 변환 실패")
+                    return
+                }
+                
+                if error == SeSACError.firebaseTokenError {
+                    
+                }
+
+            }
+            .disposed(by: disposeBag)
     }
 }

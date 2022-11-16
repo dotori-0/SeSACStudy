@@ -41,9 +41,13 @@
 		0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501943292215CE001BB094 /* LogInViewModel.swift */; };
 		0A50194629221600001BB094 /* InputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50194529221600001BB094 /* InputOutput.swift */; };
 		0A501948292237F6001BB094 /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501947292237F6001BB094 /* Toast+Extension.swift */; };
-		0A50194C29223D70001BB094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A50194B29223D70001BB094 /* GoogleService-Info.plist */; };
 		0A50194E292261F4001BB094 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50194D292261F4001BB094 /* User.swift */; };
 		0A50195129227141001BB094 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A50195029227141001BB094 /* Moya */; };
+		0A501954292271EA001BB094 /* SeSACService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501953292271EA001BB094 /* SeSACService.swift */; };
+		0A50195629227432001BB094 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195529227432001BB094 /* APIURL.swift */; };
+		0A50195829236189001BB094 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195729236189001BB094 /* APIManager.swift */; };
+		0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195929236AF6001BB094 /* SeSACError.swift */; };
+		0A50195C2923BF0E001BB094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */; };
 		0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */; };
 		0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85D2920E89D00E77085 /* Alert+Extension.swift */; };
 		0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3B291C154E00CBE29C /* FirstViewController.swift */; };
@@ -94,8 +98,12 @@
 		0A501943292215CE001BB094 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		0A50194529221600001BB094 /* InputOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutput.swift; sourceTree = "<group>"; };
 		0A501947292237F6001BB094 /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
-		0A50194B29223D70001BB094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A50194D292261F4001BB094 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0A501953292271EA001BB094 /* SeSACService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACService.swift; sourceTree = "<group>"; };
+		0A50195529227432001BB094 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
+		0A50195729236189001BB094 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0A50195929236AF6001BB094 /* SeSACError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACError.swift; sourceTree = "<group>"; };
+		0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +175,7 @@
 				0A2FE5CE291AC8F9000C63E3 /* ViewController.swift */,
 				0A2FE58D291A3B66000C63E3 /* LaunchScreen.storyboard */,
 				0A2FE590291A3B66000C63E3 /* Info.plist */,
-				0A50194B29223D70001BB094 /* GoogleService-Info.plist */,
+				0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */,
 			);
 			path = SeSACStudy;
 			sourceTree = "<group>";
@@ -258,7 +266,11 @@
 		0A2FE5B0291AB843000C63E3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				0A501952292271CD001BB094 /* Service */,
 				0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */,
+				0A50195529227432001BB094 /* APIURL.swift */,
+				0A50195729236189001BB094 /* APIManager.swift */,
+				0A50195929236AF6001BB094 /* SeSACError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -381,6 +393,14 @@
 			path = LogIn;
 			sourceTree = "<group>";
 		};
+		0A501952292271CD001BB094 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0A501953292271EA001BB094 /* SeSACService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,7 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2FE5CC291AC867000C63E3 /* NotoSansKR-Medium.otf in Resources */,
-				0A50194C29223D70001BB094 /* GoogleService-Info.plist in Resources */,
+				0A50195C2923BF0E001BB094 /* GoogleService-Info.plist in Resources */,
 				0A2FE5BE291AC1DA000C63E3 /* .gitignore in Resources */,
 				0A2FE58F291A3B66000C63E3 /* LaunchScreen.storyboard in Resources */,
 				0A2FE5E9291BE8B2000C63E3 /* swiftgen.yml in Resources */,
@@ -521,7 +541,9 @@
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
+				0A501954292271EA001BB094 /* SeSACService.swift in Sources */,
 				0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */,
+				0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
 				0AC03A4D291CFBAA00CBE29C /* VerificationLabel.swift in Sources */,
@@ -530,9 +552,11 @@
 				0A2FE5F9291C01CE000C63E3 /* OnboardingViewController.swift in Sources */,
 				0A2FE5F7291BFC70000C63E3 /* BaseView.swift in Sources */,
 				0AC03A4F291CFC8D00CBE29C /* BaseLabel.swift in Sources */,
+				0A50195629227432001BB094 /* APIURL.swift in Sources */,
 				0A50193E2921763C001BB094 /* VerificationView.swift in Sources */,
 				0A2FE603291C0EDC000C63E3 /* OnboardingLabel.swift in Sources */,
 				0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */,
+				0A50195829236189001BB094 /* APIManager.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,
 				0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */,
 			);
@@ -696,7 +720,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sani.study;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -729,7 +753,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sani.study;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

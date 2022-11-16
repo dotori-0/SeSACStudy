@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>api.sesac.co.kr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<string></string>
+			</dict>
+		</dict>
+	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -9,7 +22,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.309712454235-3f64qq6i9ke2vf87ghodlmc6fhaort3o</string>
+				<string>com.googleusercontent.apps.355153590205-t8u7u644sesms399b5iunjeskdccbt08</string>
 			</array>
 		</dict>
 	</array>
@@ -37,9 +50,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
 </dict>
 </plist>

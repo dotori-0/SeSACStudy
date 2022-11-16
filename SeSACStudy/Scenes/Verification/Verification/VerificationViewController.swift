@@ -143,7 +143,9 @@ extension VerificationViewController: UITextFieldDelegate {
 extension VerificationViewController {
     private func verifyPhoneNumber(_ phoneNumber: String) {
 //        let number = "+447893920177"
-        let number = "+447893920172"
+//        let number = "+447893920172"
+        let number = "+15412071596"
+//        let number = "+821055570582"
         PhoneAuthProvider.provider()
           .verifyPhoneNumber(number, uiDelegate: nil) { [weak self] verificationID, error in
               
