@@ -41,6 +41,12 @@ class VerificationViewController: BaseViewController {
     private func setNavigation() {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
+        
+//        let backBarButtonItem = UIBarButtonItem(image: Asset.NavigationBar.arrow.image,
+//                                                style: .plain, target: self, action: nil)
+//        backBarButtonItem.tintColor = Asset.Colors.BlackWhite.black.color
+//        navigationItem.backBarButtonItem = backBarButtonItem  // 다음 VC에서 black backBarButtonItem이 나오지만, < 가 같이 나옴
+//        navigationItem.leftBarButtonItem = backBarButtonItem  // 현재 VC에서 backBarButtonItem이 나오고, 다음 VC에서는 기존 < Back이 나옴
     }
     
     // MARK: - Binding
@@ -83,17 +89,21 @@ class VerificationViewController: BaseViewController {
         output.verifyButtonTap
             .withUnretained(self)
             .bind { (vc, _) in
-//                let isValid = BehaviorRelay(value: false)
-//                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
-                if isValid {
-                    vc.showToast(message: String.Verification.startVerification, duration: 2.0)
-                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
-//                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
-//                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
-                } else {
-//                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
-                    vc.showToast(message: String.Verification.wrongNumberFormat)
-                }
+                
+                vc.transition(to: LogInViewController())
+                
+                
+////                let isValid = BehaviorRelay(value: false)
+////                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
+//                if isValid {
+//                    vc.showToast(message: String.Verification.startVerification, duration: 2.0)
+//                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
+////                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
+////                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
+//                } else {
+////                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
+//                    vc.showToast(message: String.Verification.wrongNumberFormat)
+//                }
             }
             .disposed(by: disposeBag)
         

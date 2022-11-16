@@ -28,6 +28,13 @@ class LogInViewController: BaseViewController {
 //        fetchIDToken()
         showToast(message: String.LogIn.verificationCodeSentToastMessage)
         bind()
+        
+//        navigationItem.hidesBackButton = true
+        
+//        let backBarButtonItem = UIBarButtonItem(image: Asset.NavigationBar.arrow.image,
+//                                                style: .plain, target: self, action: nil)
+//        backBarButtonItem.tintColor = Asset.Colors.BlackWhite.black.color
+//        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     // MARK: - Binding

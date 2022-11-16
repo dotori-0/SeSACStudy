@@ -19,6 +19,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
+//        UINavigationBar.appearance().backIndicatorImage = Asset.NavigationBar.arrow.image
+//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = Asset.NavigationBar.arrow.image
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.clear]
+        UINavigationBar.appearance().tintColor = Asset.Colors.BlackWhite.black.color
+//        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        let backButtonAppearance = UIBarButtonItemAppearance()
+        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+//        let a = UINavigationBar.appearance().back
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backButtonAppearance = backButtonAppearance
+//        appearance.backIndicatorImage = Asset.NavigationBar.arrow.image
+//        appearance.backIndicatorTransitionMaskImage = Asset.NavigationBar.arrow.image
+        appearance.setBackIndicatorImage(Asset.NavigationBar.arrow.image,
+                                         transitionMaskImage: Asset.NavigationBar.arrow.image)
+//        appearance.shadowImage = UIImage()
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//        UINavigationBar.appearance().compactAppearance = appearance
+
+        
         return true
     }
 
