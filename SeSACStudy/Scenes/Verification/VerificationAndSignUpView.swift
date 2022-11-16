@@ -36,17 +36,17 @@ class VerificationAndSignUpView: BaseView {
     }
     
     override func setUI() {
-        
+        print(#function, "VerificationAndSignUpView")
     }
     
     override func setConstraints() {
         label.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(124)
+            make.top.equalTo(safeAreaLayoutGuide).offset(80)
             make.horizontalEdges.equalToSuperview()
         }
         
         userInputView.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(64)
+            make.top.equalTo(label.snp.bottom).offset(80)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
         }
@@ -56,6 +56,8 @@ class VerificationAndSignUpView: BaseView {
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
         }
+        
+        updateInitialConstraints()
     }
     
     // MARK: - Intenal Methods
@@ -64,8 +66,8 @@ class VerificationAndSignUpView: BaseView {
         userInputView.setPlaceholder(as: textFieldPlaceholder)
         button.setButtonTitle(as: buttonTitle)
     }
-//
-//    override func updateConstraints() {
-//
-//    }
+    
+    func updateInitialConstraints() {
+        
+    }
 }

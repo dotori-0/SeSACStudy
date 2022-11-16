@@ -26,7 +26,9 @@ class BaseView: UIView {
     // MARK: - Setting Methods
     func setHierarchy() { }
     
-    func setUI() { }
+    func setUI() {
+        print(#function, "BaseView")
+    }
     
     func setConstraints() { }
 }

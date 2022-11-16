@@ -8,6 +8,8 @@
 import Foundation
 
 extension String {
-    static let notoSansRegular = "NotoSansKR-Regular"
-    static let notoSansMedium = "NotoSansKR-Medium"
+    enum FontName {
+        static let notoSansRegular = "NotoSansKR-Regular"
+        static let notoSansMedium = "NotoSansKR-Medium"
+    }
 }

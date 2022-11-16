@@ -22,6 +22,7 @@ class LogInViewController: BaseViewController {
     override func loadView() {
         view = logInView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        fetchIDToken()
@@ -132,8 +133,14 @@ class LogInViewController: BaseViewController {
                     return
                 }
                 
-                if error == SeSACError.firebaseTokenError {
-                    
+                switch error {
+                    case .firebaseTokenError:
+                        // fetchIDToken 다시 실행?
+                        print("firebaseTokenError")
+                    case .unregisteredUser:
+                        print("unregisteredUser")
+                    default:
+                        print("default")
                 }
 
             }

@@ -25,12 +25,15 @@ class LogInView: VerificationAndSignUpView {
     // MARK: - Setting Methods
     override func setHierarchy() {
         super.setHierarchy()
+        
         addSubview(resendButton)
     }
     
     override func setUI() {
+        super.setUI()
+        print(#function, "LogInView")
         super.setText(labelText: String.LogIn.verificationCodeSent,
-                      textFieldPlaceholder: String.LogIn.inputVerificationCode,
+                      textFieldPlaceholder: String.LogIn.verificationCodePlaceholder,
                       buttonTitle: String.LogIn.verifyAndStart)
         
         print("재전송버튼 활성화")
@@ -51,15 +54,11 @@ class LogInView: VerificationAndSignUpView {
 //        updateConstraints()  //
 //        setNeedsUpdateConstraints()
 //        updateConstraintsIfNeeded()
-        updateInitialConstraints()
+//        updateInitialConstraints()
     }
   
     
-    private func updateInitialConstraints() {
-        label.snp.updateConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(80)
-        }
-        
+    override func updateInitialConstraints() {
         userInputView.snp.remakeConstraints { make in
             make.leading.equalToSuperview().inset(16)
             make.top.equalTo(label.snp.bottom).offset(96)

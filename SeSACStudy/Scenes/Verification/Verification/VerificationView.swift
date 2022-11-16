@@ -24,6 +24,12 @@ class VerificationView: VerificationAndSignUpView {
                       textFieldPlaceholder: String.Verification.phoneNumberPlaceholder,
                       buttonTitle: String.Verification.verify)
     }
+    
+    override func updateInitialConstraints() {
+        userInputView.snp.updateConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(64)
+        }
+    }
 //    
 //    override func setText(labelText: String, textFieldPlaceholder: String, buttonTitle: String) {
 //        super.setText(labelText: String.Verification.inputPhoneNumber,
