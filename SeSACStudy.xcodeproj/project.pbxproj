@@ -37,6 +37,7 @@
 		0A4EA7A92924D512004DB24F /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7A82924D512004DB24F /* NicknameViewController.swift */; };
 		0A4EA7AC2924D560004DB24F /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AB2924D560004DB24F /* NicknameView.swift */; };
 		0A4EA7AE2924D581004DB24F /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AD2924D581004DB24F /* NicknameViewModel.swift */; };
+		0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AF2924E538004DB24F /* Transition+Extension.swift */; };
 		0A5019382921649E001BB094 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5019372921649E001BB094 /* LogInViewController.swift */; };
 		0A50193A292164D2001BB094 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501939292164D2001BB094 /* LogInView.swift */; };
 		0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50193B29217197001BB094 /* VerificationAndSignUpView.swift */; };
@@ -96,6 +97,7 @@
 		0A4EA7A82924D512004DB24F /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		0A4EA7AB2924D560004DB24F /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		0A4EA7AD2924D581004DB24F /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		0A4EA7AF2924E538004DB24F /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		0A50193629213C0E001BB094 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
 		0A5019372921649E001BB094 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		0A501939292164D2001BB094 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				0AC03A54291D1AF600CBE29C /* UserDefaults+Extension.swift */,
 				0A66B85D2920E89D00E77085 /* Alert+Extension.swift */,
 				0A501947292237F6001BB094 /* Toast+Extension.swift */,
+				0A4EA7AF2924E538004DB24F /* Transition+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */,
 				0A50195829236189001BB094 /* APIManager.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,
+				0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */,
 				0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

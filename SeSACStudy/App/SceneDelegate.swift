@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
 //        let rootNavVC = UINavigationController(rootViewController: UserDefaults.isExistingUser ? VerificationViewController() : OnboardingViewController())
-//        let rootNavVC = UINavigationController(rootViewController: LogInViewController())
-        let rootNavVC = UINavigationController(rootViewController: NicknameViewController())
+        let rootNavVC = UINavigationController(rootViewController: LogInViewController())
+//        let rootNavVC = UINavigationController(rootViewController: NicknameViewController())
         
         window?.rootViewController = rootNavVC
         window?.makeKeyAndVisible()

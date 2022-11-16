@@ -34,14 +34,15 @@ class OnboardingViewController: BaseViewController {
     private func bind() {
         onboardingView.startButton.rx.tap
             .asDriver()
-            .drive { _ in
-                self.navigationController?.pushViewController(VerificationViewController(), animated: true)
+            .drive(with: self, onNext: { vc, _ in
+//                self.navigationController?.pushViewController(VerificationViewController(), animated: true)
+                vc.transition(to: VerificationViewController())
                 UserDefaults.isExistingUser = true
 //                let verificationVC = VerificationViewController()
 //                verificationVC.modalPresentationStyle = .fullScreen
 //                self.present(verificationVC, animated: true, completion: nil)
 //                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-            }
+            })
             .disposed(by: disposeBag)
     }
 }

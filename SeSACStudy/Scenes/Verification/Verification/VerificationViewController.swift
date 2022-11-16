@@ -167,7 +167,8 @@ extension VerificationViewController {
               let logInVC = LogInViewController()
               logInVC.verificationID = verificationID
               
-              self?.navigationController?.pushViewController(logInVC, animated: true)
+//              self?.navigationController?.pushViewController(logInVC, animated: true)
+              self?.transition(to: logInVC)
           }
     }
     

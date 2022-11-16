@@ -14,7 +14,7 @@ class NicknameView: VerificationAndSignUpView {
                       textFieldPlaceholder: String.Nickname.nicknamePlaceholder,
                       buttonTitle: String.Action.next)
         
-        button.isActivated = false  // rx 연결 후 지워보기...👻
+//        button.isActivated = false  // rx 연결 후 지워보기...👻
     }
     
     override func updateInitialConstraints() {

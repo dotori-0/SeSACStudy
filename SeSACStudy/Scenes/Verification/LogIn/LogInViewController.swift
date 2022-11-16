@@ -55,8 +55,8 @@ class LogInViewController: BaseViewController {
             .drive(with: self) { vc, _ in
                 if isValid {
 //                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)
-                    vc.logInAndPush()
-//                    vc.fetchIDToken()
+//                    vc.logInAndPush()
+                    vc.fetchIDToken()
                 } else {
                     vc.showToast(message: String.LogIn.wrongCodeFormat)
                 }
@@ -119,11 +119,11 @@ class LogInViewController: BaseViewController {
         logInViewModel.logIn()
         
         logInViewModel.user
-            .withUnretained(self)
-            .subscribe { (vc, user) in
+//            .withUnretained(self)
+            .subscribe(with: self) { vc, user in
                 print(user)
                 // 홈화면으로 이동
-            } onError: { error in
+            } onError: { vc, error in
                 print("🥚 logInViewModel onError")
                 print("🥚", error.localizedDescription)
                 // 에러인데 200이 나오면 이상한거..인듯?
@@ -139,10 +139,10 @@ class LogInViewController: BaseViewController {
                         print("firebaseTokenError")
                     case .unregisteredUser:
                         print("unregisteredUser")
+                        vc.transition(to: NicknameViewController())
                     default:
                         print("default")
                 }
-
             }
             .disposed(by: disposeBag)
     }
