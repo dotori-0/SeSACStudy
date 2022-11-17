@@ -12,7 +12,7 @@ import RxSwift
 class NicknameViewController: BaseViewController {
     // MARK: - Properties
     private let nicknameView = NicknameView()
-    private let nicknameViewModel = LogInViewModel()
+    private let nicknameViewModel = NicknameViewModel()
     private let disposeBag = DisposeBag()
 
     // MARK: - Life Cycle

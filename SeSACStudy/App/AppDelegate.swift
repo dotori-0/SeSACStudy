@@ -25,22 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = Asset.Colors.BlackWhite.black.color
 //        UINavigationBar.appearance().shadowImage = UIImage()
         
-        let backButtonAppearance = UIBarButtonItemAppearance()
-        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-//        let a = UINavigationBar.appearance().back
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backButtonAppearance = backButtonAppearance
-//        appearance.backIndicatorImage = Asset.NavigationBar.arrow.image
-//        appearance.backIndicatorTransitionMaskImage = Asset.NavigationBar.arrow.image
-        appearance.setBackIndicatorImage(Asset.NavigationBar.arrow.image,
-                                         transitionMaskImage: Asset.NavigationBar.arrow.image)
-//        appearance.shadowImage = UIImage()
+        let appearance = AppAppearance.navigationBarAppearance
         
         UINavigationBar.appearance().standardAppearance = appearance
-//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//        UINavigationBar.appearance().compactAppearance = appearance
-
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
         
         return true
     }

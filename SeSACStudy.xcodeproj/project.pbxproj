@@ -39,6 +39,7 @@
 		0A4EA7AE2924D581004DB24F /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AD2924D581004DB24F /* NicknameViewModel.swift */; };
 		0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AF2924E538004DB24F /* Transition+Extension.swift */; };
 		0A4EA7B22925057A004DB24F /* FirebaseTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7B12925057A004DB24F /* FirebaseTokenManager.swift */; };
+		0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7B5292639DE004DB24F /* AppAppearance.swift */; };
 		0A5019382921649E001BB094 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5019372921649E001BB094 /* LogInViewController.swift */; };
 		0A50193A292164D2001BB094 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501939292164D2001BB094 /* LogInView.swift */; };
 		0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50193B29217197001BB094 /* VerificationAndSignUpView.swift */; };
@@ -100,6 +101,7 @@
 		0A4EA7AD2924D581004DB24F /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		0A4EA7AF2924E538004DB24F /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		0A4EA7B12925057A004DB24F /* FirebaseTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTokenManager.swift; sourceTree = "<group>"; };
+		0A4EA7B5292639DE004DB24F /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		0A50193629213C0E001BB094 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
 		0A5019372921649E001BB094 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		0A501939292164D2001BB094 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2FE582291A3B65000C63E3 /* AppDelegate.swift */,
+				0A4EA7B5292639DE004DB24F /* AppAppearance.swift */,
 				0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -555,6 +558,7 @@
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
 				0A4EA7B22925057A004DB24F /* FirebaseTokenManager.swift in Sources */,
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
+				0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */,
 				0A2FE5FF291C052D000C63E3 /* String+Extension.swift in Sources */,
 				0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */,
 				0A2FE5FB291C0267000C63E3 /* OnboardingView.swift in Sources */,

@@ -22,10 +22,15 @@ class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBar()
         bind()
     }
     
     // MARK: - Setting Methods
+    private func setNavigationBar() {
+        navigationController?.navigationBar.scrollEdgeAppearance = nil
+    }
+    
     override func setHierarchy() {
         addChild(onboardingView.pageViewController)
         onboardingView.pageViewController.dataSource = self

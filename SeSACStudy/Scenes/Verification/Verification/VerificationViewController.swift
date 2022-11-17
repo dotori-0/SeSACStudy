@@ -26,11 +26,17 @@ class VerificationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigation()
+//        setNavigationBar()
         bind()
 //        bindTextFieldWithCALayer()  // CALayer
         
         verificationView.userInputView.textField.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,9 +44,14 @@ class VerificationViewController: BaseViewController {
     }
     
     // MARK: - Setting Methods
-    private func setNavigation() {
+    private func setNavigationBar() {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
+        
+        navigationController?.navigationBar.scrollEdgeAppearance = nil
+        // navigationItem로 접근하면 기존의 appearance가 바뀌지 않음
+//        navigationItem.scrollEdgeAppearance = nil
+//        UINavigationBar.appearance().scrollEdgeAppearance = nil  // 안되는 이유? ❔
         
 //        let backBarButtonItem = UIBarButtonItem(image: Asset.NavigationBar.arrow.image,
 //                                                style: .plain, target: self, action: nil)
