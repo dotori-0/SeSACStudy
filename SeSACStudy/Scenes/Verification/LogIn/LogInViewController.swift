@@ -62,7 +62,7 @@ class LogInViewController: BaseViewController {
             .drive(with: self) { vc, _ in
                 if isValid {
 //                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)  // for service
-//                    vc.logInAndPush()  // 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
+//                    vc.logInAndPush()  // for service 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
                     vc.refreshIDToken {
                         vc.logInAndPush()
                     }

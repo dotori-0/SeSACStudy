@@ -51,5 +51,6 @@ extension String {
     enum Nickname {
         static let inputNickname = "닉네임을 입력해 주세요"
         static let nicknamePlaceholder = "10자 이내로 입력"
+        static let nicknameLength = "닉네임은 1자 이상 10자 이내로 부탁드려요."
     }
 }
