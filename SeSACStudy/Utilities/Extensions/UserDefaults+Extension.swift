@@ -13,4 +13,7 @@ extension UserDefaults {
     
     @UserDefault(key: Key.idToken, defaultValue: "")
     static var idToken: String
+    
+    @UserDefault(key: Key.phoneNumber, defaultValue: "")
+    static var phoneNumber: String
 }

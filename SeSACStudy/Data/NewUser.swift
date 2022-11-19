@@ -12,7 +12,7 @@ final class NewUser {
     
     static let shared = NewUser()
     
-    var phoneNumber = ""
+    var phoneNumber = UserDefaults.phoneNumber
     var FCMToken = ""
     var nickname = ""
     var birthDate = ""

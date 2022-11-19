@@ -11,6 +11,7 @@ extension UserDefaults {
     enum Key {
         static let isExistingUser = "isExistingUser"
         static let idToken = "idToken"
+        static let phoneNumber = "phoneNumber"
     }
     
     static func delete(_ key: String) {
