@@ -101,20 +101,22 @@ class VerificationViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.transition(to: LogInViewController())
+                /// 로그인 화면으로 바로 넘어가기 위한 테스트 코드
+//                vc.transition(to: LogInViewController())
                 
                 
-////                let isValid = BehaviorRelay(value: false)
-////                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
-//                if isValid {
-//                    vc.showToast(message: String.Verification.startVerification, duration: 2.0)
+//                let isValid = BehaviorRelay(value: false)
+//                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
+                if isValid {
+                    vc.showToast(message: String.Verification.startVerification, duration: 2.0)
 //                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
-////                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
-////                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
-//                } else {
-////                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
-//                    vc.showToast(message: String.Verification.wrongNumberFormat)
-//                }
+                    vc.verifyPhoneNumber(output.prefixedNumber)  // 국가번호를 붙인 번호
+//                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
+//                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
+                } else {
+//                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
+                    vc.showToast(message: String.Verification.wrongNumberFormat)
+                }
             }
             .disposed(by: disposeBag)
         
@@ -162,11 +164,13 @@ extension VerificationViewController: UITextFieldDelegate {
 }
 
 extension VerificationViewController {
-    private func verifyPhoneNumber(_ phoneNumber: String) {
+    private func verifyPhoneNumber(_ prefixedNumber: String) {
 //        let number = "+447893920177"
 //        let number = "+447893920172"
         let number = "+15412071596"
 //        let number = "+821055570582"
+        print("🇰🇷 국가번호 장착번호: \(prefixedNumber)")
+        
         PhoneAuthProvider.provider()
           .verifyPhoneNumber(number, uiDelegate: nil) { [weak self] verificationID, error in
               
@@ -185,6 +189,9 @@ extension VerificationViewController {
               guard let verificationID else { return }
               print("🆔 \(verificationID)")
               
+//              NewUser.shared.phoneNumber = prefixedNumber
+              UserDefaults.phoneNumber = prefixedNumber
+              
               let logInVC = LogInViewController()
               logInVC.verificationID = verificationID
               
@@ -193,6 +200,7 @@ extension VerificationViewController {
           }
     }
     
+    // Firebase 가상 번호
     private func verifyFictionalPhoneNumber() {
 //        let phoneNumber = "+16505554567"
         let phoneNumber = "+821011112222"
