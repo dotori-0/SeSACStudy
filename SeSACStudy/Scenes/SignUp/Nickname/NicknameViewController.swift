@@ -45,11 +45,11 @@ class NicknameViewController: BaseViewController {
             .drive(with: self) { vc, _ in
                 if isValid {
                     // 생년월일 입력 뷰로 넘기기
+                    NewUser.shared.nickname = vc.nicknameView.userInputView.textField.text!
                 } else {
                     vc.showToast(message: String.Nickname.nicknameLength)
                 }
             }
             .disposed(by: disposeBag)
-        
     }
 }
