@@ -57,6 +57,11 @@
 		0A50195C2923BF0E001BB094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */; };
 		0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */; };
 		0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85D2920E89D00E77085 /* Alert+Extension.swift */; };
+		0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */; };
+		0A958E572928C8B900CA0D40 /* BirthDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E562928C8B900CA0D40 /* BirthDateView.swift */; };
+		0A958E592928C8DA00CA0D40 /* BirthDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E582928C8DA00CA0D40 /* BirthDateViewModel.swift */; };
+		0A958E5B2928CD6C00CA0D40 /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */; };
+		0A958E5D292A323400CA0D40 /* NoSelectionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */; };
 		0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3B291C154E00CBE29C /* FirstViewController.swift */; };
 		0AC03A3F291C15CF00CBE29C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3E291C15CF00CBE29C /* PageView.swift */; };
 		0AC03A41291C1AE300CBE29C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A40291C1AE300CBE29C /* SecondViewController.swift */; };
@@ -64,7 +69,7 @@
 		0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A46291CEE6D00CBE29C /* VerificationViewController.swift */; };
 		0AC03A49291CEE7F00CBE29C /* VerificationView0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A48291CEE7F00CBE29C /* VerificationView0.swift */; };
 		0AC03A4B291CF60600CBE29C /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A4A291CF60600CBE29C /* InputTextField.swift */; };
-		0AC03A4D291CFBAA00CBE29C /* VerificationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A4C291CFBAA00CBE29C /* VerificationLabel.swift */; };
+		0AC03A4D291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A4C291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift */; };
 		0AC03A4F291CFC8D00CBE29C /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A4E291CFC8D00CBE29C /* BaseLabel.swift */; };
 		0AC03A51291D1A8300CBE29C /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A50291D1A8300CBE29C /* UserDefault.swift */; };
 		0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A52291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift */; };
@@ -120,6 +125,11 @@
 		0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
+		0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateViewController.swift; sourceTree = "<group>"; };
+		0A958E562928C8B900CA0D40 /* BirthDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateView.swift; sourceTree = "<group>"; };
+		0A958E582928C8DA00CA0D40 /* BirthDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateViewModel.swift; sourceTree = "<group>"; };
+		0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
+		0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSelectionTextField.swift; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		0AC03A3E291C15CF00CBE29C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		0AC03A40291C1AE300CBE29C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +137,7 @@
 		0AC03A46291CEE6D00CBE29C /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		0AC03A48291CEE7F00CBE29C /* VerificationView0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView0.swift; sourceTree = "<group>"; };
 		0AC03A4A291CF60600CBE29C /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
-		0AC03A4C291CFBAA00CBE29C /* VerificationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationLabel.swift; sourceTree = "<group>"; };
+		0AC03A4C291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationAndSignUpLabel.swift; sourceTree = "<group>"; };
 		0AC03A4E291CFC8D00CBE29C /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		0AC03A50291D1A8300CBE29C /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		0AC03A52291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsKey+Extension.swift"; sourceTree = "<group>"; };
@@ -233,9 +243,11 @@
 				0A2FE5FC291C0421000C63E3 /* GlobalButton.swift */,
 				0A2FE602291C0EDC000C63E3 /* OnboardingLabel.swift */,
 				0AC03A4A291CF60600CBE29C /* InputTextField.swift */,
-				0AC03A4C291CFBAA00CBE29C /* VerificationLabel.swift */,
+				0AC03A4C291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift */,
 				0AC03A56291E04CE00CBE29C /* InputView.swift */,
 				0AC03A5A291F664C00CBE29C /* NoActionTextField.swift */,
+				0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */,
+				0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4EA7AA2924D556004DB24F /* Nickname */,
+				0A958E532928C86E00CA0D40 /* BirthDate */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -428,6 +441,16 @@
 				0A501953292271EA001BB094 /* SeSACService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0A958E532928C86E00CA0D40 /* BirthDate */ = {
+			isa = PBXGroup;
+			children = (
+				0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */,
+				0A958E562928C8B900CA0D40 /* BirthDateView.swift */,
+				0A958E582928C8DA00CA0D40 /* BirthDateViewModel.swift */,
+			);
+			path = BirthDate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,16 +573,19 @@
 				0AC03A43291C1AFB00CBE29C /* ThirdViewController.swift in Sources */,
 				0A4EA7AE2924D581004DB24F /* NicknameViewModel.swift in Sources */,
 				0AC03A41291C1AE300CBE29C /* SecondViewController.swift in Sources */,
+				0A958E572928C8B900CA0D40 /* BirthDateView.swift in Sources */,
 				0AC03A51291D1A8300CBE29C /* UserDefault.swift in Sources */,
 				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
 				0A4EA7B92927F18A004DB24F /* NewUser.swift in Sources */,
 				0A4EA7A92924D512004DB24F /* NicknameViewController.swift in Sources */,
+				0A958E5D292A323400CA0D40 /* NoSelectionTextField.swift in Sources */,
 				0A2FE5D3291ACCE8000C63E3 /* FontName+Extension.swift in Sources */,
 				0AC03A49291CEE7F00CBE29C /* VerificationView0.swift in Sources */,
 				0A501948292237F6001BB094 /* Toast+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
 				0A2FE5FD291C0421000C63E3 /* GlobalButton.swift in Sources */,
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
+				0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */,
 				0A4EA7B22925057A004DB24F /* FirebaseTokenManager.swift in Sources */,
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
 				0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */,
@@ -581,19 +607,21 @@
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
 				0A4EA7AC2924D560004DB24F /* NicknameView.swift in Sources */,
-				0AC03A4D291CFBAA00CBE29C /* VerificationLabel.swift in Sources */,
+				0AC03A4D291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 				0AC03A3F291C15CF00CBE29C /* PageView.swift in Sources */,
 				0A2FE5F9291C01CE000C63E3 /* OnboardingViewController.swift in Sources */,
 				0A2FE5F7291BFC70000C63E3 /* BaseView.swift in Sources */,
 				0AC03A4F291CFC8D00CBE29C /* BaseLabel.swift in Sources */,
 				0A50195629227432001BB094 /* APIURL.swift in Sources */,
+				0A958E5B2928CD6C00CA0D40 /* SignUpLabel.swift in Sources */,
 				0A50193E2921763C001BB094 /* VerificationView.swift in Sources */,
 				0A2FE603291C0EDC000C63E3 /* OnboardingLabel.swift in Sources */,
 				0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */,
 				0A50195829236189001BB094 /* APIManager.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,
 				0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */,
+				0A958E592928C8DA00CA0D40 /* BirthDateViewModel.swift in Sources */,
 				0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

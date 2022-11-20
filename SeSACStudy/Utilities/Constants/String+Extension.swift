@@ -53,4 +53,11 @@ extension String {
         static let nicknamePlaceholder = "10자 이내로 입력"
         static let nicknameLength = "닉네임은 1자 이상 10자 이내로 부탁드려요."
     }
+    
+    enum BirthDate {
+        static let inputBirthDate = "생년월일을 알려 주세요"
+        static let year = "년"
+        static let month = "월"
+        static let day = "일"
+    }
 }

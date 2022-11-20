@@ -13,7 +13,7 @@ class VerificationAndSignUpView: BaseView {
     var inputTextFieldPlaceholder: String?
     var buttonTitle: String?
     
-    let label = VerificationLabel()
+    let label = VerificationAndSignUpLabel()
 //    let inputTextField = InputTextField()
     let button = GlobalButton()
     let userInputView = InputView()

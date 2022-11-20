@@ -36,9 +36,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        (UserDefaults.idToken.isEmpty ? VerificationViewController() : NicknameViewController())
 //        : OnboardingViewController()
         
-//        let rootNavVC = UINavigationController(rootViewController: UserDefaults.isExistingUser ? VerificationViewController() : OnboardingViewController())
-//        let rootNavVC = UINavigationController(rootViewController: LogInViewController())
-//        let rootNavVC = UINavigationController(rootViewController: NicknameViewController())
+
+        rootVC = BirthDateViewController()
         let rootNavVC = UINavigationController(rootViewController: rootVC)
         
         window?.rootViewController = rootNavVC

@@ -1,15 +1,17 @@
 //
-//  VerificationLabel.swift
+//  SignUpLabel.swift
 //  SeSACStudy
 //
-//  Created by SC on 2022/11/10.
+//  Created by SC on 2022/11/19.
 //
 
 import UIKit
 
-class VerificationLabel: BaseLabel {
+class SignUpLabel: BaseLabel {
+    var isGray = false
+    
     // MARK: - Initializers
-    init(text: String = "") {
+    init(text: String = "", isGray: Bool = false) {
         super.init(frame: .zero)
         
         setText(with: text)
@@ -21,7 +23,8 @@ class VerificationLabel: BaseLabel {
     
     // MARK: - Setting Methods
     override func setUI() {
-        font = .Display1_R20
+        font = .Title2_R16
+        textColor = isGray ? Asset.Colors.Grayscale.gray7.color : Asset.Colors.BlackWhite.black.color
         textAlignment = .center
         numberOfLines = 0
     }

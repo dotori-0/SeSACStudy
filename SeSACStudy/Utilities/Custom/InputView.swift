@@ -13,7 +13,9 @@ import RxSwift
 class InputView: BaseView {
     // MARK: - Properties
     private var isNumberPad: Bool?
-    let textField = NoActionTextField()
+    private var allowsSelection: Bool?
+    
+    var textField = NoActionTextField()
 //    let textField = UITextField()
     private let bottomLineView = UIView()
     var isTextFieldFocused: Bool {
@@ -25,8 +27,11 @@ class InputView: BaseView {
     let disposeBag = DisposeBag()
     
     // MARK: - Initializers
-    init(placeholder: String = "", isNumberPad: Bool = true) {
+    init(placeholder: String = "",
+         isNumberPad: Bool = true,
+         allowsSelection: Bool = true) {
         self.isNumberPad = isNumberPad
+        self.allowsSelection = allowsSelection
         isTextFieldFocused = false  // 이걸로는 didSet이 호출되지 않는다 ❔
         super.init(frame: .zero)
         setPlaceholder(as: placeholder)
@@ -65,6 +70,12 @@ class InputView: BaseView {
     private func setTextField() {
         guard let isNumberPad else { return }
         textField.keyboardType = isNumberPad ? .numberPad : .default
+        
+        if let allowsSelection, !allowsSelection {
+            textField = NoSelectionTextField()
+            addSubview(textField)  // 다시 addSubview 해야하는 이유와 기존 객체를 removeFromSuperview() 하지 않아도 되는지? ❔
+        }
+        
         textField.borderStyle = .none
         textField.font = .Title4_R14
         textField.textColor = Asset.Colors.BlackWhite.black.color
@@ -105,7 +116,12 @@ class InputView: BaseView {
     
     private func setBottomLineView() {
         print(#function)
-        let bottomLineColor: ColorAsset = isTextFieldFocused ? Asset.Colors.SystemColor.focus : Asset.Colors.Grayscale.gray3
+        var bottomLineColor: ColorAsset = isTextFieldFocused ? Asset.Colors.SystemColor.focus : Asset.Colors.Grayscale.gray3
+        
+        if let allowsSelection, !allowsSelection {
+            bottomLineColor = Asset.Colors.Grayscale.gray3
+        }
+        
         bottomLineView.backgroundColor = bottomLineColor.color
     }
 }
