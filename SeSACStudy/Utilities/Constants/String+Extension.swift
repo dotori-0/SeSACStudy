@@ -59,5 +59,6 @@ extension String {
         static let year = "년"
         static let month = "월"
         static let day = "일"
+        static let underage = "새싹스터디는 만 17세 이상만 사용할 수 있습니다."
     }
 }
