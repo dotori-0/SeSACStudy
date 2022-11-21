@@ -106,4 +106,26 @@ class BirthDateViewModel: InputOutput {
         
         return isValid
     }
+    
+    // MARK: - Transformation
+    // 아래처럼 internal 메서드를 만들어서 뷰컨에서 사용하면 input/output 패턴을 깨는(?) 건지..?❔
+//    func convertDateToString(date: ControlProperty<Date>) -> String {
+    func convertDateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        // date: ControlProperty<Date>
+//        let dateString = BehaviorRelay(value: "")
+//
+//        date.map {
+//           formatter.string(from: $0)
+//        }
+//        .bind(to: dateString)
+//        .disposed(by: DisposeBag())  // 뷰모델 안에서도 DisposeBag 객체를 만들어야 할지?❔
+//
+//        return dateString.value
+        
+        // date: Date
+        return date.map { formatter.string(from: $0) }
+    }
 }

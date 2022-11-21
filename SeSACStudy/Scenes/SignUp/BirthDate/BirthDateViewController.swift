@@ -58,14 +58,15 @@ class BirthDateViewController: BaseViewController {
                 vc.birthDateView.button.isActivated = isValidAge
                 isValid = isValidAge
             }
-            .disposed(by: disposeBag)        
+            .disposed(by: disposeBag)
         
         birthDateView.button.rx.tap
             .asDriver()
             .drive(with: self) { vc, _ in
                 if isValid {
                     // 이메일 입력 뷰로 넘기기
-//                    NewUser.shared.birthDate
+                    let date = vc.birthDateViewModel.convertDateToString(date: vc.birthDateView.datePicker.date)
+                    NewUser.shared.birthDate = date
                 } else {
                     vc.showToast(message: String.BirthDate.underage)
                 }

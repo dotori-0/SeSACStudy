@@ -45,6 +45,7 @@ class NicknameViewController: BaseViewController {
                 if isValid {
                     // 생년월일 입력 뷰로 넘기기
                     NewUser.shared.nickname = vc.nicknameView.userInputView.textField.text!
+                    vc.transition(to: BirthDateViewController())
                 } else {
                     vc.showToast(message: String.Nickname.nicknameLength)
                 }
