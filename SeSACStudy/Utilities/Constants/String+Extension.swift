@@ -61,4 +61,11 @@ extension String {
         static let day = "일"
         static let underage = "새싹스터디는 만 17세 이상만 사용할 수 있습니다."
     }
+    
+    enum Email {
+        static let inputEmail = "이메일을 입력해 주세요"
+        static let detailedExplanation = "휴대폰 번호 변경 시 인증을 위해 사용해요"
+        static let emailPlaceholder = "SeSAC@email.com"
+        static let wrongEmailFormat = "이메일 형식이 올바르지 않습니다."
+    }
 }

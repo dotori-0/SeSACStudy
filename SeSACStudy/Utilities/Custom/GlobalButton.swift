@@ -57,7 +57,7 @@ class GlobalButton: UIButton {
     
     private func setButtonColor() {
 //        print(#function)
-        print("🧐 버튼이 활성화 되어 있나요? \(isActivated)")
+//        print("🧐 버튼이 활성화 되어 있나요? \(isActivated)")
         let buttonColor = isActivated ? Asset.Colors.BrandColor.green.color : Asset.Colors.Grayscale.gray6.color
         let textColor = isActivated ? Asset.Colors.BlackWhite.white.color : Asset.Colors.Grayscale.gray3.color
         buttonConfiguration.baseBackgroundColor = buttonColor

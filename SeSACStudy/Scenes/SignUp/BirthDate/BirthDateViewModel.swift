@@ -126,6 +126,7 @@ class BirthDateViewModel: InputOutput {
 //        return dateString.value
         
         // date: Date
-        return date.map { formatter.string(from: $0) }
+//        return date.map { formatter.string(from: $0) }
+        return formatter.string(from: date)
     }
 }

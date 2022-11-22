@@ -12,6 +12,7 @@ class SignUpLabel: BaseLabel {
     
     // MARK: - Initializers
     init(text: String = "", isGray: Bool = false) {
+        self.isGray = isGray
         super.init(frame: .zero)
         
         setText(with: text)
@@ -25,6 +26,7 @@ class SignUpLabel: BaseLabel {
     override func setUI() {
         font = .Title2_R16
         textColor = isGray ? Asset.Colors.Grayscale.gray7.color : Asset.Colors.BlackWhite.black.color
+//        textColor = isGray ? Asset.Colors.BrandColor.green.color : Asset.Colors.BlackWhite.black.color
         textAlignment = .center
         numberOfLines = 0
     }

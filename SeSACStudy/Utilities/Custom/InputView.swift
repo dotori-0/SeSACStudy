@@ -115,7 +115,7 @@ class InputView: BaseView {
     }
     
     private func setBottomLineView() {
-        print(#function)
+//        print(#function)
         var bottomLineColor: ColorAsset = isTextFieldFocused ? Asset.Colors.SystemColor.focus : Asset.Colors.Grayscale.gray3
         
         if let allowsSelection, !allowsSelection {
