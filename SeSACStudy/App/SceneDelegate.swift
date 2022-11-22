@@ -37,8 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        : OnboardingViewController()
         
 
-        rootVC = EmailViewController()
+//        rootVC = EmailViewController()
 //        rootVC = NicknameViewController()
+        rootVC = GenderViewController()
         let rootNavVC = UINavigationController(rootViewController: rootVC)
         
         window?.rootViewController = rootNavVC

@@ -50,6 +50,10 @@ internal enum Asset {
       internal static let success = ColorAsset(name: "success")
     }
   }
+  internal enum Gender {
+    internal static let female = ImageAsset(name: "female")
+    internal static let male = ImageAsset(name: "male")
+  }
   internal enum LaunchScreen {
     internal static let splashLogo = ImageAsset(name: "splash_logo")
     internal static let splashText = ImageAsset(name: "splash_text")

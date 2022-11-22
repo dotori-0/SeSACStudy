@@ -80,6 +80,11 @@
 		0AF69CC4292B9BEB0095E9D8 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69CC3292B9BEB0095E9D8 /* EmailViewController.swift */; };
 		0AF69CC6292B9BFF0095E9D8 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69CC5292B9BFF0095E9D8 /* EmailView.swift */; };
 		0AF69CC8292B9C120095E9D8 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF69CC7292B9C120095E9D8 /* EmailViewModel.swift */; };
+		0AFBF50E292CC32900DBF495 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBF50D292CC32900DBF495 /* GenderViewController.swift */; };
+		0AFBF510292CC33400DBF495 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBF50F292CC33400DBF495 /* GenderView.swift */; };
+		0AFBF512292CC33C00DBF495 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBF511292CC33C00DBF495 /* GenderViewModel.swift */; };
+		0AFBF514292CC51000DBF495 /* GenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBF513292CC51000DBF495 /* GenderSelectionView.swift */; };
+		0AFBF516292CC60300DBF495 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBF515292CC60300DBF495 /* Gender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +156,11 @@
 		0AF69CC3292B9BEB0095E9D8 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		0AF69CC5292B9BFF0095E9D8 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		0AF69CC7292B9C120095E9D8 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		0AFBF50D292CC32900DBF495 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		0AFBF50F292CC33400DBF495 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		0AFBF511292CC33C00DBF495 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
+		0AFBF513292CC51000DBF495 /* GenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionView.swift; sourceTree = "<group>"; };
+		0AFBF515292CC60300DBF495 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +264,7 @@
 				0AC03A5A291F664C00CBE29C /* NoActionTextField.swift */,
 				0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */,
 				0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */,
+				0AFBF513292CC51000DBF495 /* GenderSelectionView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -272,6 +283,7 @@
 				0A2FE5F2291BEF35000C63E3 /* XCAssets+Generated.swift */,
 				0AC03A50291D1A8300CBE29C /* UserDefault.swift */,
 				0A4EA7B12925057A004DB24F /* FirebaseTokenManager.swift */,
+				0AFBF515292CC60300DBF495 /* Gender.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -379,6 +391,7 @@
 				0A4EA7AA2924D556004DB24F /* Nickname */,
 				0A958E532928C86E00CA0D40 /* BirthDate */,
 				0AF69CC2292B9B8D0095E9D8 /* Email */,
+				0AFBF50C292CC31900DBF495 /* Gender */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -468,6 +481,16 @@
 				0AF69CC7292B9C120095E9D8 /* EmailViewModel.swift */,
 			);
 			path = Email;
+			sourceTree = "<group>";
+		};
+		0AFBF50C292CC31900DBF495 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+				0AFBF50D292CC32900DBF495 /* GenderViewController.swift */,
+				0AFBF50F292CC33400DBF495 /* GenderView.swift */,
+				0AFBF511292CC33C00DBF495 /* GenderViewModel.swift */,
+			);
+			path = Gender;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,12 +632,14 @@
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
 				0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */,
 				0A2FE5FF291C052D000C63E3 /* String+Extension.swift in Sources */,
+				0AFBF514292CC51000DBF495 /* GenderSelectionView.swift in Sources */,
 				0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */,
 				0A2FE5FB291C0267000C63E3 /* OnboardingView.swift in Sources */,
 				0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */,
 				0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */,
 				0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */,
 				0A50194E292261F4001BB094 /* User.swift in Sources */,
+				0AFBF516292CC60300DBF495 /* Gender.swift in Sources */,
 				0A50194629221600001BB094 /* InputOutput.swift in Sources */,
 				0A5019382921649E001BB094 /* LogInViewController.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
@@ -625,6 +650,7 @@
 				0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
+				0AFBF50E292CC32900DBF495 /* GenderViewController.swift in Sources */,
 				0A4EA7AC2924D560004DB24F /* NicknameView.swift in Sources */,
 				0AC03A4D291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
@@ -634,9 +660,11 @@
 				0AC03A4F291CFC8D00CBE29C /* BaseLabel.swift in Sources */,
 				0AF69CC6292B9BFF0095E9D8 /* EmailView.swift in Sources */,
 				0A50195629227432001BB094 /* APIURL.swift in Sources */,
+				0AFBF510292CC33400DBF495 /* GenderView.swift in Sources */,
 				0A958E5B2928CD6C00CA0D40 /* SignUpLabel.swift in Sources */,
 				0A50193E2921763C001BB094 /* VerificationView.swift in Sources */,
 				0A2FE603291C0EDC000C63E3 /* OnboardingLabel.swift in Sources */,
+				0AFBF512292CC33C00DBF495 /* GenderViewModel.swift in Sources */,
 				0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */,
 				0A50195829236189001BB094 /* APIManager.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,

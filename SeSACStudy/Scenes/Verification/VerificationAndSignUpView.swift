@@ -61,9 +61,11 @@ class VerificationAndSignUpView: BaseView {
     }
     
     // MARK: - Intenal Methods
-    func setText(labelText: String, textFieldPlaceholder: String, buttonTitle: String) {
+    func setText(labelText: String, textFieldPlaceholder: String? = nil, buttonTitle: String) {
         label.setText(with: labelText)
-        userInputView.setPlaceholder(as: textFieldPlaceholder)
+        if let textFieldPlaceholder {
+            userInputView.setPlaceholder(as: textFieldPlaceholder)
+        }
         button.setButtonTitle(as: buttonTitle)
     }
     

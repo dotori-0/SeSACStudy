@@ -68,4 +68,11 @@ extension String {
         static let emailPlaceholder = "SeSAC@email.com"
         static let wrongEmailFormat = "이메일 형식이 올바르지 않습니다."
     }
+    
+    enum Gender {
+        static let selectGender = "성별을 선택해 주세요"
+        static let detailedExplanation = "새싹 찾기 기능을 이용하기 위해서 필요해요!"
+        static let male = "남자"
+        static let female = "여자"
+    }
 }
