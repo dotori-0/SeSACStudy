@@ -67,6 +67,7 @@ class BirthDateViewController: BaseViewController {
                     // 이메일 입력 뷰로 넘기기
                     let date = vc.birthDateViewModel.convertDateToString(date: vc.birthDateView.datePicker.date)
                     NewUser.shared.birthDate = date
+                    vc.transition(to: EmailViewController())
                 } else {
                     vc.showToast(message: String.BirthDate.underage)
                 }
