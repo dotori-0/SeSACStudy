@@ -16,7 +16,7 @@ class VerificationAndSignUpView: BaseView {
     let label = VerificationAndSignUpLabel()
 //    let inputTextField = InputTextField()
     let button = GlobalButton()
-    let userInputView = InputView()
+    var userInputView = InputView()
     
     // MARK: - Life Cycle
     override init(frame: CGRect) {

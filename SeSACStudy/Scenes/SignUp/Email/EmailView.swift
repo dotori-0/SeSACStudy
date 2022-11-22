@@ -17,6 +17,9 @@ class EmailView: VerificationAndSignUpView {
         super.setText(labelText: String.Email.inputEmail,
                       textFieldPlaceholder: String.Email.emailPlaceholder,
                       buttonTitle: String.Action.next)
+        
+//        userInputView = InputView(isNumberPad: false)
+        userInputView.changeKeyboardType(to: .emailAddress)
     }
     
     override func setHierarchy() {

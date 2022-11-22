@@ -10,23 +10,24 @@ import RxCocoa
 
 class EmailViewModel: InputOutput {
     struct Input {
-        
+        let email: ControlProperty<String?>
     }
     
     struct Output {
-        
+        let isValidEmail: Driver<Bool>
     }
     
     func transform(_ input: Input) -> Output {
-        
-        return Output()
+        return Output(isValidEmail: validate(email: input.email))
     }
     
-    private func validate(nickname: ControlProperty<String?>) -> Driver<Bool> {
-        let isValid = nickname.orEmpty
-//            .map { $0.count >= 1 && $0.count <= 10 }
-            .map { (1...10).contains($0.count) }
-            .asDriver(onErrorJustReturn: false)
+    private func validate(email: ControlProperty<String?>) -> Driver<Bool> {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        
+        let isValid = email.orEmpty
+                            .map { emailTest.evaluate(with: $0) }
+                            .asDriver(onErrorJustReturn: false)
         
         return isValid
     }

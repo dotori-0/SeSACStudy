@@ -12,7 +12,7 @@ import RxSwift
 
 class InputView: BaseView {
     // MARK: - Properties
-    private var isNumberPad: Bool?
+//    private var isNumberPad: Bool?
     private var allowsSelection: Bool?
     
     var textField = NoActionTextField()
@@ -24,13 +24,14 @@ class InputView: BaseView {
             setBottomLineView()
         }
     }
+    
     let disposeBag = DisposeBag()
     
     // MARK: - Initializers
     init(placeholder: String = "",
-         isNumberPad: Bool = true,
+//         isNumberPad: Bool = true,
          allowsSelection: Bool = true) {
-        self.isNumberPad = isNumberPad
+//        self.isNumberPad = isNumberPad
         self.allowsSelection = allowsSelection
         isTextFieldFocused = false  // 이걸로는 didSet이 호출되지 않는다 ❔
         super.init(frame: .zero)
@@ -68,8 +69,9 @@ class InputView: BaseView {
     
     // MARK: - Design Methods
     private func setTextField() {
-        guard let isNumberPad else { return }
-        textField.keyboardType = isNumberPad ? .numberPad : .default
+//        guard let isNumberPad else { return }
+//        textField.keyboardType = isNumberPad ? .numberPad : .default
+        textField.keyboardType = .numberPad
         
         if let allowsSelection, !allowsSelection {
             textField = NoSelectionTextField()
@@ -123,5 +125,9 @@ class InputView: BaseView {
         }
         
         bottomLineView.backgroundColor = bottomLineColor.color
+    }
+    
+    func changeKeyboardType(to keyboardType: UIKeyboardType) {
+        textField.keyboardType = keyboardType
     }
 }
