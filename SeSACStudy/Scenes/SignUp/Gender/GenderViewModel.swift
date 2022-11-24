@@ -9,6 +9,8 @@ import Foundation
 import RxSwift
 
 final class GenderViewModel {
+    let gender = BehaviorSubject<Gender?>(value: nil)
+    
     let account = PublishSubject<Void>()
     
     func signUp() {
