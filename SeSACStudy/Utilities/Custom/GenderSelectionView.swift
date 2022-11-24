@@ -55,13 +55,19 @@ class GenderSelectionView: BaseView {
         
         if isSelectedByUser {
             backgroundColor = Asset.Colors.BrandColor.whitegreen.color
+            layer.borderColor = UIColor.clear.cgColor
         } else {
+            backgroundColor = nil
             layer.borderWidth = 1
             layer.borderColor = Asset.Colors.Grayscale.gray3.color.cgColor
         }
     }
     
     override func setConstraints() {
+        button.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         genderImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(14)

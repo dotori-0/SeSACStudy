@@ -41,6 +41,32 @@ struct APIManager {
 //            }
         }
     }
+    
+    static func signUp(completion: @escaping (Result<Void, Error>) -> Void) {
+        provider.request(.signUp(phoneNumber: NewUser.shared.phoneNumber,
+                                 FCMToken: NewUser.shared.FCMToken,
+                                 nickname: NewUser.shared.nickname,
+                                 birthDate: NewUser.shared.birthDate,
+                                 email: NewUser.shared.email,
+                                 gender: NewUser.shared.gender)) { result in
+            do {
+//                try result.get()
+                let response = try result.get()
+                let successCode = response.statusCode
+                if successCode == 200 {
+                    completion(.success(()))
+                }
+            } catch {
+                guard let definedError = definedError(error) else {
+                    print("🤨 처음 보는 status code")
+                    return
+                }
+                
+                print("🙎🏻‍♀️ 에러: \(definedError)")
+                completion(.failure(definedError))
+            }
+        }
+    }
 }
 
 extension APIManager {

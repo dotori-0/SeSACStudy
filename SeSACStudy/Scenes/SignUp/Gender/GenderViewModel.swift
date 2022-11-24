@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import RxSwift
+
+final class GenderViewModel {
+    let account = PublishSubject<Void>()
+    
+    func signUp() {
+        APIManager.signUp { [weak self] result in
+            switch result {
+                case .success():
+                    self?.account.onNext(())
+                case .failure(let error):
+                    self?.account.onError(error)
+            }
+        }
+    }
+}
+

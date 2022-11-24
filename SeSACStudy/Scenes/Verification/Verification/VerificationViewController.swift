@@ -217,6 +217,7 @@ extension VerificationViewController {
                 print(error)
               return
             }
+            
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "",
                                                                        verificationCode: testVerificationCode)
 //            Auth.auth().signInAndRetrieveData(with: credential) { authData, error in
