@@ -66,6 +66,20 @@ internal enum Asset {
     internal static let onboardingImg2 = ImageAsset(name: "onboarding_img2")
     internal static let onboardingImg3 = ImageAsset(name: "onboarding_img3")
   }
+  internal enum TabBar {
+    internal enum Default {
+      internal static let friends = ImageAsset(name: "friends")
+      internal static let home = ImageAsset(name: "home")
+      internal static let myInfo = ImageAsset(name: "my_info")
+      internal static let shop = ImageAsset(name: "shop")
+    }
+    internal enum Selected {
+      internal static let friends = ImageAsset(name: "friends")
+      internal static let home = ImageAsset(name: "home")
+      internal static let myInfo = ImageAsset(name: "my_info")
+      internal static let shop = ImageAsset(name: "shop")
+    }
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
