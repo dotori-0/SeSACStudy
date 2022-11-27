@@ -35,6 +35,11 @@ final class VerificationViewModel: InputOutput {
         let isValidNumber = validate(phoneNumber: unhyphenatedNumber)
         let prefixedNumber = prefixCountryCodes(to: unhyphenatedNumber)
         
+//        print("input.phoneNumber: \(input.phoneNumber)")
+        print("unhyphenatedNumber: \(unhyphenatedNumber)")
+        print("number: \(number)")
+        print("prefixedNumber: \(prefixedNumber)")
+        
         //        return Output(editingDidBegin: editingDidBegin,
         //                      editingDidEnd: editingDidEnd,
         return Output(number: number,
@@ -44,7 +49,10 @@ final class VerificationViewModel: InputOutput {
     }
     
     private func unhyphenAndLimit(number: ControlProperty<String?>) -> Observable<String> {
-        let unhyphenatedNumber = number.orEmpty.map { $0.components(separatedBy: "-").joined() }
+        let unhyphenatedNumber = number.orEmpty.map {
+            print("input.phoneNumber: \($0)")
+            return $0.components(separatedBy: "-").joined()
+        }
         let limitedNumber = unhyphenatedNumber.map {
             if $0.count > 11 {
                 let endIndex = $0.index($0.startIndex, offsetBy: 11)
@@ -153,7 +161,9 @@ final class VerificationViewModel: InputOutput {
         number.map {
 //            let a = $0.dropFirst()
 //            let b = String($0.dropFirst())
-            "+82\(String($0.dropFirst()))"
+            print("$0: \($0)")
+            print("$0.dropFirst(): \($0.dropFirst())")
+            return "+82\(String($0.dropFirst()))"
         }
         .bind(to: prefixedNumber)
         .disposed(by: DisposeBag())  // 뷰모델 안에서도 DisposeBag 객체를 만들어야 할지?❔

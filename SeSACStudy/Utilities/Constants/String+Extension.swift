@@ -52,6 +52,7 @@ extension String {
         static let inputNickname = "닉네임을 입력해 주세요"
         static let nicknamePlaceholder = "10자 이내로 입력"
         static let nicknameLength = "닉네임은 1자 이상 10자 이내로 부탁드려요."
+        static let unavailableNickname = "해당 닉네임은 사용할 수 없습니다."
     }
     
     enum BirthDate {
@@ -74,5 +75,7 @@ extension String {
         static let detailedExplanation = "새싹 찾기 기능을 이용하기 위해서 필요해요!"
         static let male = "남자"
         static let female = "여자"
+        static let signUpSucceeded = "회원가입에 성공했습니다./n홈 화면으로 이동합니다."
+        static let existingUser = "이미 가입된 유저입니다./n홈 화면으로 이동합니다"
     }
 }

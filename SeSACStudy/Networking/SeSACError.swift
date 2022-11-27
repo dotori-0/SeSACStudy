@@ -31,7 +31,7 @@ extension SeSACError: LocalizedError {
             case .unregisteredUser:
                 return "미가입 유저"
             case .serverError:
-                return "Server Error"
+                return "서버 에러가 발생했습니다.\n"
             case .clientError:
                 return "Client Error"
         }

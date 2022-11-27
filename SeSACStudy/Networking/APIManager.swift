@@ -43,26 +43,66 @@ struct APIManager {
     }
     
     static func signUp(completion: @escaping (Result<Void, Error>) -> Void) {
+        print(#function, "START")
         provider.request(.signUp(phoneNumber: NewUser.shared.phoneNumber,
                                  FCMToken: NewUser.shared.FCMToken,
                                  nickname: NewUser.shared.nickname,
                                  birthDate: NewUser.shared.birthDate,
                                  email: NewUser.shared.email,
                                  gender: NewUser.shared.gender)) { result in
-            do {
-//                try result.get()
-                let response = try result.get()
-                let successCode = response.statusCode
-                if successCode == 200 {
+            
+            print("🆙 전화번호: \(NewUser.shared.phoneNumber)")
+            print("🆙 FCMToken: \(NewUser.shared.FCMToken)")
+            print("🆙 닉네임: \(NewUser.shared.nickname)")
+            print("🆙 생년월일: \(NewUser.shared.birthDate)")
+            print("🆙 이메일: \(NewUser.shared.email)")
+            print("🆙 성별: \(NewUser.shared.gender)")
+            
+            switch result {
+                case .success(let response):
+                    print("가입 response: \(response)")
+                    let statusCode = response.statusCode
+                    print("가입 statusCode: \(statusCode)")
                     completion(.success(()))
-                }
+                case .failure(let error):
+                    guard let definedError = definedError(error) else {
+                        print("🤨 처음 보는 status code")
+                        return
+                    }
+                    
+                    print("🙎🏻‍♀️ 에러: \(definedError)")
+                    completion(.failure(definedError))
+            }
+            
+            print(#function, "END")
+            
+            return
+            
+            do {
+                let response = try result.get()
+                print("가입 response: \(response)")
+                let statusCode = response.statusCode
+                print("가입 statusCode: \(statusCode)")
+                completion(.success(()))
+                
+//                if statusCode == 200 {
+//                    print("statusCode == 200")
+//                    completion(.success(()))
+//                } else {
+//                    guard let definedError = SeSACError(rawValue: statusCode) else {
+//                        print("🤨 처음 보는 status code")
+//                        return
+//                    }
+//                    throw definedError
+//                }
             } catch {
+                print("가입 catch")
+                print("🙎🏻‍♀️ 에러: \(error)")
                 guard let definedError = definedError(error) else {
                     print("🤨 처음 보는 status code")
                     return
                 }
-                
-                print("🙎🏻‍♀️ 에러: \(definedError)")
+                print("🙎🏻‍♀️ 지정에러: \(definedError)")
                 completion(.failure(definedError))
             }
         }
@@ -72,12 +112,12 @@ struct APIManager {
 extension APIManager {
     private static func definedError(_ error: Error) -> SeSACError? {
         guard let moyaError = error as? MoyaError else {
-            print("로그인: error -> MoyaError 변경 실패")
+            print("😣 error -> MoyaError 변경 실패")
             return nil
         }
         
         guard let response = moyaError.response else {
-            print("로그인: moyaError -> Response 변경 실패")
+            print("😣 moyaError -> Response 변경 실패")
             return nil
         }
         

@@ -71,6 +71,7 @@ class GenderViewController: BaseViewController {
                     // 금지된 단어로 닉네임 사용한 경우(code 202) → 닉네임 입력 화면으로 전환
                     print("성별 선택 O")
                     NewUser.shared.gender = gender.rawValue
+                    vc.signUpAndPush()
                 } else {
                     print("성별 선택 X")
                     vc.showToast(message: String.Gender.selectGender)
@@ -80,14 +81,49 @@ class GenderViewController: BaseViewController {
     }
     
     private func signUpAndPush() {
+        print(#function)
         genderViewModel.signUp()
         
         genderViewModel.account
             .subscribe(with: self) { vc, _ in
                 // 성공 응답 → 홈 화면 전환
+                print("account onNext")
+                vc.showToast(message: String.Gender.signUpSucceeded)
+                vc.transition(to: MainViewController())
+            } onError: { vc, error in  // 넘겨주는 쪽(onError)이 SeSACError여도 받는 쪽에서 그냥 error인 이유 및 해결 방법 ❔
+                guard let error = error as? SeSACError else {
+                    print("SeSACError로 변환 실패")
+                    return
+                }
                 
-            } onError: { vc, error in
-                
+                switch error {
+                    case .existingUser:
+                        // 가입 시도 시 이미 가입한 유저의 경우 토스트 띄우고 홈 화면으로 전환
+                        print(error.errorDescription)
+                        vc.showToast(message: String.Gender.existingUser)
+                        vc.transition(to: MainViewController())
+                    case .unavailableNickname:
+                        print(error.errorDescription)
+                        NicknameViewController.isFromGenderVC = true
+                        vc.navigationController?.popToViewController(ofClass: NicknameViewController.self)
+                        
+                    case .firebaseTokenError:
+                        print(error.errorDescription)
+                        vc.refreshIDToken {                            
+                            vc.signUpAndPush()
+                        }
+                        // 이렇게 가입 시 나오지 않을 에러(406)는 어떻게 처리?
+                        // 애초부터 모든 API의 에러를 statusCode가 겹친다는 이유로 하나로만 만드는 것이 적절하지 않은 방법인지? ❔
+//                    case .unregisteredUser:
+//                        <#code#>
+                    case .serverError:
+                        guard let errorDescription = error.errorDescription else { return }
+                        vc.showToast(message: errorDescription)
+                    case .clientError:
+                        print("API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인")
+                    default:
+                        print("default")
+                }
             }
             .disposed(by: disposeBag)
 

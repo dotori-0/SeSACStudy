@@ -61,11 +61,13 @@ class LogInViewController: BaseViewController {
             .asDriver()
             .drive(with: self) { vc, _ in
                 if isValid {
-//                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)  // for service
-//                    vc.logInAndPush()  // for service 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
-                    vc.refreshIDToken {
-                        vc.logInAndPush()
-                    }
+                    vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)  // for service
+                    vc.logInAndPush()  // for service 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
+                    
+                    // for test
+//                    vc.refreshIDToken {
+//                        vc.logInAndPush()
+//                    }
                 } else {
                     vc.showToast(message: String.LogIn.wrongCodeFormat)
                 }

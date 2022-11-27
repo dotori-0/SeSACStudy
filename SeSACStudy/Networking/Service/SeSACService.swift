@@ -54,6 +54,7 @@ extension SeSACService: TargetType {
     var headers: [String: String]? {
         return ["idtoken": UserDefaults.idToken,
                 "Content-Type": "application/x-www-form-urlencoded"]
+//        return ["idtoken": UserDefaults.idToken]
       }
     
     var task: Moya.Task {
@@ -61,13 +62,22 @@ extension SeSACService: TargetType {
             case .logIn:
                 return .requestPlain
             case .signUp(let phoneNumber, let FCMToken, let nickname, let birthDate, let email, let gender):
+                
+                print("🥲 idToken: \(UserDefaults.idToken)")
+                print("🥲 전화번호: \(phoneNumber)")
+                print("🥲 FCMToken: \(FCMToken)")
+                print("🥲 닉네임: \(nickname)")
+                print("🥲 생년월일: \(birthDate)")
+                print("🥲 이메일: \(email)")
+                print("🥲 성별: \(gender)")
+                
                 let parameters: [String: Any] = ["phoneNumber": phoneNumber,
-                                                "FCMtoken": FCMToken,
+                                                 "FCMtoken": FCMToken,
                                                  "nick": nickname,
                                                  "birth": birthDate,
                                                  "email": email,
                                                  "gender": gender]
-                return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: parameters, encoding: URLEncoding.httpBody)  // URLEncoding.queryString 시 501 에러
             case .withdraw:
                 return .requestPlain
             case .updateFCMToken(let FCMToken):
@@ -80,6 +90,14 @@ extension SeSACService: TargetType {
                                                  "gender": gender,
                                                  "study": study]
                 return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        }
+    }
+    
+    var validationType: ValidationType {
+        switch self {
+            case .signUp:
+                return .customCodes([200])
+            default: return .successCodes
         }
     }
 }

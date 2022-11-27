@@ -10,7 +10,7 @@ import Foundation
 struct APIURL {
     private init() { }
     
-    static let baseURL = "http://api.sesac.co.kr:1207"
+    static let baseURL = "http://api.sesac.co.kr:1210"
     
     enum v1: String {
 //        static let user = "/v1/user"

@@ -93,9 +93,9 @@ class VerificationViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-//        output.number
-//            .drive(verificationView.userInputView.textField.rx.text)
-//            .disposed(by: disposeBag)
+        output.number
+            .drive(verificationView.userInputView.textField.rx.text)
+            .disposed(by: disposeBag)
 
         output.verifyButtonTap
             .withUnretained(self)
@@ -107,10 +107,14 @@ class VerificationViewController: BaseViewController {
                 
 //                let isValid = BehaviorRelay(value: false)
 //                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
+                
+                let output2 = vc.verificationViewModel.transform(input)
+                
                 if isValid {
                     vc.showToast(message: String.Verification.startVerification, duration: 2.0)
 //                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
-                    vc.verifyPhoneNumber(output.prefixedNumber)  // 국가번호를 붙인 번호
+//                    vc.verifyPhoneNumber(output.prefixedNumber)  // 국가번호를 붙인 번호
+                    vc.verifyPhoneNumber(output2.prefixedNumber)  // 국가번호를 붙인 번호
 //                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
 //                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
                 } else {
@@ -167,8 +171,8 @@ extension VerificationViewController {
     private func verifyPhoneNumber(_ prefixedNumber: String) {
 //        let number = "+447893920177"
 //        let number = "+447893920172"
-        let number = "+15412071596"
-//        let number = "+821055570582"
+//        let number = "+15412071596"
+        let number = "+447893920175"
         print("🇰🇷 국가번호 장착번호: \(prefixedNumber)")
         
         PhoneAuthProvider.provider()

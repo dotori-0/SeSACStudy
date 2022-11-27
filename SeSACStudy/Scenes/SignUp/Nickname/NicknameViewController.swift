@@ -13,6 +13,7 @@ class NicknameViewController: BaseViewController {
     private let nicknameView = NicknameView()
     private let nicknameViewModel = NicknameViewModel()
     private let disposeBag = DisposeBag()
+    static var isFromGenderVC = false
 
     // MARK: - Life Cycle
     override func loadView() {
@@ -24,6 +25,13 @@ class NicknameViewController: BaseViewController {
 
         nicknameView.userInputView.textField.becomeFirstResponder()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("from genderVC? \(NicknameViewController.isFromGenderVC)")
+        if NicknameViewController.isFromGenderVC {
+            showToast(message: String.Nickname.unavailableNickname)
+        }
     }
     
     // MARK: - Binding

@@ -14,6 +14,7 @@ final class GenderViewModel {
     let account = PublishSubject<Void>()
     
     func signUp() {
+        print(#function)
         APIManager.signUp { [weak self] result in
             switch result {
                 case .success():
