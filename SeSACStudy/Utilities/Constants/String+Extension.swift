@@ -78,4 +78,20 @@ extension String {
         static let signUpSucceeded = "회원가입에 성공했습니다./n홈 화면으로 이동합니다."
         static let existingUser = "이미 가입된 유저입니다./n홈 화면으로 이동합니다"
     }
+    
+    enum Home {
+        static let home = "홈"
+    }
+    
+    enum Shop {
+        static let sesacShop = "새싹샵"
+    }
+    
+    enum Chats {
+        static let friends = "새싹친구"
+    }
+    
+    enum MyInfo {
+        static let myInfo = "내 정보"
+    }
 }

@@ -22,6 +22,7 @@ class EmailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailView.userInputView.textField.text = "a@gmail.com"
         emailView.userInputView.textField.becomeFirstResponder()
         bind()
     }
@@ -45,6 +46,7 @@ class EmailViewController: BaseViewController {
                 if isValid {
                     // 성별 선택 뷰로 넘기기
                     NewUser.shared.email = vc.emailView.userInputView.textField.text!
+                    vc.transition(to: GenderViewController())
                 } else {
                     vc.showToast(message: String.Email.wrongEmailFormat)
                 }
