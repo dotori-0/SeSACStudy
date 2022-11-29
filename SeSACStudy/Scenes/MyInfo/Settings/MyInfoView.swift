@@ -30,6 +30,7 @@ final class MyInfoView: BaseView, CellRegistrationType {
     }
     
     override func setHierarchy() {
+        collectionView.delegate = self
         addSubview(collectionView)
     }
     
@@ -69,13 +70,24 @@ final class MyInfoView: BaseView, CellRegistrationType {
         return cellRegistration
     }
     
-//    private
+    private func createSettingCellRegistration() -> SettingsItemCellRegistration {
+        let cellRegistration = SettingsItemCellRegistration { cell, indexPath, item in
+            var content = cell.defaultContentConfiguration()
+            content.image = item.image
+            content.attributedText = item.title.addAttributes(font: .Title2_R16,
+                                                              textColor: Asset.Colors.BlackWhite.black.color)
+            cell.contentConfiguration = content
+        }
+        
+        return cellRegistration
+    }
     
     private func configureDataSource() {
         let usernameCellRegistration = createUsernameCellRegistration()
+        let settingCellRegistration = createSettingCellRegistration()
   
         // 방법 1
-        dataSource = UICollectionViewDiffableDataSource<Section, Settings.SettingsItem>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<Section, Settings.SettingsItem>(collectionView: collectionView) { collectionView, indexPath, item in
   
         // 방법 2
 //        dataSource = UICollectionViewDiffableDataSource<Section, Settings.SettingsItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
@@ -91,9 +103,9 @@ final class MyInfoView: BaseView, CellRegistrationType {
 
             switch section {
                 case .user:
-                    return collectionView.dequeueConfiguredReusableCell(using: usernameCellRegistration, for: indexPath, item: "김새싹")
+                    return collectionView.dequeueConfiguredReusableCell(using: usernameCellRegistration, for: indexPath, item: item.title)
                 case .settings:
-                    return collectionView.dequeueConfiguredReusableCell(using: usernameCellRegistration, for: indexPath, item: "김새싹2")
+                    return collectionView.dequeueConfiguredReusableCell(using: settingCellRegistration, for: indexPath, item: item)
             }
         }
     }
@@ -105,10 +117,35 @@ final class MyInfoView: BaseView, CellRegistrationType {
         dataSource.apply(snapshot)
 //        dataSource.apply(snapshot, animatingDifferences: false)  // default가 true
         
+//        let usernameItems = ["김새싹"]
+//        var usernameSnapshot = NSDiffableDataSourceSectionSnapshot<String>()
         let usernameItems = [Settings.SettingsItem(title: "김새싹")]
         var usernameSnapshot = NSDiffableDataSourceSectionSnapshot<Settings.SettingsItem>()
         usernameSnapshot.append(usernameItems)
         dataSource.apply(usernameSnapshot, to: .user)
+        
+        let settingItems = Settings.items
+        var settingSnapshot = NSDiffableDataSourceSectionSnapshot<Settings.SettingsItem>()
+        settingSnapshot.append(settingItems)
+        dataSource.apply(settingSnapshot, to: .settings)
+    }
+}
+
+extension MyInfoView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section) else {
+            print("Cannot find section in didSelectItemAt")
+            return
+        }
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        if section == .settings {
+            makeToast(String.MyInfo.workInProgress, duration: 0.5, position: .center)
+        } else {
+            // 정보 관리 화면으로 전환
+            makeToast("정보 관리 화면으로 전환", duration: 0.5, position: .center)
+        }
     }
 }
 

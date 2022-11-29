@@ -93,5 +93,6 @@ extension String {
     
     enum MyInfo {
         static let myInfo = "내 정보"
+        static let workInProgress = "준비중입니다."
     }
 }
