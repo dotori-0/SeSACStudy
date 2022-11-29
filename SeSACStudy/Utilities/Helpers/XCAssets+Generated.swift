@@ -58,6 +58,16 @@ internal enum Asset {
     internal static let splashLogo = ImageAsset(name: "splash_logo")
     internal static let splashText = ImageAsset(name: "splash_text")
   }
+  internal enum MyInfo {
+    internal enum Settings {
+      internal static let faq = ImageAsset(name: "faq")
+      internal static let notice = ImageAsset(name: "notice")
+      internal static let permit = ImageAsset(name: "permit")
+      internal static let profileImg = ImageAsset(name: "profile_img")
+      internal static let qna = ImageAsset(name: "qna")
+      internal static let settingAlarm = ImageAsset(name: "setting_alarm")
+    }
+  }
   internal enum NavigationBar {
     internal static let arrow = ImageAsset(name: "arrow")
   }

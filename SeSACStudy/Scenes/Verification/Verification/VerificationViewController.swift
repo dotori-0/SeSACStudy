@@ -16,7 +16,6 @@ class VerificationViewController: BaseViewController {
     private let verificationView = VerificationView()
     private let verificationViewModel = VerificationViewModel()
     private let disposeBag = DisposeBag()
-//    var numCount = 0
 
     // MARK: - Life Cycle
     override func loadView() {
@@ -26,7 +25,6 @@ class VerificationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setNavigationBar()
         bind()
 //        bindTextFieldWithCALayer()  // CALayer
         
@@ -45,6 +43,7 @@ class VerificationViewController: BaseViewController {
     
     // MARK: - Setting Methods
     private func setNavigationBar() {
+        print(self, "navigationController: \(navigationController)")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
         
@@ -53,9 +52,7 @@ class VerificationViewController: BaseViewController {
 //        navigationItem.scrollEdgeAppearance = nil
 //        UINavigationBar.appearance().scrollEdgeAppearance = nil  // 안되는 이유? ❔
         
-//        let backBarButtonItem = UIBarButtonItem(image: Asset.NavigationBar.arrow.image,
-//                                                style: .plain, target: self, action: nil)
-//        backBarButtonItem.tintColor = Asset.Colors.BlackWhite.black.color
+
 //        navigationItem.backBarButtonItem = backBarButtonItem  // 다음 VC에서 black backBarButtonItem이 나오지만, < 가 같이 나옴
 //        navigationItem.leftBarButtonItem = backBarButtonItem  // 현재 VC에서 backBarButtonItem이 나오고, 다음 VC에서는 기존 < Back이 나옴
     }
@@ -85,7 +82,7 @@ class VerificationViewController: BaseViewController {
         
         // 입력한 번호의 유효성에 따라 버튼 컬러 바꾸기
         output.isValidNumber
-        //            .bind(to: verificationView.verifyButton.rx.isActivated)  // rx 객체라면 self가 필요하지 않지만 일반 객체라면 withUnretained(self) 나 [weak self]를 통해 self의 객체로 접근? ❔
+        //            .bind(to: verificationView.verifyButton.rx.isActivated)  // rx 객체라면 self가 필요하지 않지만 일반 객체라면 withUnretained(self) 나 [weak self]를 통해 self의 객체로 접근헤야 하는 것..? ❔
             .withUnretained(self)
             .bind(onNext: { (vc, isValidNumber) in
                 vc.verificationView.button.isActivated = isValidNumber
@@ -101,24 +98,18 @@ class VerificationViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                /// 로그인 화면으로 바로 넘어가기 위한 테스트 코드
-//                vc.transition(to: LogInViewController())
-                
-                
 //                let isValid = BehaviorRelay(value: false)
 //                output.isValidNumber.bind(to: isValid).disposed(by: vc.disposeBag)
                 
-                let output2 = vc.verificationViewModel.transform(input)
+                let output2 = vc.verificationViewModel.transform(input)  // 다시 바꿔야만 텍스트필드 텍스트에 국가번호 붙은 걸 사용할 수 있는 이유는.. 그냥 output2.prefixedNumber이 rx 객체가 아니라 String 이라서..?❔
                 
                 if isValid {
                     vc.showToast(message: String.Verification.startVerification, duration: 2.0)
-//                    vc.verifyPhoneNumber(vc.verificationView.userInputView.textField.text!)
 //                    vc.verifyPhoneNumber(output.prefixedNumber)  // 국가번호를 붙인 번호
                     vc.verifyPhoneNumber(output2.prefixedNumber)  // 국가번호를 붙인 번호
 //                    vc.verifyFictionalPhoneNumber()  // Firebase 가상번호 테스트
-//                    vc.verifyPhoneNumberWithPush()  // 실제 가상번호 테스트
+//                    vc.verifyPhoneNumberWithPush()   // 실제 가상번호 테스트
                 } else {
-//                    vc.verificationView.makeToast(String.Verification.wrongNumberFormat, duration: 0.5, position: .center)
                     vc.showToast(message: String.Verification.wrongNumberFormat)
                 }
             }
@@ -172,7 +163,10 @@ extension VerificationViewController {
 //        let number = "+447893920177"
 //        let number = "+447893920172"
 //        let number = "+15412071596"
-        let number = "+447893920175"
+//        let number = "+447893920175"  // 막으신듯?
+//        let number = "+447893920162"
+//        let number = "+447893920174"  // 막힘
+        let number = "+821041510569"
         print("🇰🇷 국가번호 장착번호: \(prefixedNumber)")
         
         PhoneAuthProvider.provider()
@@ -199,7 +193,6 @@ extension VerificationViewController {
               let logInVC = LogInViewController()
               logInVC.verificationID = verificationID
               
-//              self?.navigationController?.pushViewController(logInVC, animated: true)
               self?.transition(to: logInVC)
           }
     }
@@ -232,8 +225,8 @@ extension VerificationViewController {
                 print(error)
                 return
               }
-//              _user = authData.user
-                print("☺️ \(authData!.user)")
+
+                print("☺️ \(authData?.user)")
             }
         }
     }
@@ -260,7 +253,6 @@ extension VerificationViewController {
                 return
             }
 
-//              self?.verificationView.makeToast(String.Verification.startVerification, duration: 0.5, position: .center)
             self?.showToast(message: String.Verification.startVerification)
         }
     }

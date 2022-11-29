@@ -23,7 +23,7 @@ class NicknameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nicknameView.userInputView.textField.text = "고래밥"
+        nicknameView.userInputView.textField.text = "돌고레밥"
         nicknameView.userInputView.textField.becomeFirstResponder()
         bind()
     }

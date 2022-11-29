@@ -41,10 +41,6 @@ class BirthDateView: VerificationAndSignUpView {
         setDatePicker()
         setPlaceholders()
         
-//        [yearInputView, monthInputView, dayInputView].forEach { view in
-//            view.backgroundColor = .systemPink
-//        }
-        
         [yearLabel, monthLabel, dayLabel].forEach { view in
 //            view.backgroundColor = .systemYellow
             view.setContentHuggingPriority(. required, for: .horizontal)

@@ -13,7 +13,6 @@ final class AppAppearance {
     static var navigationBarAppearance: UINavigationBarAppearance {
         let backButtonAppearance = UIBarButtonItemAppearance()
         backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-//        let a = UINavigationBar.appearance().back
         
         let appearance = UINavigationBarAppearance()
         

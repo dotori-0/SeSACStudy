@@ -61,8 +61,9 @@ class LogInViewController: BaseViewController {
             .asDriver()
             .drive(with: self) { vc, _ in
                 if isValid {
+//                    vc.transition(to: TabBarController())
+                    
                     vc.signInToFirebase(verificationCode: vc.logInView.userInputView.textField.text!)  // for service
-                    vc.logInAndPush()  // for service 토큰 만료 시 토큰 갱신 후 닉네임 view로 push 테스트 👻
                     
                     // for test
 //                    vc.refreshIDToken {
@@ -96,7 +97,9 @@ class LogInViewController: BaseViewController {
                 }
             } else {
                 print("⭕️ 성공", authResult.debugDescription)
-                self?.refreshIDToken()
+                self?.refreshIDToken {
+                    self?.logInAndPush()
+                }
             }
             print("❎", error.debugDescription)
             
@@ -114,9 +117,11 @@ class LogInViewController: BaseViewController {
         
         logInViewModel.user
 //            .withUnretained(self)
-            .subscribe(with: self) { vc, user in
+            .subscribe(with: self) { vc, user in  // onError에서도 vc 쓰기 위해서는 with: self로 해야 하는 것이 맞는지?❔
                 print(user)
                 // 홈화면으로 이동
+//                vc.transition(to: TabBarController())
+                vc.setRootVCToTabBarController()
             } onError: { vc, error in
                 print("🥚 logInViewModel onError")
                 print("🥚", error.localizedDescription)
@@ -130,9 +135,9 @@ class LogInViewController: BaseViewController {
                 switch error {
                     case .firebaseTokenError:
                         // fetchIDToken 다시 실행?👻
-//                        vc.refreshIDToken {
-//                            vc.logInAndPush()
-//                        }
+                        vc.refreshIDToken {
+                            vc.logInAndPush()
+                        }
                         print("firebaseTokenError")
                     case .unregisteredUser:
                         print("unregisteredUser")

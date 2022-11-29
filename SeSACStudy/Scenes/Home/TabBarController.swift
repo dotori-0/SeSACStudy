@@ -11,13 +11,24 @@ class TabBarController: UITabBarController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        print("navigationController: \(navigationController)")
+//        print("tabBarController: \(tabBarController)")
+//        print("tabBarController?.navigationController: \(tabBarController?.navigationController)")
+
+//        navigationItem.hidesBackButton = true
+//        navigationController!.isNavigationBarHidden = true
+//        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.scrollEdgeAppearance = nil
 
         let homeVC = MainViewController()
         let homeNC = UINavigationController(rootViewController: homeVC)
+        
         homeNC.tabBarItem = UITabBarItem(title: String.Home.home,
                                          image: Asset.TabBar.Default.home.image,
 //                                         selectedImage: Asset.TabBar.Selected.home.image.withRenderingMode(.automatic))
                                          selectedImage: Asset.TabBar.Selected.home.image)
+//        homeNC.navigationBar.scrollEdgeAppearance = nil
 //        homeNC.tabBarItem.image = Asset.TabBar.Default.home.image
 //        homeNC.tabBarItem.selectedImage = Asset.TabBar.Selected.home.image
         
@@ -40,8 +51,21 @@ class TabBarController: UITabBarController {
                                          selectedImage: Asset.TabBar.Selected.myInfo.image)
         
         setViewControllers([homeNC, shopNC, chatsNC, myInfoNC], animated: true)
-        selectedIndex = 0
+        selectedIndex = 3
         
         view.tintColor = Asset.Colors.BrandColor.green.color
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("navigationController: \(navigationController)")
+        print("tabBarController: \(tabBarController)")
+        print("tabBarController?.navigationController: \(tabBarController?.navigationController)")
+
+        navigationItem.hidesBackButton = true
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.scrollEdgeAppearance = nil
     }
 }

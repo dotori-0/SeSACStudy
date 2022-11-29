@@ -88,27 +88,30 @@ class GenderViewController: BaseViewController {
             .subscribe(with: self) { vc, _ in
                 // 성공 응답 → 홈 화면 전환
                 print("account onNext")
-                vc.showToast(message: String.Gender.signUpSucceeded)
-                vc.transition(to: MainViewController())
+                vc.showToast(message: String.Gender.signUpSucceeded) { [weak self] _ in
+//                    self?.transition(to: TabBarController())
+                    self?.setRootVCToTabBarController()
+                }
             } onError: { vc, error in  // 넘겨주는 쪽(onError)이 SeSACError여도 받는 쪽에서 그냥 error인 이유 및 해결 방법 ❔
                 guard let error = error as? SeSACError else {
                     print("SeSACError로 변환 실패")
                     return
                 }
                 
+                print(error)
+                print(error.errorDescription)
+                
                 switch error {
                     case .existingUser:
                         // 가입 시도 시 이미 가입한 유저의 경우 토스트 띄우고 홈 화면으로 전환
-                        print(error.errorDescription)
-                        vc.showToast(message: String.Gender.existingUser)
-                        vc.transition(to: MainViewController())
+                        vc.showToast(message: String.Gender.existingUser) { [weak self] _ in
+        //                    self?.transition(to: TabBarController())
+                            self?.setRootVCToTabBarController()
+                        }
                     case .unavailableNickname:
-                        print(error.errorDescription)
                         NicknameViewController.isFromGenderVC = true
                         vc.navigationController?.popToViewController(ofClass: NicknameViewController.self)
-                        
                     case .firebaseTokenError:
-                        print(error.errorDescription)
                         vc.refreshIDToken {                            
                             vc.signUpAndPush()
                         }

@@ -159,8 +159,6 @@ final class VerificationViewModel: InputOutput {
 //        let prefixedNumber = PublishRelay<String>()  // prefixedNumber.values: AsyncThrowingStream<String, Error> { get }
         
         number.map {
-//            let a = $0.dropFirst()
-//            let b = String($0.dropFirst())
             print("$0: \($0)")
             print("$0.dropFirst(): \($0.dropFirst())")
             return "+82\(String($0.dropFirst()))"

@@ -8,11 +8,22 @@
 import UIKit
 
 class MyInfoViewController: BaseViewController {
+    // MARK: - Properties
+    let myInfoView = MyInfoView()
+    
     // MARK: - Life Cycle
+    override func loadView() {
+        view = myInfoView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setNavigationBar()
+    }
+    
+    private func setNavigationBar() {
+        title = String.MyInfo.myInfo
     }
     
     override func viewWillAppear(_ animated: Bool) {
