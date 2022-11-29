@@ -61,6 +61,7 @@ internal enum Asset {
   internal enum MyInfo {
     internal enum Settings {
       internal static let faq = ImageAsset(name: "faq")
+      internal static let moreArrow = ImageAsset(name: "more_arrow")
       internal static let notice = ImageAsset(name: "notice")
       internal static let permit = ImageAsset(name: "permit")
       internal static let profileImg = ImageAsset(name: "profile_img")

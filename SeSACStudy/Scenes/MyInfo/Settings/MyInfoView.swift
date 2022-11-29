@@ -45,15 +45,24 @@ final class MyInfoView: BaseView, CellRegistrationType {
         return layout  // UICollectionViewCompositionalLayout
     }
     
+    private func createAccessories() -> [UICellAccessory] {
+        let arrow = UIImageView(image: Asset.MyInfo.Settings.moreArrow.image)
+        let configuration = UICellAccessory.CustomViewConfiguration(customView: arrow,
+                                                                    placement: .trailing())
+        let accessory = UICellAccessory.customView(configuration: configuration)
+        return [accessory]
+    }
+    
     private func createUsernameCellRegistration() -> StringCellRegistration {
-        let cellRegistration = StringCellRegistration { cell, indexPath, itemIdentifier in
+        let cellRegistration = StringCellRegistration { [weak self] cell, indexPath, itemIdentifier in
+            guard let self = self else { return }
 //            var content = UIListContentConfiguration.cell()
 //            var content = UIListContentConfiguration.valueCell()
             var content = cell.defaultContentConfiguration()  // 위 두 가지와 차이점이 뭔지? ❔
             content.image = Asset.MyInfo.Settings.profileImg.image
             content.attributedText = "김새싹".addAttributes(font: .Title1_M16,
                                                          textColor: Asset.Colors.BlackWhite.black.color)
-            
+            cell.accessories = self.createAccessories()
             cell.contentConfiguration = content
         }
         
