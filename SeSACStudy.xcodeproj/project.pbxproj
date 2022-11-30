@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A176DC6293631B3004EC5AE /* AddAttributes+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DC5293631B3004EC5AE /* AddAttributes+Extension.swift */; };
 		0A176DC8293634D0004EC5AE /* CellRegistrationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */; };
+		0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */; };
+		0A176DD02937BC5C004EC5AE /* InfoManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */; };
 		0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE582291A3B65000C63E3 /* AppDelegate.swift */; };
 		0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */; };
 		0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE588291A3B65000C63E3 /* Main.storyboard */; };
@@ -115,6 +117,8 @@
 /* Begin PBXFileReference section */
 		0A176DC5293631B3004EC5AE /* AddAttributes+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddAttributes+Extension.swift"; sourceTree = "<group>"; };
 		0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationType.swift; sourceTree = "<group>"; };
+		0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementViewController.swift; sourceTree = "<group>"; };
+		0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementView.swift; sourceTree = "<group>"; };
 		0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2FE582291A3B65000C63E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +230,15 @@
 				0AFC7F2E2934926100CBACA1 /* MyInfoView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		0A176DCC2937B719004EC5AE /* InfoManagement */ = {
+			isa = PBXGroup;
+			children = (
+				0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */,
+				0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */,
+			);
+			path = InfoManagement;
 			sourceTree = "<group>";
 		};
 		0A2FE576291A3B65000C63E3 = {
@@ -405,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				0A176DC92936384D004EC5AE /* Settings */,
+				0A176DCC2937B719004EC5AE /* InfoManagement */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -685,6 +699,7 @@
 			files = (
 				0AC03A4B291CF60600CBE29C /* InputTextField.swift in Sources */,
 				0AC03A43291C1AFB00CBE29C /* ThirdViewController.swift in Sources */,
+				0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */,
 				0A595068293368CB00074AA4 /* ShopViewController.swift in Sources */,
 				0A4EA7AE2924D581004DB24F /* NicknameViewModel.swift in Sources */,
 				0AC03A41291C1AE300CBE29C /* SecondViewController.swift in Sources */,
@@ -709,6 +724,7 @@
 				0AFC7F2F2934926100CBACA1 /* MyInfoView.swift in Sources */,
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
 				0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */,
+				0A176DD02937BC5C004EC5AE /* InfoManagementView.swift in Sources */,
 				0A2FE5FF291C052D000C63E3 /* String+Extension.swift in Sources */,
 				0AFBF514292CC51000DBF495 /* GenderSelectionView.swift in Sources */,
 				0AC03A59291E17CF00CBE29C /* VerificationViewModel.swift in Sources */,
