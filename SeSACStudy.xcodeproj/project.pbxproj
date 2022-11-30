@@ -11,6 +11,7 @@
 		0A176DC8293634D0004EC5AE /* CellRegistrationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */; };
 		0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */; };
 		0A176DD02937BC5C004EC5AE /* InfoManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */; };
+		0A176DD22937C1C9004EC5AE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */; };
 		0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE582291A3B65000C63E3 /* AppDelegate.swift */; };
 		0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */; };
 		0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE588291A3B65000C63E3 /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationType.swift; sourceTree = "<group>"; };
 		0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementViewController.swift; sourceTree = "<group>"; };
 		0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementView.swift; sourceTree = "<group>"; };
+		0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2FE582291A3B65000C63E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				0A2FE5F4291BFC28000C63E3 /* BaseViewController.swift */,
 				0A2FE5F6291BFC70000C63E3 /* BaseView.swift */,
 				0AC03A4E291CFC8D00CBE29C /* BaseLabel.swift */,
+				0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				0AF69CC6292B9BFF0095E9D8 /* EmailView.swift in Sources */,
 				0A176DC8293634D0004EC5AE /* CellRegistrationType.swift in Sources */,
 				0A50195629227432001BB094 /* APIURL.swift in Sources */,
+				0A176DD22937C1C9004EC5AE /* BaseTableViewCell.swift in Sources */,
 				0AFBF510292CC33400DBF495 /* GenderView.swift in Sources */,
 				0A59506C2933691100074AA4 /* MyInfoViewController.swift in Sources */,
 				0A5950662933685C00074AA4 /* TabBarController.swift in Sources */,
