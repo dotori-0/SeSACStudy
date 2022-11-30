@@ -41,9 +41,50 @@ final class MyInfoView: BaseView, CellRegistrationType {
     }
     
     private func createLayout() -> UICollectionViewLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-        return layout  // UICollectionViewCompositionalLayout
+        let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
+            
+            let section: NSCollectionLayoutSection
+            
+            if sectionKind == .user {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -1, bottom: 5, trailing: -1)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.25))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+//                section.interGroupSpacing = 10
+//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+//                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+
+//                let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+//                section = .list(using: configuration, layoutEnvironment: layoutEnvironment)
+            } else if sectionKind == .settings {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -1, bottom: 5, trailing: -1)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.18))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+            } else {
+                fatalError("Unknown section!")
+            }
+
+
+            
+            return section
+        }
+        
+        return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
+        
+//        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+//        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+//        return layout  // UICollectionViewCompositionalLayout
     }
     
     private func createAccessories() -> [UICellAccessory] {
@@ -65,6 +106,11 @@ final class MyInfoView: BaseView, CellRegistrationType {
                                                          textColor: Asset.Colors.BlackWhite.black.color)
             cell.accessories = self.createAccessories()
             cell.contentConfiguration = content
+    
+//            var background = UIBackgroundConfiguration.listPlainCell()
+//            background.strokeColor = .systemPink
+//            background.strokeWidth = 1.0 / cell.traitCollection.displayScale
+//            cell.backgroundConfiguration = background
         }
         
         return cellRegistration
@@ -77,6 +123,12 @@ final class MyInfoView: BaseView, CellRegistrationType {
             content.attributedText = item.title.addAttributes(font: .Title2_R16,
                                                               textColor: Asset.Colors.BlackWhite.black.color)
             cell.contentConfiguration = content
+            
+            
+//            var background = UIBackgroundConfiguration.listPlainCell()
+//            background.strokeColor = .systemGreen
+//            background.strokeWidth = 1.0 / cell.traitCollection.displayScale
+//            cell.backgroundConfiguration = background
         }
         
         return cellRegistration
