@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstViewController: BaseViewController {
+final class FirstViewController: BaseViewController {
     // MARK: - Properties
     let pageView = PageView()
 

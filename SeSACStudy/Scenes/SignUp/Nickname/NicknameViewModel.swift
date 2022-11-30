@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class NicknameViewModel: InputOutput {
+final class NicknameViewModel: InputOutput {
     struct Input {
         let nickname: ControlProperty<String?>
     }

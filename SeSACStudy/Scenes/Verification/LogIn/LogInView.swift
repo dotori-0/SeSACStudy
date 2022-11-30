@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInView: VerificationAndSignUpView {
+final class LogInView: VerificationAndSignUpView {
     // MARK: - Properties
     let resendButton = GlobalButton(title: String.LogIn.resend)
     

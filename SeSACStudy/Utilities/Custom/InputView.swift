@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class InputView: BaseView {
+final class InputView: BaseView {
     // MARK: - Properties
 //    private var isNumberPad: Bool?
     private var allowsSelection: Bool?

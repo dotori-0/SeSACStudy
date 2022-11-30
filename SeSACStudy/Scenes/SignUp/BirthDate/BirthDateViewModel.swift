@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class BirthDateViewModel: InputOutput {
+final class BirthDateViewModel: InputOutput {
     struct Input {
         let date: ControlProperty<Date>
     }

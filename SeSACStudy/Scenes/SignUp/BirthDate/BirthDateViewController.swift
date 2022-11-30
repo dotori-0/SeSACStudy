@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class BirthDateViewController: BaseViewController {
+final class BirthDateViewController: BaseViewController {
     // MARK: - Properties
     private let birthDateView = BirthDateView()
     private let birthDateViewModel = BirthDateViewModel()

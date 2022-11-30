@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BirthDateView: VerificationAndSignUpView {
+final class BirthDateView: VerificationAndSignUpView {
     // MARK: - Properties
     let yearInputView = InputView(allowsSelection: false)
     let yearLabel = SignUpLabel(text: String.BirthDate.year)

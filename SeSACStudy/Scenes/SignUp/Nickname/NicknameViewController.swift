@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class NicknameViewController: BaseViewController {
+final class NicknameViewController: BaseViewController {
     // MARK: - Properties
     private let nicknameView = NicknameView()
     private let nicknameViewModel = NicknameViewModel()

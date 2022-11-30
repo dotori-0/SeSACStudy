@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoManagementViewController: BaseViewController {
+final class InfoManagementViewController: BaseViewController {
     // MARK: - Properties
     let infoManagementView = InfoManagementView()
     

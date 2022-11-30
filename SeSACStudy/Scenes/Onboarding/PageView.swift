@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageView: BaseView {
+final class PageView: BaseView {
     // MARK: - Properties
     let label = OnboardingLabel()
     let imageView = UIImageView()

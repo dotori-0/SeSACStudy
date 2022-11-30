@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenderView: VerificationAndSignUpView {
+final class GenderView: VerificationAndSignUpView {
     // MARK: - Properties
     let detailsLabel = SignUpLabel(text: String.Gender.detailedExplanation,
                                    isGray: true)

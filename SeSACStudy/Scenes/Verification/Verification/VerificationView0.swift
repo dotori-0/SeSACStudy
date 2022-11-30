@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VerificationView0: BaseView {
+final class VerificationView0: BaseView {
     // MARK: - Properties
     private let label = VerificationAndSignUpLabel(text: String.Verification.inputPhoneNumber)
     let phoneNumberTextField = InputTextField(placeholder: String.Verification.phoneNumberPlaceholder).then {

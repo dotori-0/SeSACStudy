@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NicknameView: VerificationAndSignUpView {
+final class NicknameView: VerificationAndSignUpView {
     // MARK: - Setting Methods
     override func setUI() {
         super.setText(labelText: String.Nickname.inputNickname,

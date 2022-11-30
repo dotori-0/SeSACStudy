@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingLabel: BaseLabel {
+final class OnboardingLabel: BaseLabel {
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)

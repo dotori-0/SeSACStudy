@@ -8,7 +8,7 @@
 import Foundation
 import RxCocoa
 
-class EmailViewModel: InputOutput {
+final class EmailViewModel: InputOutput {
     struct Input {
         let email: ControlProperty<String?>
     }

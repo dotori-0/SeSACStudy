@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoSelectionTextField: NoActionTextField {
+final class NoSelectionTextField: NoActionTextField {
     override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
         return []
     }

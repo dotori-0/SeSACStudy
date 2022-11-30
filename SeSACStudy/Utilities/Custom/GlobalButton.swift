@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GlobalButton: UIButton {
+final class GlobalButton: UIButton {
     // MARK: - Properties
     var title: String?
     var buttonConfiguration = UIButton.Configuration.filled()

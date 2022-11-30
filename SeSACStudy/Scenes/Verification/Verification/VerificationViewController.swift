@@ -11,7 +11,7 @@ import FirebaseAuth
 import RxCocoa
 import RxSwift
 
-class VerificationViewController: BaseViewController {
+final class VerificationViewController: BaseViewController {
     // MARK: - Properties
     private let verificationView = VerificationView()
     private let verificationViewModel = VerificationViewModel()

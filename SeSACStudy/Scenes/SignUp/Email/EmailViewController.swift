@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class EmailViewController: BaseViewController {
+final class EmailViewController: BaseViewController {
     // MARK: - Properties
     private let emailView = EmailView()
     private let emailViewModel = EmailViewModel()

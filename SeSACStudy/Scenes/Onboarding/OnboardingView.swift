@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingView: BaseView {
+final class OnboardingView: BaseView {
     // MARK: - Properties
     let startButton = GlobalButton(title: .Onboarding.start)
     private let pageView = UIView()//.then { $0.backgroundColor = .systemBrown }

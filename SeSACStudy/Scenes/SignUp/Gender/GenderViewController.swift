@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class GenderViewController: BaseViewController {
+final class GenderViewController: BaseViewController {
     // MARK: - Properties
     private let genderView = GenderView()
     private let genderViewModel = GenderViewModel()

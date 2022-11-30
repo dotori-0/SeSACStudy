@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenderSelectionView: BaseView {
+final class GenderSelectionView: BaseView {
     // MARK: - Properties
     let button = UIButton()
     var gender: Gender?

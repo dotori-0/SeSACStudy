@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputTextField: UITextField {
+final class InputTextField: UITextField {
     // MARK: - Properties
 //    var placeholder: String?
     let bottomLine = CALayer()

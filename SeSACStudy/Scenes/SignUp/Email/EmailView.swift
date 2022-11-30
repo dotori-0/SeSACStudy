@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmailView: VerificationAndSignUpView {
+final class EmailView: VerificationAndSignUpView {
     // MARK: - Properties
     let detailsLabel = SignUpLabel(text: String.Email.detailedExplanation,
                                    isGray: true)

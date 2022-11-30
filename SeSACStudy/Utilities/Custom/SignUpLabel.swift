@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpLabel: BaseLabel {
+final class SignUpLabel: BaseLabel {
     var isGray = false
     
     // MARK: - Initializers

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoManagementView: BaseView {
+final class InfoManagementView: BaseView {
     // MARK: - Properties
 //    let tableView = UITableView().then {
 //        $0.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)

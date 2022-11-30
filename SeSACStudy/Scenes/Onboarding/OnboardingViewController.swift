@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class OnboardingViewController: BaseViewController {
+final class OnboardingViewController: BaseViewController {
     // MARK: - Properties
     private let onboardingView = OnboardingView()
     private let disposeBag = DisposeBag()

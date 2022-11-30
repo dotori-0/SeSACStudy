@@ -11,7 +11,7 @@ import FirebaseAuth
 import RxCocoa
 import RxSwift
 
-class LogInViewController: BaseViewController {
+final class LogInViewController: BaseViewController {
     // MARK: - Properties
     var verificationID = ""
     private let logInView = LogInView()

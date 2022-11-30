@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyInfoViewController: BaseViewController {
+final class MyInfoViewController: BaseViewController {
     // MARK: - Properties
     let myInfoView = MyInfoView()
     

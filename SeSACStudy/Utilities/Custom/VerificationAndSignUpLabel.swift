@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VerificationAndSignUpLabel: BaseLabel {
+final class VerificationAndSignUpLabel: BaseLabel {
     // MARK: - Initializers
     init(text: String = "") {
         super.init(frame: .zero)

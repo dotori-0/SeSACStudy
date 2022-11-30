@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VerificationView: VerificationAndSignUpView {
+final class VerificationView: VerificationAndSignUpView {
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
