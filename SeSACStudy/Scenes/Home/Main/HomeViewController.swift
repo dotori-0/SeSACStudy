@@ -6,22 +6,34 @@
 //
 
 import UIKit
+import NMapsMap
 
-final class MainViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemYellow
+//        view.backgroundColor = .systemYellow
 
         print(self)
+        
+        
+        let naverMapView = NMFNaverMapView()
+        view.addSubview(naverMapView)
+        
+        naverMapView.snp.makeConstraints { make in
+//            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview()
+        }
+        
         
         let backButtonAppearance = UIBarButtonItemAppearance()
         backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
 
         let appearance = UINavigationBarAppearance()
 
-        appearance.backgroundColor = .systemPink
+//        appearance.backgroundColor = .systemPink
         appearance.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         appearance.backButtonAppearance = backButtonAppearance
         appearance.setBackIndicatorImage(Asset.NavigationBar.arrow.image,

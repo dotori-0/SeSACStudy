@@ -47,9 +47,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        rootVC = GenderViewController()
 //        rootVC = LogInViewController()
 //        rootVC = TabBarController()
-        rootVC = InfoManagementViewController()
-        let rootNavVC = UINavigationController(rootViewController: rootVC)
-//        let rootNavVC = TabBarController()
+//        rootVC = InfoManagementViewController()
+//        let rootNavVC = UINavigationController(rootViewController: rootVC)
+        let rootNavVC = TabBarController()
         
         window?.rootViewController = rootNavVC
         window?.makeKeyAndVisible()

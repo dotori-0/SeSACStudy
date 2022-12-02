@@ -21,7 +21,7 @@ final class TabBarController: UITabBarController {
 //        navigationController?.navigationBar.isHidden = true
 //        navigationController?.navigationBar.scrollEdgeAppearance = nil
 
-        let homeVC = MainViewController()
+        let homeVC = HomeViewController()
         let homeNC = UINavigationController(rootViewController: homeVC)
         
         homeNC.tabBarItem = UITabBarItem(title: String.Home.home,
@@ -51,7 +51,7 @@ final class TabBarController: UITabBarController {
                                          selectedImage: Asset.TabBar.Selected.myInfo.image)
         
         setViewControllers([homeNC, shopNC, chatsNC, myInfoNC], animated: true)
-        selectedIndex = 3
+        selectedIndex = 0
         
         view.tintColor = Asset.Colors.BrandColor.green.color
     }

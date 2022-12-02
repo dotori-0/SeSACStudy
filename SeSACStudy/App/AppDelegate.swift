@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import FirebaseCore
+import NMapsMap
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        NMFAuthManager.shared().govClientId = APIKey.clientID
+        NMFAuthManager.shared().clientId = APIKey.clientID
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
