@@ -88,6 +88,7 @@ final class GenderViewController: BaseViewController {
             .subscribe(with: self) { vc, _ in
                 // 성공 응답 → 홈 화면 전환
                 print("account onNext")
+                UserDefaults.isLoggedIn = true
                 vc.showToast(message: String.Gender.signUpSucceeded) { [weak self] _ in
 //                    self?.transition(to: TabBarController())
                     self?.setRootVCToTabBarController()

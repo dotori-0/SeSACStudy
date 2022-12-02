@@ -20,10 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        var rootVC = UIViewController()
+//        var rootVC = UIViewController()
+//        let rootVC: UIViewController  // 이걸로 바꾸기
+        var rootVC: UIViewController
         
         if UserDefaults.isExistingUser {
-            if UserDefaults.idToken.isEmpty {
+            if UserDefaults.isLoggedIn {
+                rootVC = TabBarController()
+            } else if UserDefaults.idToken.isEmpty {
                 rootVC = VerificationViewController()
             } else {
                 rootVC = NicknameViewController()
@@ -41,10 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        rootVC = EmailViewController()
 //        rootVC = NicknameViewController()
 //        rootVC = GenderViewController()
-        rootVC = LogInViewController()
+//        rootVC = LogInViewController()
 //        rootVC = TabBarController()
-//        let rootNavVC = UINavigationController(rootViewController: rootVC)
-        let rootNavVC = TabBarController()
+        rootVC = InfoManagementViewController()
+        let rootNavVC = UINavigationController(rootViewController: rootVC)
+//        let rootNavVC = TabBarController()
         
         window?.rootViewController = rootNavVC
         window?.makeKeyAndVisible()

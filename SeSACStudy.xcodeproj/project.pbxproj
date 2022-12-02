@@ -12,6 +12,14 @@
 		0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */; };
 		0A176DD02937BC5C004EC5AE /* InfoManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */; };
 		0A176DD22937C1C9004EC5AE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */; };
+		0A176DD8293863D5004EC5AE /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DD7293863D5004EC5AE /* CardTableViewCell.swift */; };
+		0A176DDA29386587004EC5AE /* InfoManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DD929386586004EC5AE /* InfoManagementTableViewCell.swift */; };
+		0A176DDC293877A3004EC5AE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DDB293877A3004EC5AE /* BaseCollectionViewCell.swift */; };
+		0A176DE02938785A004EC5AE /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DDF29387859004EC5AE /* CardCollectionViewCell.swift */; };
+		0A176DE22938788E004EC5AE /* InfoManagementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DE12938788D004EC5AE /* InfoManagementCollectionViewCell.swift */; };
+		0A176DE42938E37A004EC5AE /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DE32938E37A004EC5AE /* GenderCollectionViewCell.swift */; };
+		0A176DE62938FC1E004EC5AE /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DE52938FC1E004EC5AE /* MyGenderView.swift */; };
+		0A176DE82939CE80004EC5AE /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DE72939CE80004EC5AE /* StudyCollectionViewCell.swift */; };
 		0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE582291A3B65000C63E3 /* AppDelegate.swift */; };
 		0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */; };
 		0A2FE58A291A3B65000C63E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2FE588291A3B65000C63E3 /* Main.storyboard */; };
@@ -121,6 +129,14 @@
 		0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementViewController.swift; sourceTree = "<group>"; };
 		0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementView.swift; sourceTree = "<group>"; };
 		0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		0A176DD7293863D5004EC5AE /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		0A176DD929386586004EC5AE /* InfoManagementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementTableViewCell.swift; sourceTree = "<group>"; };
+		0A176DDB293877A3004EC5AE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A176DDF29387859004EC5AE /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A176DE12938788D004EC5AE /* InfoManagementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A176DE32938E37A004EC5AE /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A176DE52938FC1E004EC5AE /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
+		0A176DE72939CE80004EC5AE /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2FE582291A3B65000C63E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -239,8 +255,31 @@
 			children = (
 				0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */,
 				0A176DCF2937BC5C004EC5AE /* InfoManagementView.swift */,
+				0A176DE52938FC1E004EC5AE /* MyGenderView.swift */,
+				0A176DDE29387847004EC5AE /* CollectionViewCell */,
+				0A176DDD29387827004EC5AE /* TableViewCell */,
 			);
 			path = InfoManagement;
+			sourceTree = "<group>";
+		};
+		0A176DDD29387827004EC5AE /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0A176DD7293863D5004EC5AE /* CardTableViewCell.swift */,
+				0A176DD929386586004EC5AE /* InfoManagementTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		0A176DDE29387847004EC5AE /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0A176DDF29387859004EC5AE /* CardCollectionViewCell.swift */,
+				0A176DE12938788D004EC5AE /* InfoManagementCollectionViewCell.swift */,
+				0A176DE32938E37A004EC5AE /* GenderCollectionViewCell.swift */,
+				0A176DE72939CE80004EC5AE /* StudyCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		0A2FE576291A3B65000C63E3 = {
@@ -312,6 +351,7 @@
 				0A2FE5F6291BFC70000C63E3 /* BaseView.swift */,
 				0AC03A4E291CFC8D00CBE29C /* BaseLabel.swift */,
 				0A176DD12937C1C9004EC5AE /* BaseTableViewCell.swift */,
+				0A176DDB293877A3004EC5AE /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -721,9 +761,11 @@
 				0A501948292237F6001BB094 /* Toast+Extension.swift in Sources */,
 				0A2FE583291A3B65000C63E3 /* AppDelegate.swift in Sources */,
 				0A2FE5FD291C0421000C63E3 /* GlobalButton.swift in Sources */,
+				0A176DDA29386587004EC5AE /* InfoManagementTableViewCell.swift in Sources */,
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
 				0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */,
 				0A4EA7B22925057A004DB24F /* FirebaseTokenManager.swift in Sources */,
+				0A176DDC293877A3004EC5AE /* BaseCollectionViewCell.swift in Sources */,
 				0AFC7F2F2934926100CBACA1 /* MyInfoView.swift in Sources */,
 				0AC03A53291D1AAF00CBE29C /* UserDefaultsKey+Extension.swift in Sources */,
 				0A4EA7B6292639DE004DB24F /* AppAppearance.swift in Sources */,
@@ -741,15 +783,20 @@
 				0A5019382921649E001BB094 /* LogInViewController.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */,
+				0A176DE42938E37A004EC5AE /* GenderCollectionViewCell.swift in Sources */,
+				0A176DE82939CE80004EC5AE /* StudyCollectionViewCell.swift in Sources */,
 				0A2FE5D1291ACA08000C63E3 /* UIFont+Extension.swift in Sources */,
 				0A501954292271EA001BB094 /* SeSACService.swift in Sources */,
 				0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */,
 				0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
+				0A176DE22938788E004EC5AE /* InfoManagementCollectionViewCell.swift in Sources */,
 				0AFBF50E292CC32900DBF495 /* GenderViewController.swift in Sources */,
 				0AA458F3292FE37E00348163 /* MainViewController.swift in Sources */,
 				0A4EA7AC2924D560004DB24F /* NicknameView.swift in Sources */,
+				0A176DE02938785A004EC5AE /* CardCollectionViewCell.swift in Sources */,
+				0A176DE62938FC1E004EC5AE /* MyGenderView.swift in Sources */,
 				0AC03A4D291CFBAA00CBE29C /* VerificationAndSignUpLabel.swift in Sources */,
 				0A2FE585291A3B65000C63E3 /* SceneDelegate.swift in Sources */,
 				0AC03A3F291C15CF00CBE29C /* PageView.swift in Sources */,
@@ -773,6 +820,7 @@
 				0A50195829236189001BB094 /* APIManager.swift in Sources */,
 				0A176DC6293631B3004EC5AE /* AddAttributes+Extension.swift in Sources */,
 				0A595064293208C400074AA4 /* UINavigationController+Extension.swift in Sources */,
+				0A176DD8293863D5004EC5AE /* CardTableViewCell.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,
 				0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */,
 				0A958E592928C8DA00CA0D40 /* BirthDateViewModel.swift in Sources */,

@@ -94,5 +94,15 @@ extension String {
     enum MyInfo {
         static let myInfo = "내 정보"
         static let workInProgress = "준비중입니다."
+        
+        enum InfoManagement {
+            static let infoManagement = "정보 관리"
+            static let gender = "내 성별"
+            static let study = "자주 하는 스터디"
+            static let inputStudy = "스터디를 입력해 주세요"
+            static let searchPermission = "내 번호 검색 허용"
+            static let ageRange = "상대방 연령대"
+            static let withdraw = "회원 탈퇴"
+        }
     }
 }

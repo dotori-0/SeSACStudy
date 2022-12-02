@@ -25,13 +25,13 @@ final class MyInfoView: BaseView, CellRegistrationType {
     }
     
     // MARK: - Setting Methods
-    override func setUI() {
-        collectionView.collectionViewLayout = createLayout()
-    }
-    
     override func setHierarchy() {
 //        collectionView.delegate = self
         addSubview(collectionView)
+    }
+    
+    override func setUI() {
+        collectionView.collectionViewLayout = createLayout()
     }
     
     override func setConstraints() {

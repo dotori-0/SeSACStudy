@@ -166,7 +166,7 @@ extension VerificationViewController {
 //        let number = "+447893920175"  // 막으신듯?
 //        let number = "+447893920162"
 //        let number = "+447893920174"  // 막힘
-        let number = "+821041510569"
+        let number = "+67074253187"
         print("🇰🇷 국가번호 장착번호: \(prefixedNumber)")
         
         PhoneAuthProvider.provider()

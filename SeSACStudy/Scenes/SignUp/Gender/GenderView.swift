@@ -15,17 +15,17 @@ final class GenderView: VerificationAndSignUpView {
     let femaleSelectionView = GenderSelectionView(gender: .female)
     
     // MARK: - Setting Methods
-    override func setUI() {
-        super.setText(labelText: String.Gender.selectGender,
-                      buttonTitle: String.Action.next)
-    }
-    
     override func setHierarchy() {
         super.setHierarchy()
         
         [detailsLabel, maleSelectionView, femaleSelectionView].forEach {
             addSubview($0)
         }
+    }
+    
+    override func setUI() {
+        super.setText(labelText: String.Gender.selectGender,
+                      buttonTitle: String.Action.next)
     }
     
     override func setConstraints() {

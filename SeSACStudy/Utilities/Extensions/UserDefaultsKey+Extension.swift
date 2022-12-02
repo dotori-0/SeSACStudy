@@ -12,6 +12,7 @@ extension UserDefaults {
         static let isExistingUser = "isExistingUser"
         static let idToken = "idToken"
         static let phoneNumber = "phoneNumber"
+        static let isLoggedIn = "isLoggedIn"
     }
     
     static func delete(_ key: String) {

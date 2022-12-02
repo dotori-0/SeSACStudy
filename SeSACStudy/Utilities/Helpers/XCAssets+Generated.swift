@@ -59,6 +59,10 @@ internal enum Asset {
     internal static let splashText = ImageAsset(name: "splash_text")
   }
   internal enum MyInfo {
+    internal enum InfoManagement {
+      internal static let `default` = ImageAsset(name: "default")
+      internal static let moreArrow = ImageAsset(name: "more_arrow")
+    }
     internal enum Settings {
       internal static let faq = ImageAsset(name: "faq")
       internal static let moreArrow = ImageAsset(name: "more_arrow")

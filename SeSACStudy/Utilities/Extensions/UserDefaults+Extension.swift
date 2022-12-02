@@ -16,4 +16,7 @@ extension UserDefaults {
     
     @UserDefault(key: Key.phoneNumber, defaultValue: "")
     static var phoneNumber: String
+    
+    @UserDefault(key: Key.isLoggedIn, defaultValue: false)
+    static var isLoggedIn: Bool
 }
