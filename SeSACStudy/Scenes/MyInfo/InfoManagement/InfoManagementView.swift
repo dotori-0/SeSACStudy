@@ -32,7 +32,10 @@ final class InfoManagementView: BaseView {
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell.reuseIdentifier)
         collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
         collectionView.register(StudyCollectionViewCell.self, forCellWithReuseIdentifier: StudyCollectionViewCell.reuseIdentifier)
-        collectionView.register(SearchPermissionCollectionViewCell.self, forCellWithReuseIdentifier: SearchPermissionCollectionViewCell.reuseIdentifier)
+        collectionView.register(SearchPermissionCollectionViewCell.self, forCellWithReuseIdentifier: 
+                                    SearchPermissionCollectionViewCell.reuseIdentifier)
+        collectionView.register(AgeRangeCollectionViewCell.self, forCellWithReuseIdentifier:
+                                    AgeRangeCollectionViewCell.reuseIdentifier)
         collectionView.dataSource = self
         addSubview(collectionView)
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
@@ -48,7 +51,7 @@ final class InfoManagementView: BaseView {
     // MARK: - Design Methods
     private func createLayout() -> UICollectionViewLayout {
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
-//        config.showsSeparators = false
+        config.showsSeparators = false
         return UICollectionViewCompositionalLayout.list(using: config)
     }
 }
@@ -70,7 +73,7 @@ extension InfoManagementView: UICollectionViewDataSource {
                     return UICollectionViewCell()
                 }
                 
-                cell.setUsername(as: "김새싹")  // 서버에서 받아온 유저네임으로 보여 주기
+                cell.setUsername(as: "김새싹")  // 서버에서 받아 온 유저네임으로 보여 주기
                 return cell
             case .gender:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenderCollectionViewCell.reuseIdentifier,
@@ -78,7 +81,7 @@ extension InfoManagementView: UICollectionViewDataSource {
                     print("Cannot find GenderCollectionViewCell")
                     return UICollectionViewCell()
                 }
-                cell.femaleView.isSelectedByUser = true  // 서버에서 받아온 성별로 보여 주기
+                cell.femaleView.isSelectedByUser = true  // 서버에서 받아 온 성별로 보여 주기
                 return cell
             case .study:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudyCollectionViewCell.reuseIdentifier,
@@ -86,7 +89,7 @@ extension InfoManagementView: UICollectionViewDataSource {
                     print("Cannot find StudyCollectionViewCell")
                     return UICollectionViewCell()
                 }
-                // 서버에서 받아온 스터디로 보여 주기
+                // 서버에서 받아 온 스터디로 보여 주기
                 return cell
             case .searchPermission:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchPermissionCollectionViewCell.reuseIdentifier,
@@ -95,10 +98,19 @@ extension InfoManagementView: UICollectionViewDataSource {
                     return UICollectionViewCell()
                 }
                 
-//                cell.toggleSwitch.isOn = // 서버에서 받아온 허용 여부로 보여 주기
+//                cell.toggleSwitch.isOn = // 서버에서 받아 온 허용 여부로 보여 주기
                 return cell
-//            case .ageRange:
-//                <#code#>
+            case .ageRange:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AgeRangeCollectionViewCell.reuseIdentifier,
+                                                                    for: indexPath) as? AgeRangeCollectionViewCell else {
+                    print("Cannot find AgeRangeCollectionViewCell")
+                    return UICollectionViewCell()
+                }
+                // 서버에서 받아 온 최소 나이, 최대 나이로 보여 주기
+
+                cell.slider.value = [18, 35]
+                cell.updateAgeRangeLabel(minAge: cell.slider.minimumValue, maxAge: cell.slider.maximumValue)
+                return cell
 //            case .withdraw:
 //                <#code#>
             default: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudyCollectionViewCell.reuseIdentifier,

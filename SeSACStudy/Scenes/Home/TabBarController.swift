@@ -44,7 +44,8 @@ final class TabBarController: UITabBarController {
                                          image: Asset.TabBar.Default.friends.image,
                                          selectedImage: Asset.TabBar.Selected.friends.image)
         
-        let myInfoVC = MyInfoViewController()
+//        let myInfoVC = MyInfoViewController()
+        let myInfoVC = InfoManagementViewController()
         let myInfoNC = UINavigationController(rootViewController: myInfoVC)
         myInfoNC.tabBarItem = UITabBarItem(title: String.MyInfo.myInfo,
                                          image: Asset.TabBar.Default.myInfo.image,
