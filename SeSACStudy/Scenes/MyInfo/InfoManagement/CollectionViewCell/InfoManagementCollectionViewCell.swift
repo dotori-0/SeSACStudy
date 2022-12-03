@@ -51,7 +51,6 @@ class InfoManagementCollectionViewCell: BaseCollectionViewCell {
     override func setConstraints() {
         categoryLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-//            make.leading.equalToSuperview().offset(16)
             make.leading.equalToSuperview()
             make.height.equalToSuperview().dividedBy(3)
         }

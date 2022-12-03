@@ -50,6 +50,7 @@
 		0A2FE603291C0EDC000C63E3 /* OnboardingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FE602291C0EDC000C63E3 /* OnboardingLabel.swift */; };
 		0A393491293B4832007093B4 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 0A393490293B4832007093B4 /* MultiSlider */; };
 		0A393493293B4CDE007093B4 /* AgeRangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A393492293B4CDE007093B4 /* AgeRangeCollectionViewCell.swift */; };
+		0A393495293B61F4007093B4 /* DeleteAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A393494293B61F4007093B4 /* DeleteAccountCollectionViewCell.swift */; };
 		0A499C7E293B3C5D00534248 /* SearchPermissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A499C7D293B3C5D00534248 /* SearchPermissionCollectionViewCell.swift */; };
 		0A4EA7A92924D512004DB24F /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7A82924D512004DB24F /* NicknameViewController.swift */; };
 		0A4EA7AC2924D560004DB24F /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA7AB2924D560004DB24F /* NicknameView.swift */; };
@@ -166,6 +167,7 @@
 		0A2FE5FE291C052D000C63E3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		0A2FE602291C0EDC000C63E3 /* OnboardingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLabel.swift; sourceTree = "<group>"; };
 		0A393492293B4CDE007093B4 /* AgeRangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A393494293B61F4007093B4 /* DeleteAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A499C7D293B3C5D00534248 /* SearchPermissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPermissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A4EA7A82924D512004DB24F /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		0A4EA7AB2924D560004DB24F /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				0A176DE72939CE80004EC5AE /* StudyCollectionViewCell.swift */,
 				0A499C7D293B3C5D00534248 /* SearchPermissionCollectionViewCell.swift */,
 				0A393492293B4CDE007093B4 /* AgeRangeCollectionViewCell.swift */,
+				0A393494293B61F4007093B4 /* DeleteAccountCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				0A2FE5FB291C0267000C63E3 /* OnboardingView.swift in Sources */,
 				0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */,
 				0AC03A57291E04CE00CBE29C /* InputView.swift in Sources */,
+				0A393495293B61F4007093B4 /* DeleteAccountCollectionViewCell.swift in Sources */,
 				0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */,
 				0A50194E292261F4001BB094 /* User.swift in Sources */,
 				0AFBF516292CC60300DBF495 /* Gender.swift in Sources */,

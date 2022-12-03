@@ -102,7 +102,7 @@ extension String {
             static let inputStudy = "스터디를 입력해 주세요"
             static let searchPermission = "내 번호 검색 허용"
             static let ageRange = "상대방 연령대"
-            static let withdraw = "회원 탈퇴"
+            static let deleteAccount = "회원 탈퇴"
         }
     }
 }

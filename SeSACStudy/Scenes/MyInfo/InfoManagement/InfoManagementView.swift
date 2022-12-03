@@ -36,6 +36,7 @@ final class InfoManagementView: BaseView {
                                     SearchPermissionCollectionViewCell.reuseIdentifier)
         collectionView.register(AgeRangeCollectionViewCell.self, forCellWithReuseIdentifier:
                                     AgeRangeCollectionViewCell.reuseIdentifier)
+        collectionView.register(DeleteAccountCollectionViewCell.self, forCellWithReuseIdentifier: DeleteAccountCollectionViewCell.reuseIdentifier)
         collectionView.dataSource = self
         addSubview(collectionView)
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
@@ -111,20 +112,32 @@ extension InfoManagementView: UICollectionViewDataSource {
                 cell.slider.value = [18, 35]
                 cell.updateAgeRangeLabel(minAge: cell.slider.minimumValue, maxAge: cell.slider.maximumValue)
                 return cell
-//            case .withdraw:
-//                <#code#>
-            default: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudyCollectionViewCell.reuseIdentifier,
-                                                                         for: indexPath) as? StudyCollectionViewCell else {
-                         print("Cannot find StudyCollectionViewCell")
-                         return UICollectionViewCell()
-                     }
-                     
-                     return cell
+            case .deleteAccount:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeleteAccountCollectionViewCell.reuseIdentifier,
+                                                                    for: indexPath) as? DeleteAccountCollectionViewCell else {
+                    print("Cannot find DeleteAccountCollectionViewCell")
+                    return UICollectionViewCell()
+                }
+                cell.deleteAccountButton.addTarget(self, action: #selector(deleteAccountButtonTapped), for: .touchUpInside)
+                return cell
+//            default: guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudyCollectionViewCell.reuseIdentifier,
+//                                                                         for: indexPath) as? StudyCollectionViewCell else {
+//                         print("Cannot find StudyCollectionViewCell")
+//                         return UICollectionViewCell()
+//                     }
+//
+//                     return cell
         }
     }
 }
 
 // MARK: - Action Methods
+extension InfoManagementView {
+    @objc private func deleteAccountButtonTapped() {
+        print("☝🏻 회원탈퇴 버튼 탭")
+    }
+}
+
 //extension InfoManagementView: GenderCellDelegate {
 //    func didSelectGender(as gender: Gender, at cell: GenderCollectionViewCell) {
 //        
@@ -145,8 +158,6 @@ extension InfoManagementView {
         case study
         case searchPermission
         case ageRange
-        case withdraw
+        case deleteAccount
     }
-    
-    
 }

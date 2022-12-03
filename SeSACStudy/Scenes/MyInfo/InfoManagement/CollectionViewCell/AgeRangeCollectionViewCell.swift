@@ -64,8 +64,7 @@ class AgeRangeCollectionViewCell: InfoManagementCollectionViewCell {
         }
         
         slider.snp.makeConstraints { make in
-//            make.top.equalTo(contentView.snp.)
-            make.centerY.equalToSuperview().multipliedBy(1.35)
+            make.centerY.equalToSuperview().multipliedBy(1.4)
             make.horizontalEdges.equalToSuperview().inset(12)
         }
     }
@@ -87,7 +86,6 @@ class AgeRangeCollectionViewCell: InfoManagementCollectionViewCell {
         slider.showsThumbImageShadow = false // wide tracks look better without thumb shadow
 
         slider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged) // continuous changes
-//        slider.addTarget(self, action: #selector(sliderDragEnded(_:)), for: . touchUpInside) // sent when drag ends
     }
     
     func updateAgeRangeLabel(minAge: CGFloat, maxAge: CGFloat) {
