@@ -51,7 +51,7 @@ final class TabBarController: UITabBarController {
                                          selectedImage: Asset.TabBar.Selected.myInfo.image)
         
         setViewControllers([homeNC, shopNC, chatsNC, myInfoNC], animated: true)
-        selectedIndex = 0
+        selectedIndex = 3
         
         view.tintColor = Asset.Colors.BrandColor.green.color
     }

@@ -32,6 +32,7 @@ final class InfoManagementView: BaseView {
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell.reuseIdentifier)
         collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
         collectionView.register(StudyCollectionViewCell.self, forCellWithReuseIdentifier: StudyCollectionViewCell.reuseIdentifier)
+        collectionView.register(SearchPermissionCollectionViewCell.self, forCellWithReuseIdentifier: SearchPermissionCollectionViewCell.reuseIdentifier)
         collectionView.dataSource = self
         addSubview(collectionView)
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
@@ -47,7 +48,7 @@ final class InfoManagementView: BaseView {
     // MARK: - Design Methods
     private func createLayout() -> UICollectionViewLayout {
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
-        config.showsSeparators = false
+//        config.showsSeparators = false
         return UICollectionViewCompositionalLayout.list(using: config)
     }
 }
@@ -85,10 +86,17 @@ extension InfoManagementView: UICollectionViewDataSource {
                     print("Cannot find StudyCollectionViewCell")
                     return UICollectionViewCell()
                 }
-                
+                // 서버에서 받아온 스터디로 보여 주기
                 return cell
-//            case .searchPermission:
-//                <#code#>
+            case .searchPermission:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchPermissionCollectionViewCell.reuseIdentifier,
+                                                                    for: indexPath) as? SearchPermissionCollectionViewCell else {
+                    print("Cannot find SearchPermissionCollectionViewCell")
+                    return UICollectionViewCell()
+                }
+                
+//                cell.toggleSwitch.isOn = // 서버에서 받아온 허용 여부로 보여 주기
+                return cell
 //            case .ageRange:
 //                <#code#>
 //            case .withdraw:
@@ -105,11 +113,11 @@ extension InfoManagementView: UICollectionViewDataSource {
 }
 
 // MARK: - Action Methods
-extension InfoManagementView {
-    @objc private func femaleButtonClicked() {
-        
-    }
-}
+//extension InfoManagementView: GenderCellDelegate {
+//    func didSelectGender(as gender: Gender, at cell: GenderCollectionViewCell) {
+//        
+//    }
+//}
 
 
 //extension InfoManagementView: UICollectionViewDelegateFlowLayout {

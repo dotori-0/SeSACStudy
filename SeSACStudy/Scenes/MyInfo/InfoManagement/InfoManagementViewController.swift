@@ -20,6 +20,7 @@ final class InfoManagementViewController: BaseViewController {
         super.viewDidLoad()
 
 //        toast()
+        setNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,14 +32,8 @@ final class InfoManagementViewController: BaseViewController {
         showToast(message: "정보 관리")
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Setting Methods
+    private func setNavigationBar() {
+        title = String.MyInfo.InfoManagement.infoManagement
     }
-    */
-
 }

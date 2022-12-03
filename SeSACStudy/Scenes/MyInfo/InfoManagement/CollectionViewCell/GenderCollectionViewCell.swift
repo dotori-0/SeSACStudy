@@ -9,7 +9,7 @@ import UIKit
 
 class GenderCollectionViewCell: InfoManagementCollectionViewCell {
     // MARK: - Properties
-    weak var delegate: GenderCellDelegate?
+//    weak var delegate: GenderCellDelegate?
     let maleView = MyGenderView(gender: .male)
     let femaleView = MyGenderView(gender: .female)
     
@@ -18,6 +18,8 @@ class GenderCollectionViewCell: InfoManagementCollectionViewCell {
 //        super.init(frame: frame)
         super.init(category: String.MyInfo.InfoManagement.gender)
 //        setCategory(category: String.MyInfo.InfoManagement.gender)
+        
+        setActions()
     }
     
 //    override init(category: String) {
@@ -54,8 +56,25 @@ class GenderCollectionViewCell: InfoManagementCollectionViewCell {
             make.trailing.equalTo(femaleView.snp.leading).offset(-8)
         }
     }
+    
+    private func setActions() {
+        maleView.button.addTarget(self, action: #selector(maleViewTapped), for: .touchUpInside)
+        femaleView.button.addTarget(self, action: #selector(femaleViewTapped), for: .touchUpInside)
+    }
+    
+    // MARK: - Action Methods
+    @objc private func maleViewTapped() {
+        maleView.isSelectedByUser = true
+        femaleView.isSelectedByUser = false
+    }
+    
+    @objc private func femaleViewTapped() {
+        maleView.isSelectedByUser = false
+        femaleView.isSelectedByUser = true
+    }
 }
 
-protocol GenderCellDelegate: AnyObject {
-    func didSelectGender(as gender: Gender)
-}
+//protocol GenderCellDelegate: AnyObject {
+////    func didSelectGender(of genderView: MyGenderView)
+//    func didSelectGender(as gender: Gender, at cell: GenderCollectionViewCell)
+//}

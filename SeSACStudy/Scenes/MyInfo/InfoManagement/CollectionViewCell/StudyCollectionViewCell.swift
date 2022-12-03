@@ -46,7 +46,7 @@ class StudyCollectionViewCell: InfoManagementCollectionViewCell {
         
         bottomLineView.snp.makeConstraints { make in
             make.bottom.equalTo(textField.snp.bottom).offset(12)
-            make.trailing.equalToSuperview().offset(-16)
+            make.trailing.equalToSuperview()
             make.width.equalTo(164)
             make.height.equalTo(1)
         }
