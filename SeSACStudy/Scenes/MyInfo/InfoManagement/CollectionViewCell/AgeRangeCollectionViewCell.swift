@@ -86,12 +86,20 @@ class AgeRangeCollectionViewCell: InfoManagementCollectionViewCell {
         slider.thumbImage = Asset.MyInfo.InfoManagement.sliderThumb.image
         slider.showsThumbImageShadow = false // wide tracks look better without thumb shadow
 
-//        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged) // continuous changes
+        slider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged) // continuous changes
 //        slider.addTarget(self, action: #selector(sliderDragEnded(_:)), for: . touchUpInside) // sent when drag ends
     }
     
     func updateAgeRangeLabel(minAge: CGFloat, maxAge: CGFloat) {
 //        ageRangeLabel.text = "\(minAge) - \(maxAge)"
         ageRangeLabel.text = "\(Int(minAge)) - \(Int(maxAge))"
+    }
+    
+    // MARK: - Action Methods
+    @objc private func sliderChanged() {
+        print("💚 now thumbs are at \(slider.value)")
+        let minAge = slider.value[0]
+        let maxAge = slider.value[1]
+        updateAgeRangeLabel(minAge: minAge, maxAge: maxAge)
     }
 }
