@@ -85,7 +85,7 @@ final class BirthDateView: VerificationAndSignUpView {
             $0.axis = .horizontal
             $0.spacing = 4
             $0.alignment = .center
-            $0.distribution = .fillProportionally
+            $0.distribution = .fill
         }
     }
     
