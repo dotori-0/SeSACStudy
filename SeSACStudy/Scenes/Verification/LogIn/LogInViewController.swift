@@ -105,10 +105,6 @@ final class LogInViewController: BaseViewController {
             
 //            authResult?.user.getIDTokenForcingRefresh(<#T##forceRefresh: Bool##Bool#>)
 //            self?.fetchIDToken()
-            
-//            currentUser?.getIDTokenResult(forcingRefresh: true) { authTokenResult, error in
-//                authTokenResult?.token
-//            }
         }
     }
     
@@ -119,6 +115,7 @@ final class LogInViewController: BaseViewController {
 //            .withUnretained(self)
             .subscribe(with: self) { vc, user in  // onError에서도 vc 쓰기 위해서는 with: self로 해야 하는 것이 맞는지?❔
                 print(user)
+                UserDefaults.isLoggedIn = true
                 // 홈화면으로 이동
 //                vc.transition(to: TabBarController())
                 vc.setRootVCToTabBarController()
@@ -134,7 +131,6 @@ final class LogInViewController: BaseViewController {
                 
                 switch error {
                     case .firebaseTokenError:
-                        // fetchIDToken 다시 실행?👻
                         vc.refreshIDToken {
                             vc.logInAndPush()
                         }

@@ -22,7 +22,7 @@ final class EmailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailView.userInputView.textField.text = "a@gmail.com"
+//        emailView.userInputView.textField.text = "a@gmail.com"
         emailView.userInputView.textField.becomeFirstResponder()
         bind()
     }

@@ -27,5 +27,9 @@ extension UIViewController {
                 completion?()
             }
         }
+        
+//            currentUser?.getIDTokenResult(forcingRefresh: true) { authTokenResult, error in
+//                authTokenResult?.token
+//            }
     }
 }

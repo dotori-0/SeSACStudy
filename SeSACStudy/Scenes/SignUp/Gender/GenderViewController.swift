@@ -104,6 +104,7 @@ final class GenderViewController: BaseViewController {
                 
                 switch error {
                     case .existingUser:
+                        UserDefaults.isLoggedIn = true
                         // 가입 시도 시 이미 가입한 유저의 경우 토스트 띄우고 홈 화면으로 전환
                         vc.showToast(message: String.Gender.existingUser) { [weak self] _ in
         //                    self?.transition(to: TabBarController())

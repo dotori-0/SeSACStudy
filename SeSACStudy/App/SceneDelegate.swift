@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
 //        var rootVC = UIViewController()
-//        let rootVC: UIViewController  // 이걸로 바꾸기
-        var rootVC: UIViewController
+        let rootVC: UIViewController  // 이걸로 바꾸기
+//        var rootVC: UIViewController
         
         if UserDefaults.isExistingUser {
             if UserDefaults.isLoggedIn {
@@ -44,12 +44,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        rootVC = VerificationViewController()
 //        rootVC = EmailViewController()
 //        rootVC = NicknameViewController()
+//        rootVC = BirthDateViewController()
 //        rootVC = GenderViewController()
 //        rootVC = LogInViewController()
 //        rootVC = TabBarController()
 //        rootVC = InfoManagementViewController()
-//        let rootNavVC = UINavigationController(rootViewController: rootVC)
-        let rootNavVC = TabBarController()
+        let rootNavVC = UINavigationController(rootViewController: rootVC)
+//        let rootNavVC = TabBarController()
         
         window?.rootViewController = rootNavVC
         window?.makeKeyAndVisible()

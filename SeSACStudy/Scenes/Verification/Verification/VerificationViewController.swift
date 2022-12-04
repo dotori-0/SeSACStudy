@@ -170,7 +170,7 @@ extension VerificationViewController {
         print("🇰🇷 국가번호 장착번호: \(prefixedNumber)")
         
         PhoneAuthProvider.provider()
-          .verifyPhoneNumber(number, uiDelegate: nil) { [weak self] verificationID, error in
+          .verifyPhoneNumber(prefixedNumber, uiDelegate: nil) { [weak self] verificationID, error in
               
               if let error = error {
                   print(error)
@@ -231,29 +231,29 @@ extension VerificationViewController {
         }
     }
     
-    private func verifyPhoneNumberWithPush() {
-        let phoneNumber = "+447893920172"
-
-        // This test verification code is specified for the given test phone number in the developer console.
-        let testVerificationCode = "121212"
-
-        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate:nil) { [weak self] verificationID, error in
-            print("🆔 \(verificationID)")
-            
-            if let error = error {
-                print(error)
-                let authError = error as NSError
-                print(authError)
-                if authError.code == AuthErrorCode.tooManyRequests.rawValue {
-                    self?.showToast(message: String.Verification.tooManyRequests)
-                } else {
-                    self?.showToast(message: String.Verification.otherErrors)
-                }
-                return
-            }
-
-            self?.showToast(message: String.Verification.startVerification)
-        }
-    }
+//    private func verifyPhoneNumberWithPush() {
+//        let phoneNumber = "+447893920172"
+//
+//        // This test verification code is specified for the given test phone number in the developer console.
+//        let testVerificationCode = "121212"
+//
+//        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+//        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate:nil) { [weak self] verificationID, error in
+//            print("🆔 \(verificationID)")
+//
+//            if let error = error {
+//                print(error)
+//                let authError = error as NSError
+//                print(authError)
+//                if authError.code == AuthErrorCode.tooManyRequests.rawValue {
+//                    self?.showToast(message: String.Verification.tooManyRequests)
+//                } else {
+//                    self?.showToast(message: String.Verification.otherErrors)
+//                }
+//                return
+//            }
+//
+//            self?.showToast(message: String.Verification.startVerification)
+//        }
+//    }
 }

@@ -16,6 +16,7 @@ extension String {
     enum Action {
         static let ok = "확인"
         static let next = "다음"
+        static let cancel = "취소"
     }
     
     enum Onboarding {
@@ -103,6 +104,8 @@ extension String {
             static let searchPermission = "내 번호 검색 허용"
             static let ageRange = "상대방 연령대"
             static let deleteAccount = "회원 탈퇴"
+            static let confirmAccountDeletion = "정말 탈퇴하시겠습니까?"
+            static let accountDeletionWarning = "탈퇴하시면 새싹 스터디를 이용할 수 없어요ㅠ"
         }
     }
 }
