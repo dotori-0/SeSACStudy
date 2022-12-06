@@ -21,6 +21,8 @@ final class InfoManagementViewController: BaseViewController {
 
 //        toast()
         setNavigationBar()
+        
+        print("🪙 \(UserDefaults.idToken)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,5 +37,11 @@ final class InfoManagementViewController: BaseViewController {
     // MARK: - Setting Methods
     private func setNavigationBar() {
         title = String.MyInfo.InfoManagement.infoManagement
+    }
+}
+
+extension InfoManagementViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

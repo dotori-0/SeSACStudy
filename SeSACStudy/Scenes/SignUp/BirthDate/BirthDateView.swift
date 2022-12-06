@@ -96,6 +96,7 @@ final class BirthDateView: VerificationAndSignUpView {
         let minimumDate = DateComponents(calendar: .current, year: 1900, month: 1, day: 1).date
         datePicker.minimumDate = minimumDate
         datePicker.maximumDate = Date.now
+//        datePicker.locale  // 해 보기 👻
         
         guard let defaultDate = DateComponents(calendar: .current, year: 1990, month: 1, day: 1).date else { return }
         datePicker.date = defaultDate

@@ -15,3 +15,12 @@ extension UIViewController {
                        completion: completion)
     }
 }
+
+extension BaseView {
+    func showToast(message: String, duration: TimeInterval = 0.5, completion: ((Bool) -> Void)? = nil) {
+        makeToast(message,
+                  duration: duration,
+                  position: .center,
+                  completion: completion)
+    }
+}

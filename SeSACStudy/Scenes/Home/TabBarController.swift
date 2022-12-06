@@ -52,7 +52,7 @@ final class TabBarController: UITabBarController {
                                          selectedImage: Asset.TabBar.Selected.myInfo.image)
         
         setViewControllers([homeNC, shopNC, chatsNC, myInfoNC], animated: true)
-        selectedIndex = 3
+        selectedIndex = 0
         
         view.tintColor = Asset.Colors.BrandColor.green.color
     }
@@ -60,9 +60,9 @@ final class TabBarController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("navigationController: \(navigationController)")
-        print("tabBarController: \(tabBarController)")
-        print("tabBarController?.navigationController: \(tabBarController?.navigationController)")
+//        print("navigationController: \(navigationController)")
+//        print("tabBarController: \(tabBarController)")
+//        print("tabBarController?.navigationController: \(tabBarController?.navigationController)")
 
         navigationItem.hidesBackButton = true
         navigationController?.isNavigationBarHidden = true
