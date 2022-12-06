@@ -54,6 +54,11 @@ internal enum Asset {
     internal static let female = ImageAsset(name: "female")
     internal static let male = ImageAsset(name: "male")
   }
+  internal enum Home {
+    internal enum Main {
+      internal static let mapMarker = ImageAsset(name: "map_marker")
+    }
+  }
   internal enum LaunchScreen {
     internal static let splashLogo = ImageAsset(name: "splash_logo")
     internal static let splashText = ImageAsset(name: "splash_text")

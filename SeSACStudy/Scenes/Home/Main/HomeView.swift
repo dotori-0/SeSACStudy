@@ -11,7 +11,7 @@ import NMapsMap
 class HomeView: BaseView {
     // MARK: - Properties
     let naverMapView = NMFNaverMapView()
-
+    let markerImageView = UIImageView()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -24,7 +24,13 @@ class HomeView: BaseView {
     
     // MARK: - Setting Methods
     override func setHierarchy() {
-        addSubview(naverMapView)
+        [naverMapView, markerImageView].forEach {
+            addSubview($0)
+        }
+    }
+    
+    override func setUI() {
+        markerImageView.image = Asset.Home.Main.mapMarker.image
     }
     
     override func setConstraints() {
@@ -33,7 +39,14 @@ class HomeView: BaseView {
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
             make.top.equalToSuperview()
         }
+        
+        markerImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(48)
+            make.height.equalTo(markerImageView.snp.width)
+            make.bottom.equalTo(self.snp.centerY)
+        }
+        
+        markerImageView.isHidden = true
     }
-    
-
 }

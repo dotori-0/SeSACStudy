@@ -76,6 +76,7 @@ final class HomeViewController: BaseViewController {
     private func setRegion(center: NMFCameraPosition) {
         let cameraUpdate = NMFCameraUpdate(position: center)
         homeView.naverMapView.mapView.moveCamera(cameraUpdate)
+        homeView.markerImageView.isHidden = false
     }
 }
 
