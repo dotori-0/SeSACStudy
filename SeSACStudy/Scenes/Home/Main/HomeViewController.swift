@@ -40,7 +40,7 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        showToast(message: "Main")
+//        showToast(message: "Main")
         
 //        hideNavigationBar()
     }
