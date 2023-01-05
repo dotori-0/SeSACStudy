@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum SeSACService {
+enum UserAPI {  // SeSACService
     case logIn
     case signUp(phoneNumber: String, FCMToken: String, nickname: String, birthDate: String, email: String, gender: Int)
     case withdraw
@@ -16,7 +16,7 @@ enum SeSACService {
     case myPage(searchable: Int, ageMin: Int, ageMax: Int, gender: Int, study: String?)
 }
 
-extension SeSACService: TargetType {
+extension UserAPI: TargetType {
     var baseURL: URL {
         return URL(string: APIURL.baseURL)!
     }
@@ -24,15 +24,15 @@ extension SeSACService: TargetType {
     var path: String {
         switch self {
             case .logIn:
-                return APIURL.v1.logIn.endpoint
+                return APIURL.v1User.logIn.endpoint
             case.signUp:
-                return APIURL.v1.signUp.endpoint
+                return APIURL.v1User.signUp.endpoint
             case .withdraw:
-                return APIURL.v1.withdraw.endpoint
+                return APIURL.v1User.withdraw.endpoint
             case .updateFCMToken:
-                return APIURL.v1.updateFCMToken.endpoint
+                return APIURL.v1User.updateFCMToken.endpoint
             case .myPage:
-                return APIURL.v1.myPage.endpoint
+                return APIURL.v1User.myPage.endpoint
         }
     }
     
@@ -62,7 +62,7 @@ extension SeSACService: TargetType {
             case .logIn:
                 return .requestPlain
             case .signUp(let phoneNumber, let FCMToken, let nickname, let birthDate, let email, let gender):
-                
+                // 👻 JSONSerialization - 응답값 뿐만 아니라 요청바디 또한 모델을 만들어 로우한 표현 줄이기
                 print("🥲 idToken: \(UserDefaults.idToken)")
                 print("🥲 전화번호: \(phoneNumber)")
                 print("🥲 FCMToken: \(FCMToken)")

@@ -11,7 +11,7 @@ import Moya
 struct APIManager {
     private init() { }
     
-    private static let provider = MoyaProvider<SeSACService>()
+    private static let provider = MoyaProvider<UserAPI>()
     
     static func logIn(completion: @escaping (Result<User, Error>) -> Void) {
         provider.request(.logIn) { result in

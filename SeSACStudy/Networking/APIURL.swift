@@ -12,7 +12,7 @@ struct APIURL {
     
     static let baseURL = "http://api.sesac.co.kr:1210"
     
-    enum v1: String {
+    enum v1User: String {
 //        static let user = "/v1/user"
 //        static let withdraw = "/v1/user/withdraw"
 //        static let updateFCMToken = "/v1/user/update_fcm_token"
@@ -33,6 +33,27 @@ struct APIURL {
                     return version + "/" + self.rawValue
             }
 //            return version + self.rawValue
+        }
+    }
+    
+    enum v1Queue: String {
+        case find
+        case stopFinding
+        case fetchNearbyUsers = "search"
+        case myQueueState
+        case requestStudy = "studyrequest"
+        case acceptStudy = "studyaccept"
+        case cancelStudy = "dodge"
+        case rate
+        
+        var endpoint: String {
+            let version = "/v1/queue"
+            switch self {
+                case .find, .stopFinding:
+                    return version
+                default:
+                    return version + "/" + self.rawValue
+            }
         }
     }
 }

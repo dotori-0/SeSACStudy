@@ -27,6 +27,8 @@ class HomeView: BaseView {
         [naverMapView, markerImageView].forEach {
             addSubview($0)
         }
+        
+        naverMapView.mapView.addCameraDelegate(delegate: self)
     }
     
     override func setUI() {
@@ -48,5 +50,17 @@ class HomeView: BaseView {
         }
         
         markerImageView.isHidden = true
+    }
+}
+
+extension HomeView: NMFMapViewCameraDelegate {
+    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
+        print("🍓", #function)
+        print("🍓", mapView.cameraPosition)
+    }
+    
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+        print("🍋", #function)
+        print("🍋", mapView.cameraPosition)
     }
 }
