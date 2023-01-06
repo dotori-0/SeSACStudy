@@ -81,6 +81,7 @@ final class HomeViewController: BaseViewController {
         homeView.markerImageView.isHidden = false
         
         fetchQueueState()
+        fetchNearbyUsers()
     }
     
     // MARK: - Networking Methods
@@ -108,7 +109,24 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func
+    private func fetchNearbyUsers() {
+        QueueAPIManager.fetchNearbyUsers(latitude: 37.517819364682694, longitude: 126.88647317074734) { [weak self] result in
+            switch result {
+                case .success(let queueDB): print("🌲 \(queueDB)")
+                case .failure(let error):
+                    print(error)
+                    if let definedError = error as? QueueAPIError {
+                        print("🌲 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.fetchNearbyUsers()
+                            }
+                        }
+                        return
+                    }
+            }
+        }
+    }
 }
 
 // MARK: - Location
