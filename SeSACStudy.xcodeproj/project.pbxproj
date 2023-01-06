@@ -72,8 +72,8 @@
 		0A50195129227141001BB094 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A50195029227141001BB094 /* Moya */; };
 		0A501954292271EA001BB094 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A501953292271EA001BB094 /* UserAPI.swift */; };
 		0A50195629227432001BB094 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195529227432001BB094 /* APIURL.swift */; };
-		0A50195829236189001BB094 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195729236189001BB094 /* APIManager.swift */; };
-		0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195929236AF6001BB094 /* SeSACError.swift */; };
+		0A50195829236189001BB094 /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195729236189001BB094 /* UserAPIManager.swift */; };
+		0A50195A29236AF6001BB094 /* UserAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50195929236AF6001BB094 /* UserAPIError.swift */; };
 		0A50195C2923BF0E001BB094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */; };
 		0A595064293208C400074AA4 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A595063293208C400074AA4 /* UINavigationController+Extension.swift */; };
 		0A5950662933685C00074AA4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950652933685C00074AA4 /* TabBarController.swift */; };
@@ -82,6 +82,9 @@
 		0A59506C2933691100074AA4 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59506B2933691100074AA4 /* MyInfoViewController.swift */; };
 		0A66B85C291F6B7A00E77085 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */; };
 		0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66B85D2920E89D00E77085 /* Alert+Extension.swift */; };
+		0A7ACABA2966F2740040CECF /* QueueAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ACAB92966F2740040CECF /* QueueAPIManager.swift */; };
+		0A7ACABC2966F4190040CECF /* MyQueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ACABB2966F4190040CECF /* MyQueueState.swift */; };
+		0A7ACABF2966F5080040CECF /* QueueAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ACABE2966F5080040CECF /* QueueAPIError.swift */; };
 		0A7F0E9E293496FC004C9AC6 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F0E9D293496FC004C9AC6 /* ReusableViewProtocol.swift */; };
 		0A7F0EC32935DAA5004C9AC6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F0EC22935DAA5004C9AC6 /* Settings.swift */; };
 		0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */; };
@@ -90,6 +93,7 @@
 		0A958E5B2928CD6C00CA0D40 /* SignUpLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */; };
 		0A958E5D292A323400CA0D40 /* NoSelectionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */; };
 		0AA458F3292FE37E00348163 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA458F2292FE37D00348163 /* HomeViewController.swift */; };
+		0AA6E4DD29683B09005F6B60 /* QueueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6E4DC29683B09005F6B60 /* QueueDB.swift */; };
 		0AC03A3C291C154E00CBE29C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3B291C154E00CBE29C /* FirstViewController.swift */; };
 		0AC03A3F291C15CF00CBE29C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A3E291C15CF00CBE29C /* PageView.swift */; };
 		0AC03A41291C1AE300CBE29C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC03A40291C1AE300CBE29C /* SecondViewController.swift */; };
@@ -193,8 +197,8 @@
 		0A50194D292261F4001BB094 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0A501953292271EA001BB094 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		0A50195529227432001BB094 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
-		0A50195729236189001BB094 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		0A50195929236AF6001BB094 /* SeSACError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACError.swift; sourceTree = "<group>"; };
+		0A50195729236189001BB094 /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
+		0A50195929236AF6001BB094 /* UserAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIError.swift; sourceTree = "<group>"; };
 		0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A595063293208C400074AA4 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		0A5950652933685C00074AA4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,9 @@
 		0A59506B2933691100074AA4 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0A66B85D2920E89D00E77085 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
+		0A7ACAB92966F2740040CECF /* QueueAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPIManager.swift; sourceTree = "<group>"; };
+		0A7ACABB2966F4190040CECF /* MyQueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueState.swift; sourceTree = "<group>"; };
+		0A7ACABE2966F5080040CECF /* QueueAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPIError.swift; sourceTree = "<group>"; };
 		0A7F0E9D293496FC004C9AC6 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		0A7F0EC22935DAA5004C9AC6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +218,7 @@
 		0A958E5A2928CD6C00CA0D40 /* SignUpLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLabel.swift; sourceTree = "<group>"; };
 		0A958E5C292A323400CA0D40 /* NoSelectionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSelectionTextField.swift; sourceTree = "<group>"; };
 		0AA458F2292FE37D00348163 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0AA6E4DC29683B09005F6B60 /* QueueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDB.swift; sourceTree = "<group>"; };
 		0AC03A3B291C154E00CBE29C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		0AC03A3E291C15CF00CBE29C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		0AC03A40291C1AE300CBE29C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -449,8 +457,8 @@
 				0A501952292271CD001BB094 /* Service */,
 				0A66B85B291F6B7A00E77085 /* NetworkMonitor.swift */,
 				0A50195529227432001BB094 /* APIURL.swift */,
-				0A50195729236189001BB094 /* APIManager.swift */,
-				0A50195929236AF6001BB094 /* SeSACError.swift */,
+				0A7ACAC02966F51C0040CECF /* APIManager */,
+				0A7ACABD2966F4F20040CECF /* Error */,
 				0A176DE9293A1BB0004EC5AE /* APIKey.swift */,
 			);
 			path = Networking;
@@ -552,6 +560,8 @@
 				0A50194D292261F4001BB094 /* User.swift */,
 				0A4EA7B82927F18A004DB24F /* NewUser.swift */,
 				0A7F0EC22935DAA5004C9AC6 /* Settings.swift */,
+				0A7ACABB2966F4190040CECF /* MyQueueState.swift */,
+				0AA6E4DC29683B09005F6B60 /* QueueDB.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -603,6 +613,24 @@
 				0A39349C2940AB39007093B4 /* Queue.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0A7ACABD2966F4F20040CECF /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0A50195929236AF6001BB094 /* UserAPIError.swift */,
+				0A7ACABE2966F5080040CECF /* QueueAPIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		0A7ACAC02966F51C0040CECF /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				0A50195729236189001BB094 /* UserAPIManager.swift */,
+				0A7ACAB92966F2740040CECF /* QueueAPIManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		0A958E532928C86E00CA0D40 /* BirthDate */ = {
@@ -847,6 +875,7 @@
 				0A176DDA29386587004EC5AE /* InfoManagementTableViewCell.swift in Sources */,
 				0AC03A47291CEE6D00CBE29C /* VerificationViewController.swift in Sources */,
 				0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */,
+				0AA6E4DD29683B09005F6B60 /* QueueDB.swift in Sources */,
 				0A4EA7B22925057A004DB24F /* FirebaseTokenManager.swift in Sources */,
 				0A176DDC293877A3004EC5AE /* BaseCollectionViewCell.swift in Sources */,
 				0AFC7F2F2934926100CBACA1 /* MyInfoView.swift in Sources */,
@@ -863,10 +892,12 @@
 				0A66B85E2920E89D00E77085 /* Alert+Extension.swift in Sources */,
 				0A50194E292261F4001BB094 /* User.swift in Sources */,
 				0AFBF516292CC60300DBF495 /* Gender.swift in Sources */,
+				0A7ACABF2966F5080040CECF /* QueueAPIError.swift in Sources */,
 				0A50194629221600001BB094 /* InputOutput.swift in Sources */,
 				0A5019382921649E001BB094 /* LogInViewController.swift in Sources */,
 				0A39349D2940AB39007093B4 /* Queue.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
+				0A7ACABC2966F4190040CECF /* MyQueueState.swift in Sources */,
 				0A50193C29217197001BB094 /* VerificationAndSignUpView.swift in Sources */,
 				0A176DE42938E37A004EC5AE /* GenderCollectionViewCell.swift in Sources */,
 				0A176DE82939CE80004EC5AE /* StudyCollectionViewCell.swift in Sources */,
@@ -874,7 +905,7 @@
 				0A176DEA293A1BB0004EC5AE /* APIKey.swift in Sources */,
 				0A501954292271EA001BB094 /* UserAPI.swift in Sources */,
 				0A501944292215CE001BB094 /* LogInViewModel.swift in Sources */,
-				0A50195A29236AF6001BB094 /* SeSACError.swift in Sources */,
+				0A50195A29236AF6001BB094 /* UserAPIError.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
 				0A176DE22938788E004EC5AE /* InfoManagementCollectionViewCell.swift in Sources */,
@@ -905,9 +936,10 @@
 				0A2FE603291C0EDC000C63E3 /* OnboardingLabel.swift in Sources */,
 				0AFBF512292CC33C00DBF495 /* GenderViewModel.swift in Sources */,
 				0AC03A55291D1AF600CBE29C /* UserDefaults+Extension.swift in Sources */,
-				0A50195829236189001BB094 /* APIManager.swift in Sources */,
+				0A50195829236189001BB094 /* UserAPIManager.swift in Sources */,
 				0A176DC6293631B3004EC5AE /* AddAttributes+Extension.swift in Sources */,
 				0A595064293208C400074AA4 /* UINavigationController+Extension.swift in Sources */,
+				0A7ACABA2966F2740040CECF /* QueueAPIManager.swift in Sources */,
 				0A176DD8293863D5004EC5AE /* CardTableViewCell.swift in Sources */,
 				0A50193A292164D2001BB094 /* LogInView.swift in Sources */,
 				0A4EA7B02924E538004DB24F /* Transition+Extension.swift in Sources */,

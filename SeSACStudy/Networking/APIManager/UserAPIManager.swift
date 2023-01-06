@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-struct APIManager {
+struct UserAPIManager {
     private init() { }
     
     private static let provider = MoyaProvider<UserAPI>()
@@ -107,10 +107,27 @@ struct APIManager {
             }
         }
     }
+    
+    static func withdraw(completion: @escaping (Result<Void, UserAPIError>) -> Void) {
+        provider.request(.withdraw) { result in
+            switch result {
+                case .success(_):
+                    completion(.success(()))
+                case .failure(let error):
+                    guard let definedError = definedError(error) else {
+                        print("🤨 처음 보는 status code")
+                        return
+                    }
+                    
+                    print("🙎🏻‍♀️ 에러: \(definedError)")
+                    completion(.failure(definedError))
+            }
+        }
+    }
 }
 
-extension APIManager {
-    private static func definedError(_ error: Error) -> SeSACError? {
+extension UserAPIManager {
+    private static func definedError(_ error: Error) -> UserAPIError? {
         guard let moyaError = error as? MoyaError else {
             print("😣 error -> MoyaError 변경 실패")
             return nil
@@ -128,7 +145,7 @@ extension APIManager {
 //            return nil
 //        }
         
-        let definedError = SeSACError(rawValue: statusCode)
+        let definedError = UserAPIError(rawValue: statusCode)
         
         return definedError
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SeSACError: Int, Error {
+enum UserAPIError: Int, Error {
     case success = 200
     case existingUser = 201         // 회원가입
     case unavailableNickname = 202  // 회원가입
@@ -17,7 +17,7 @@ enum SeSACError: Int, Error {
     case clientError = 501
 }
 
-extension SeSACError: LocalizedError {
+extension UserAPIError: LocalizedError {
     var errorDescription: String? {
         switch self {
             case .success:

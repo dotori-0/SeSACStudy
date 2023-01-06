@@ -23,7 +23,7 @@ final class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    // initializer 지점 . ...
+    // initializer 지점 ....
 //        locationManager = CLLocationManager()
         locationManager.delegate = self
 //        locationManager = CLLocationManager()
@@ -61,8 +61,6 @@ final class HomeViewController: BaseViewController {
 //        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         
-        
-        
         navigationController?.isNavigationBarHidden = true
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.navigationBar.isHidden = true
@@ -73,11 +71,44 @@ final class HomeViewController: BaseViewController {
         navigationController?.navigationBar.compactAppearance = nil
     }
     
-    private func setRegion(center: NMFCameraPosition) {
-        let cameraUpdate = NMFCameraUpdate(position: center)
+    private func setRegion(center: NMFCameraPosition? = nil) {
+//        let cameraUpdate = NMFCameraUpdate(position: center)
+        
+        let campusCoordinate = CLLocationCoordinate2D(latitude: 37.517819364682694, longitude: 126.88647317074734)
+        let campusPosition = transformCoordinateToNMFCameraPosition(coordinate: campusCoordinate)
+        let cameraUpdate = NMFCameraUpdate(position: campusPosition)
         homeView.naverMapView.mapView.moveCamera(cameraUpdate)
         homeView.markerImageView.isHidden = false
+        
+        fetchQueueState()
     }
+    
+    // MARK: - Networking Methods
+    private func fetchQueueState() {
+        QueueAPIManager.myQueueState { [weak self] result in
+            switch result {
+                case .success(let myQueueState): print("⭐️ \(myQueueState)")
+                case .failure(let error):
+                    print(error)
+                    // 에러를 커스텀 에러로 바꾼 후 처리하기
+                    if let definedError = error as? QueueAPIError {
+                        print("🧸 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.fetchQueueState()
+                            }
+                        }
+                        return
+                    }
+                    
+                    if let definedError = error as? QueueAPIError.MyQueueState {
+                        print("🧸 QueueAPIError.MyQueueState: \(definedError)")
+                    }
+            }
+        }
+    }
+    
+    private func
 }
 
 // MARK: - Location
@@ -114,6 +145,9 @@ extension HomeViewController {
                 // plist에 WhenInUse가 등록되어 있어야 request 메서드를 사용할 수 있다
             case .restricted, .denied:
                 print("DENIED")
+                DispatchQueue.main.sync {
+                    setRegion()
+                }
                 // 아이폰 설정으로 유도
             case .authorizedWhenInUse:
                 print("When In Use")

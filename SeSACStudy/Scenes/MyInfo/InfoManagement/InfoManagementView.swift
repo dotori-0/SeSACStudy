@@ -127,11 +127,13 @@ extension InfoManagementView: UICollectionViewDataSource {
 // MARK: - Action Methods
 extension InfoManagementView {
     @objc private func deleteAccountButtonTapped() {
+        
         print("☝🏻 회원탈퇴 버튼 탭")
         
         let alert = UIAlertController(title: String.MyInfo.InfoManagement.confirmAccountDeletion, message: String.MyInfo.InfoManagement.accountDeletionWarning, preferredStyle: .alert)
         let ok = UIAlertAction(title: String.Action.ok, style: .default) { _ in
             print("확인 탭")
+            
         }
         
         let cancel = UIAlertAction(title: String.Action.cancel, style: .cancel)
@@ -139,6 +141,18 @@ extension InfoManagementView {
         alert.addAction(ok)
         alert.addAction(cancel)
 //        present(alert, animated: true)
+        
+        UserAPIManager.withdraw { result in
+            switch result {
+                case .success():
+                    print("✅ 회원탈퇴 성공")
+                case .failure(let error):
+                    // Result<Void, Error> 이면 let error의 타입은 Error
+                    // Result<Void, SeSACError> 이면 let error의 타입은 SeSACError
+                    print("❎ 회원탈퇴 실패")
+                    print("에러: \(error)")
+            }
+        }
     }
 }
 

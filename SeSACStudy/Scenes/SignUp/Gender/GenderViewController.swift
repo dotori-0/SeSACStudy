@@ -94,7 +94,7 @@ final class GenderViewController: BaseViewController {
                     self?.setRootVCToTabBarController()
                 }
             } onError: { vc, error in  // 넘겨주는 쪽(onError)이 SeSACError여도 받는 쪽에서 그냥 error인 이유 및 해결 방법 ❔
-                guard let error = error as? SeSACError else {
+                guard let error = error as? UserAPIError else {
                     print("SeSACError로 변환 실패")
                     return
                 }

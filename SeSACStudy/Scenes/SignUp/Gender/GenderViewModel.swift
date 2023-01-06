@@ -15,7 +15,7 @@ final class GenderViewModel {
     
     func signUp() {
         print(#function)
-        APIManager.signUp { [weak self] result in
+        UserAPIManager.signUp { [weak self] result in
             switch result {
                 case .success():
                     self?.account.onNext(())

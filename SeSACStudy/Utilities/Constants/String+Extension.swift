@@ -76,8 +76,8 @@ extension String {
         static let detailedExplanation = "새싹 찾기 기능을 이용하기 위해서 필요해요!"
         static let male = "남자"
         static let female = "여자"
-        static let signUpSucceeded = "회원가입에 성공했습니다./n홈 화면으로 이동합니다."
-        static let existingUser = "이미 가입된 유저입니다./n홈 화면으로 이동합니다"
+        static let signUpSucceeded = "회원가입에 성공했습니다.\n홈 화면으로 이동합니다."
+        static let existingUser = "이미 가입된 유저입니다.\n홈 화면으로 이동합니다"
     }
     
     enum Home {

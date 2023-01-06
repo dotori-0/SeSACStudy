@@ -124,7 +124,7 @@ final class LogInViewController: BaseViewController {
                 print("🥚", error.localizedDescription)
                 // 에러인데 200이 나오면 이상한거..인듯?
                 // 401 파베토큰 에러가 나오면 fetchIDToken 다시 실행?
-                guard let error = error as? SeSACError else {
+                guard let error = error as? UserAPIError else {
                     print("SeSACError로 변환 실패")
                     return
                 }

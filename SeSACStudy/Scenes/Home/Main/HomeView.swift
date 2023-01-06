@@ -12,6 +12,8 @@ class HomeView: BaseView {
     // MARK: - Properties
     let naverMapView = NMFNaverMapView()
     let markerImageView = UIImageView()
+    var buttonConfiguration = UIButton.Configuration.plain()
+    let statusButton = UIButton()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -24,7 +26,7 @@ class HomeView: BaseView {
     
     // MARK: - Setting Methods
     override func setHierarchy() {
-        [naverMapView, markerImageView].forEach {
+        [naverMapView, markerImageView, statusButton].forEach {
             addSubview($0)
         }
         
@@ -33,6 +35,9 @@ class HomeView: BaseView {
     
     override func setUI() {
         markerImageView.image = Asset.Home.Main.mapMarker.image
+        
+        buttonConfiguration.image = Asset.Home.Main.Status.defaultStatus.image
+        statusButton.configuration = buttonConfiguration
     }
     
     override func setConstraints() {
@@ -50,6 +55,10 @@ class HomeView: BaseView {
         }
         
         markerImageView.isHidden = true
+        
+        statusButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalTo(safeAreaLayoutGuide)
+        }
     }
 }
 

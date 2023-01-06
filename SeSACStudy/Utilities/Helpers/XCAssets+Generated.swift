@@ -56,6 +56,11 @@ internal enum Asset {
   }
   internal enum Home {
     internal enum Main {
+      internal enum Status {
+        internal static let defaultStatus = ImageAsset(name: "defaultStatus")
+        internal static let matched = ImageAsset(name: "matched")
+        internal static let matching = ImageAsset(name: "matching")
+      }
       internal static let mapMarker = ImageAsset(name: "map_marker")
     }
   }

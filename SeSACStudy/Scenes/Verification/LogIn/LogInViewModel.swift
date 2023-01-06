@@ -56,7 +56,7 @@ final class LogInViewModel: InputOutput {
     let user = PublishSubject<User>()
     
     func logIn() {
-        APIManager.logIn { [weak self] result in
+        UserAPIManager.logIn { [weak self] result in
             switch result {
                 case .success(let user):
                     self?.user.onNext(user)

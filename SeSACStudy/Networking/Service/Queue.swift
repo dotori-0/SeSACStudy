@@ -105,5 +105,9 @@ extension Queue: TargetType {
     var headers: [String: String]? {
         return ["idtoken": UserDefaults.idToken,
                 "Content-Type": "application/x-www-form-urlencoded"]
-      }
+    }
+    
+    var validationType: ValidationType {
+        return .customCodes([200])
+    }
 }
