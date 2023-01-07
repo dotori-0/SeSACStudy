@@ -112,7 +112,10 @@ final class HomeViewController: BaseViewController {
     private func fetchNearbyUsers() {
         QueueAPIManager.fetchNearbyUsers(latitude: 37.517819364682694, longitude: 126.88647317074734) { [weak self] result in
             switch result {
-                case .success(let queueDB): print("🌲 \(queueDB)")
+                case .success(let queueDB):
+//                    print("🌲 \(queueDB)")
+                    print("🌲")
+                    dump(queueDB)
                 case .failure(let error):
                     print(error)
                     if let definedError = error as? QueueAPIError {

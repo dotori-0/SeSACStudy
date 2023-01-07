@@ -92,6 +92,15 @@ internal enum Asset {
     internal static let onboardingImg2 = ImageAsset(name: "onboarding_img2")
     internal static let onboardingImg3 = ImageAsset(name: "onboarding_img3")
   }
+  internal enum Shop {
+    internal enum Sesac {
+      internal static let sesacFace0 = ImageAsset(name: "sesac_face_0")
+      internal static let sesacFace1 = ImageAsset(name: "sesac_face_1")
+      internal static let sesacFace2 = ImageAsset(name: "sesac_face_2")
+      internal static let sesacFace3 = ImageAsset(name: "sesac_face_3")
+      internal static let sesacFace4 = ImageAsset(name: "sesac_face_4")
+    }
+  }
   internal enum TabBar {
     internal enum Default {
       internal static let friends = ImageAsset(name: "friends")
