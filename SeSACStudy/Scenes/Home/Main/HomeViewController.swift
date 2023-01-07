@@ -116,6 +116,7 @@ final class HomeViewController: BaseViewController {
 //                    print("🌲 \(queueDB)")
                     print("🌲")
                     dump(queueDB)
+                    self?.showNearbyUsers(of: queueDB)
                 case .failure(let error):
                     print(error)
                     if let definedError = error as? QueueAPIError {
@@ -128,6 +129,20 @@ final class HomeViewController: BaseViewController {
                         return
                     }
             }
+        }
+    }
+    
+    // MARK: - Map Methods
+    private func showNearbyUsers(of queueDB: QueueDB) {
+        let queueDBNearbyUsers = queueDB.fromQueueDB
+        queueDBNearbyUsers.forEach { nearbyUser in
+            let marker = NMFMarker()
+            let overlayImage = NMFOverlayImage(name: "sesac_face_\(nearbyUser.sesac)")
+            marker.width = 80
+            marker.height = 80
+            marker.iconImage = overlayImage
+            marker.position = NMGLatLng(lat: nearbyUser.lat, lng: nearbyUser.long)
+            marker.mapView = homeView.naverMapView.mapView
         }
     }
 }

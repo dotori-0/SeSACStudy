@@ -64,12 +64,12 @@ class HomeView: BaseView {
 
 extension HomeView: NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
-        print("🍓", #function)
-        print("🍓", mapView.cameraPosition)
+//        print("🍓", #function)
+//        print("🍓", mapView.cameraPosition)
     }
     
     func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-        print("🍋", #function)
-        print("🍋", mapView.cameraPosition)
+//        print("🍋", #function)
+//        print("🍋", mapView.cameraPosition)
     }
 }
