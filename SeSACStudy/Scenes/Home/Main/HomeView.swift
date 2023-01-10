@@ -36,7 +36,21 @@ class HomeView: BaseView {
     override func setUI() {
         markerImageView.image = Asset.Home.Main.mapMarker.image
         
-        buttonConfiguration.image = Asset.Home.Main.Status.defaultStatus.image
+//        buttonConfiguration.image = Asset.Home.Main.Status.defaultStatus.image
+//        statusButton.configuration = buttonConfiguration
+    }
+    
+    func setStatusButtonImage(as status: Status) {
+        let image: ImageAsset.Image
+        switch status {
+            case .standby:
+                image = Asset.Home.Main.Status.matching.image
+            case .matched:
+                image = Asset.Home.Main.Status.matched.image
+            case .defaultStatus:
+                image = Asset.Home.Main.Status.defaultStatus.image
+        }
+        buttonConfiguration.image = image
         statusButton.configuration = buttonConfiguration
     }
     
@@ -60,6 +74,40 @@ class HomeView: BaseView {
             make.bottom.trailing.equalTo(safeAreaLayoutGuide)
         }
     }
+    
+//    private func setActions() {
+//        statusButton.addTarget(self, action: #selector(statusButtonClicked), for: .touchUpInside)
+//    }
+    
+    // MARK: - Action Methods
+//    @objc private func statusButtonClicked() {
+//        findSesac()
+//    }
+    
+    // MARK: - Networking Methods
+//    private func findSesac() {
+//        QueueAPIManager.find(latitude: 37.518607, longitude: 126.887520,
+//                             studyList: ["anything", "Swift"]) { result in
+//            switch result {
+//                case .success(let success):
+//                    print("🐣 스터디 함께할 친구 찾기 요청 성공")
+//                case .failure(let error):
+//                    if let definedError = error as? QueueAPIError {
+//                        print("🐥 QueueAPIError: \(definedError)")
+//                        if definedError == .firebaseTokenError {
+//                            self?.refreshIDToken {
+//                                self?.fetchQueueState()
+//                            }
+//                        }
+//                        return
+//                    }
+//                    
+//                    if let definedError = error as? QueueAPIError.MyQueueState {
+//                        print("🐥 QueueAPIError.MyQueueState: \(definedError)")
+//                    }
+//            }
+//        }
+//    }
 }
 
 extension HomeView: NMFMapViewCameraDelegate {

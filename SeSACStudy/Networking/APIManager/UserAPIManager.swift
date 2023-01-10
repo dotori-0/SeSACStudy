@@ -13,6 +13,7 @@ struct UserAPIManager {
     
     private static let provider = MoyaProvider<UserAPI>()
     
+    /// 로그인
     static func logIn(completion: @escaping (Result<User, Error>) -> Void) {
         provider.request(.logIn) { result in
             do {
@@ -42,6 +43,7 @@ struct UserAPIManager {
         }
     }
     
+    /// 회원가입
     static func signUp(completion: @escaping (Result<Void, Error>) -> Void) {
         print(#function, "START")
         provider.request(.signUp(phoneNumber: NewUser.shared.phoneNumber,
@@ -108,6 +110,7 @@ struct UserAPIManager {
         }
     }
     
+    /// 회원 탈퇴
     static func withdraw(completion: @escaping (Result<Void, UserAPIError>) -> Void) {
         provider.request(.withdraw) { result in
             switch result {

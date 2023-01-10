@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 import Moya
 
 enum Queue {
@@ -69,16 +70,26 @@ extension Queue: TargetType {
     var task: Moya.Task {
         switch self {
             case .find(let latitude, let longitude, let studyList):
-                let parameters: [String : Any] = ["lat": latitude,
-                                                  "long": longitude,
-                                                  "studylist": studyList]
+                let parameters: [String: Any] = ["lat": latitude,
+                                                 "long": longitude,
+                                                 "studylist": studyList]
+                
+//                let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
+//                // Debugging
+//                if let jsonString = String(data: jsonData, encoding: .utf8) {
+//                    print(jsonString)
+//                }
+//                let jsonParameters = try! JSONSerialization.jsonObject(with: jsonData) as! [String: Any]
+////                print("jsonParameters 변경 실패")
                 return .requestParameters(parameters: parameters,
-                                          encoding: URLEncoding.httpBody)
+                                          encoding: URLEncoding(destination: .httpBody, arrayEncoding: .noBrackets))
+//                URLEncoding.ArrayEncoding.noBrackets
+                
             case .stopFinding:
                 return .requestPlain
             case .fetchNearbyUsers(let latitude, let longitude):
-                let parameters: [String : Any] = ["lat": latitude,
-                                                  "long": longitude]
+                let parameters: [String: Any] = ["lat": latitude,
+                                                 "long": longitude]
                 return .requestParameters(parameters: parameters,
                                           encoding: URLEncoding.httpBody)
             case .myQueueState:
@@ -86,7 +97,7 @@ extension Queue: TargetType {
             case .requestStudy(let otheruid),
                     .acceptStudy(let otheruid),
                     .cancelStudy(let otheruid):
-                let parameters: [String : Any] = ["otheruid": otheruid]
+                let parameters: [String: Any] = ["otheruid": otheruid]
                 return .requestParameters(parameters: parameters,
                                           encoding: URLEncoding.httpBody)
 //            case .acceptStudy(let otheruid):
@@ -94,9 +105,9 @@ extension Queue: TargetType {
 //            case .cancelStudy(let otheruid):
 //                <#code#>
             case .rate(let otheruid, let reputation, let comment):
-                let parameters: [String : Any] = ["otheruid": otheruid,
-                                                  "reputation": reputation,
-                                                  "comment": comment]
+                let parameters: [String: Any] = ["otheruid": otheruid,
+                                                 "reputation": reputation,
+                                                 "comment": comment]
                 return .requestParameters(parameters: parameters,
                                           encoding: URLEncoding.httpBody)
         }

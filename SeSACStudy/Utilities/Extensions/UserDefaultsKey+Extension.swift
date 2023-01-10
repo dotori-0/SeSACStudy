@@ -13,13 +13,14 @@ extension UserDefaults {
         static let idToken = "idToken"
         static let phoneNumber = "phoneNumber"
         static let isLoggedIn = "isLoggedIn"
+        static let status = "status"
     }
     
-    static func delete(_ key: String) {
-        UserDefaults.standard.removeObject(forKey: key)
-    }
-    
-    static func remove(_ key: UserDefault<String>) {
-        UserDefaults.standard.removeObject(forKey: key.key)
-    }
+//    static func delete(_ key: String) {
+//        UserDefaults.standard.removeObject(forKey: key)
+//    }
+//
+//    static func remove(_ key: UserDefault<String>) {
+//        UserDefaults.standard.removeObject(forKey: key.key)
+//    }
 }

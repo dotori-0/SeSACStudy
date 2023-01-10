@@ -35,6 +35,8 @@ final class HomeViewController: BaseViewController {
         hideNavigationBar()
         
 //        checkUserDeviceLocationServiceAuthorization()
+        
+        setActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,9 +63,9 @@ final class HomeViewController: BaseViewController {
 //        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.isNavigationBarHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+//        navigationController?.navigationBar.isHidden = true
 //        print("NC: \(navigationController)")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -84,11 +86,81 @@ final class HomeViewController: BaseViewController {
         fetchNearbyUsers()
     }
     
+    private func setActions() {
+        homeView.statusButton.addTarget(self, action: #selector(statusButtonClicked), for: .touchUpInside)
+    }
+    
+    // MARK: - Action Methods
+    @objc private func statusButtonClicked() {
+//        findSesac()
+//        requestStudy()
+        transition(to: ChatsViewController())
+    }
+    
     // MARK: - Networking Methods
+    private func requestStudy() {
+        QueueAPIManager.requestStudy(otheruid: "eT7g1xuSfDPfGl83Id23NkvgJvx1") { [weak self] result in
+            switch result {
+                case .success(_):
+                    print("🐣 스터디 요청 성공!")
+                    self?.fetchQueueState()
+                case .failure(let error):
+                    if let definedError = error as? QueueAPIError {
+                        print("🐥 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.requestStudy()
+                            }
+                        }
+                        return
+                    }
+                    
+                    if let definedError = error as? QueueAPIError.RequestStudy {
+                        print("🐥 QueueAPIError.Find: \(definedError)")
+                    }
+            }
+        }
+    }
+    
+    private func findSesac() {
+        QueueAPIManager.find(latitude: 37.518607, longitude: 126.887520,
+                             studyList: ["anything", "Swift"]) { [weak self] result in
+            switch result {
+                case .success(_):
+                    print("🐣 스터디 함께할 친구 찾기 요청 성공!")
+                    self?.fetchQueueState()
+                case .failure(let error):
+                    if let definedError = error as? QueueAPIError {
+                        print("🐥 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.findSesac()
+                            }
+                        }
+                        return
+                    }
+                    
+                    if let definedError = error as? QueueAPIError.Find {
+                        print("🐥 QueueAPIError.Find: \(definedError)")
+                    }
+            }
+        }
+    }
+    
     private func fetchQueueState() {
+        print(#function)
         QueueAPIManager.myQueueState { [weak self] result in
             switch result {
-                case .success(let myQueueState): print("⭐️ \(myQueueState)")
+                case .success(let myQueueState):
+                    print("⭐️ \(myQueueState)")
+                    // myQueueState.matched이 0이면 대기중, 1이면 매칭된 상태
+                    // UserDefaults에 저장할 필요가..없..나..? 👻
+                    UserDefaults.status = myQueueState.matched
+                    guard let status = Status(rawValue: myQueueState.matched) else {
+                        print("🐚 MyQueueState 응답값 받기 성공했으나 상태 알아내기 실패")
+                        return
+                    }
+                    self?.homeView.setStatusButtonImage(as: status)
                 case .failure(let error):
                     print(error)
                     // 에러를 커스텀 에러로 바꾼 후 처리하기
@@ -104,6 +176,10 @@ final class HomeViewController: BaseViewController {
                     
                     if let definedError = error as? QueueAPIError.MyQueueState {
                         print("🧸 QueueAPIError.MyQueueState: \(definedError)")
+                        // UserDefaults에 저장할 필요가..없..나..? 👻
+                        UserDefaults.status = Status.defaultStatus.rawValue
+                        print("🐚 MyQueueState 201")
+                        self?.homeView.setStatusButtonImage(as: .defaultStatus)
                     }
             }
         }
@@ -131,6 +207,8 @@ final class HomeViewController: BaseViewController {
             }
         }
     }
+    
+    
     
     // MARK: - Map Methods
     private func showNearbyUsers(of queueDB: QueueDB) {

@@ -19,4 +19,7 @@ extension UserDefaults {
     
     @UserDefault(key: Key.isLoggedIn, defaultValue: false)
     static var isLoggedIn: Bool
+    
+    @UserDefault(key: Key.status, defaultValue: 0)
+    static var status: Int
 }

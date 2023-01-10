@@ -90,6 +90,8 @@ extension String {
     
     enum Chats {
         static let friends = "새싹친구"
+        static let matchedWith = "님과 매칭되었습니다"
+        static let guide = "채팅을 통해 약속을 정해보세요 :)"
     }
     
     enum MyInfo {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// fetchNearbyUsers, myQueueState, rate
+/// fetchNearbyUsers, rate
 enum QueueAPIError: Int, Error {
     case success = 200
     case firebaseTokenError = 401
@@ -15,8 +15,20 @@ enum QueueAPIError: Int, Error {
     case serverError = 500
     case clientError = 501
     
+    enum Find: Int, Error {
+        case reportedMoreThanThreeTimes = 201
+        case cancelPenaltyLevelOne = 203
+        case cancelPenaltyLevelTwo
+        case cancelPenaltyLevelThree
+    }
+    
     enum MyQueueState: Int, Error {
         case defaultState = 201
+    }
+    
+    enum RequestStudy: Int, Error {
+        case alreadyRequestedByTheOther = 201
+        case theOtherStopped
     }
 }
 
