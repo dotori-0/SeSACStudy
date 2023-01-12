@@ -89,6 +89,10 @@ extension String {
     }
     
     enum Chats {
+        static let notMatched = "매치된 상대가 없어요!"
+        static let matchingNeeded = "다른 새싹과 매치되어야 채팅 기능을 이용할 수 있어요.\n주변 새싹에게 스터디 요청을 보내 보세요."
+        static let defaultState = "일반 상태 안내"
+        
         static let friends = "새싹친구"
         static let matchedWith = "님과 매칭되었습니다"
         static let guide = "채팅을 통해 약속을 정해보세요 :)"

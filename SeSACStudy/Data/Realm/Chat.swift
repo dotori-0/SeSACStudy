@@ -9,8 +9,11 @@ import Foundation
 import RealmSwift
 
 final class Chat: Object, Codable {
-    let id, to, from, chat: String
-    let createdAt: String
+    @Persisted var id: String
+    @Persisted var to: String
+    @Persisted var from: String
+    @Persisted var chat: String
+    @Persisted var createdAt: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

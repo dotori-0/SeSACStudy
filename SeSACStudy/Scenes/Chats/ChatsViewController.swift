@@ -11,6 +11,7 @@ final class ChatsViewController: BaseViewController {
     // MARK: - Properties
     let chatsView = ChatsView()
     var dummy: [String] = []
+    var matchedUid: String!
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -23,6 +24,7 @@ final class ChatsViewController: BaseViewController {
         setNavigationBar()
         configureDummyChat()
         configureTableView()
+        fetchQueueState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +50,10 @@ final class ChatsViewController: BaseViewController {
     // MARK: - Setting Methods
     private func setNavigationBar() {
         navigationController?.navigationBar.scrollEdgeAppearance = AppAppearance.navigationBarAppearance
+    }
+    
+    private func setNavigationTitle(as title: String) {
+        self.title = title
     }
 }
 
@@ -124,5 +130,65 @@ extension ChatsViewController: UITableViewDelegate {
 extension ChatsViewController {
     private func configureDummyChat() {
         dummy = ["안녕하세요", "반갑습니다", "별명이 왜 모찌인가요?", "세상에서\n모찌가 젤\n맛있더라구요", "아...", "안녕하세요 알고리즘 스터디는 언제 하실 생각이세요?", "안녕하세요! 저 평일은 저녁 8시에 꾸준히 하는데 7시부터 해도 괜찮아요", "안녕하세요! 저 평일은 저녁 8시에 꾸준히 하는데 7시부터 해도 괜찮아요 안녕하세요! 저 평일은 저녁 8시에 꾸준히 하는데 7시부터 해도 괜찮아요"]
+    }
+}
+
+extension ChatsViewController {
+    private func fetchQueueState() {
+        print(#function)
+        QueueAPIManager.myQueueState { [weak self] result in
+            switch result {
+                case .success(let myQueueState):
+                    print("⭐️ \(myQueueState)")
+                    if let matchedNick = myQueueState.matchedNick, let matchedUid = myQueueState.matchedNick {
+                        self?.setNavigationTitle(as: matchedNick)
+                        self?.matchedUid = matchedUid
+                        self?.fetchChats()
+                    } else {
+                        self?.alert(title: String.Chats.notMatched, message: String.Chats.matchingNeeded)
+                    }
+                case .failure(let error):
+                    print(error)
+                    // 에러를 커스텀 에러로 바꾼 후 처리하기
+                    if let definedError = error as? QueueAPIError {
+                        print("🧸 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.fetchQueueState()
+                            }
+                        }
+                        return
+                    }
+                    
+                    if let definedError = error as? QueueAPIError.MyQueueState {
+                        print("🧸 QueueAPIError.MyQueueState: \(definedError)")
+                        print("🐚 MyQueueState 201")
+                        self?.alert(title: String.Chats.defaultState, message: String.Chats.matchingNeeded)
+                    }
+            }
+        }
+    }
+    
+    private func fetchChats() {
+        ChatAPIManager.fetchChat(from: matchedUid, lastChatDate: "2000-01-01T00:00:00.000Z") { [weak self] result in
+            switch result {
+                case .success(let payload):
+                    self?.refreshIDToken()
+                    print(payload.payload)
+                case .failure(let error):
+                    print("🐰 ChatsVC \(error)")
+                    if let definedError = error as? QueueAPIError {
+                        print("🧸 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.fetchChats()
+                            }
+                        } else {
+                            print("🐰 ChatsVC \(definedError)")
+                        }
+                        return
+                    }
+            }
+        }
     }
 }
