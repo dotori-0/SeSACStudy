@@ -82,14 +82,14 @@ extension UserAPI: TargetType {
                 return .requestPlain
             case .updateFCMToken(let FCMToken):
                 let parameter: [String: Any] = ["FCMtoken": FCMToken]
-                return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: parameter, encoding: URLEncoding.httpBody)
             case .myPage(let searchable, let ageMin, let ageMax, let gender, let study):
                 let parameters: [String: Any] = ["searchable": searchable,
                                                  "ageMin": ageMin,
                                                  "ageMax": ageMax,
                                                  "gender": gender,
                                                  "study": study]
-                return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: parameters, encoding: URLEncoding.httpBody)
         }
     }
     

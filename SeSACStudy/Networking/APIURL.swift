@@ -56,4 +56,29 @@ struct APIURL {
             }
         }
     }
+    
+    enum v1Chat {
+        static func endpoint(matchedUid: String) -> String {
+            let version = "/v1/chat"
+            return version + "/" + matchedUid
+        }
+        
+//        case sendChat
+//        case fetchChat
+//
+//        func endpoint(matchedUid: String) -> String {
+//            let version = "/v1/chat"
+//            switch self {
+//                case .sendChat:
+//                    return version + "/" + matchedUid
+//                case .fetchChat:
+//                    <#code#>
+//            }
+//        }
+        
+//        var endpoint: String {
+//            let version = "/v1/chat"
+//            return
+//        }
+    }
 }

@@ -31,20 +31,19 @@ final class ChatsViewController: BaseViewController {
         showToast(message: "Chats")
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        guard let headerView = chatsView.tableView.tableHeaderView else {
-          return
-        }
-        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        if headerView.frame.size.height != size.height {
-           headerView.frame.size.height = size.height
-            chatsView.tableView.tableHeaderView = headerView
-            chatsView.tableView.layoutIfNeeded()
-        }
-    }
-
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//        guard let headerView = chatsView.tableView.tableHeaderView else {
+//          return
+//        }
+//        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+//        if headerView.frame.size.height != size.height {
+//           headerView.frame.size.height = size.height
+//            chatsView.tableView.tableHeaderView = headerView
+//            chatsView.tableView.layoutIfNeeded()
+//        }
+//    }
     
     // MARK: - Setting Methods
     private func setNavigationBar() {

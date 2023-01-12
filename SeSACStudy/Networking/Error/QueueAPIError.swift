@@ -30,6 +30,10 @@ enum QueueAPIError: Int, Error {
         case alreadyRequestedByTheOther = 201
         case theOtherStopped
     }
+    
+    enum SendChat: Int, Error {
+        case cannotSendChat = 201  // 상대방에게 채팅을 보낼 수 없는, 일반 상태
+    }
 }
 
 extension QueueAPIError: LocalizedError {
