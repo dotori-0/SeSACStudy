@@ -68,7 +68,7 @@ class MatchedHeaderView: BaseView {
     }
     
     private func setMatchedLabel() {
-        matchedLabel.text = "🔔 고래밥" + String.Chats.matchedWith
+//        matchedLabel.text = "🔔 고래밥" + String.Chats.matchedWith
         matchedLabel.font = .Title3_M14
         matchedLabel.textColor = Asset.Colors.Grayscale.gray7.color
     }
@@ -77,5 +77,9 @@ class MatchedHeaderView: BaseView {
         guideLabel.font = .Title4_R14
         guideLabel.textColor = Asset.Colors.Grayscale.gray6.color
         guideLabel.text = String.Chats.guide
+    }
+    
+    func showMatchedNickname(_ nickname: String) {
+        matchedLabel.text = "🔔 \(nickname)" + String.Chats.matchedWith
     }
 }

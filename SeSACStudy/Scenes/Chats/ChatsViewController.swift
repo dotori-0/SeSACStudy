@@ -14,6 +14,7 @@ final class ChatsViewController: BaseViewController, HandlerType {
     private let chatsView = ChatsView()
     private let repository = ChatRepository()
     private var dummy: [String] = []
+    private var matchedNickname: String!
     private var matchedUid: String!
     private var chats: Results<Chat>! {
         didSet {
@@ -80,13 +81,15 @@ final class ChatsViewController: BaseViewController, HandlerType {
         }
         
         if chats.isEmpty {
-            fetchChats(from: String.Chats.lastChatDateIfChatsEmpty)
+//            fetchChats(from: String.Chats.lastChatDateIfChatsEmpty)
+            fetchChatsAF(from: String.Chats.lastChatDateIfChatsEmpty)
         } else {
             guard let newestChatDateInDB = repository.newestChatDateInDB() else {
                 print("최신 채팅 찾기 실패!")
                 return
             }
-            fetchChats(from: newestChatDateInDB)
+//            fetchChats(from: newestChatDateInDB)
+            fetchChatsAF(from: newestChatDateInDB)
         }
     }
 }
@@ -123,6 +126,8 @@ extension ChatsViewController: UITableViewDataSource {
         
 //        let chat = dummy[indexPath.row]
         let chat = chats[indexPath.row]
+        print("\([indexPath.row]) chat.from: \(chat.from)")
+        print("\([indexPath.row]) matchedUid: \(matchedUid)")
         
 //        if indexPath.row.isMultiple(of: 2) {
         if chat.from == matchedUid {
@@ -157,7 +162,9 @@ extension ChatsViewController: UITableViewDelegate {
     
 // Dynamic Header Height 방법 2 (헤더와 셀 사이에 틈 X)
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return MatchedHeaderView()
+        let headerView = MatchedHeaderView()
+        headerView.showMatchedNickname(matchedNickname ?? "")
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
@@ -169,9 +176,9 @@ extension ChatsViewController: UITableViewDelegate {
     }
     
     private func scrollToBottom() {
-//        chatsView.tableView.scrollToRow(at: IndexPath(row: chats.count - 1, section: 0),
-//                                        at: .bottom,
-//                                        animated: false)
+        chatsView.tableView.scrollToRow(at: IndexPath(row: chats.count - 1, section: 0),
+                                        at: .bottom,
+                                        animated: false)
     }
 }
 
@@ -188,8 +195,9 @@ extension ChatsViewController {
             switch result {
                 case .success(let myQueueState):
                     print("⭐️ \(myQueueState)")
-                    if let matchedNick = myQueueState.matchedNick, let matchedUid = myQueueState.matchedNick {
+                    if let matchedNick = myQueueState.matchedNick, let matchedUid = myQueueState.matchedUid {
                         self?.setNavigationTitle(as: matchedNick)
+                        self?.matchedNickname = matchedNick
                         self?.matchedUid = matchedUid
 //                        self?.fetchChats()
                         self?.fetchChatsFromDB(isAfterFetchingFromServer: false)
@@ -278,12 +286,29 @@ extension ChatsViewController {
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
-        let url = "http://api.sesac.co.kr:1210/v1/chat/eT7g1xuSfDPfGl83Id23NkvgJvx1?lastchatDate=2000-01-01T00:00:00.000Z"
+        let url = "http://api.sesac.co.kr:1210/v1/chat/eT7g1xuSfDPfGl83Id23NkvgJvx1?lastchatDate=\(lastChatDate)"
         
         AF.request(url, method: .get, headers: headers).responseDecodable(of: Payload.self) { [weak self] response in
             switch response.result {
-            case .success(let value):
-                    print("😭 \(value)")
+            case .success(let payload):
+                    print("😭 \(payload)")
+
+                    // 여기서 realm에 add 후 realm fetch 후 테이블뷰 리로드
+                    // 그리고 테이블뷰 제일 밑으로 내린 후 소켓 연결!!
+                    
+                    self?.repository.add(payload.payload) {
+                        // realm fetch 후 테이블뷰 리로드 후 스크롤 후 소켓 연결
+                        self?.fetchChatsFromDB(isAfterFetchingFromServer: true) {
+                            self?.chatsView.tableView.reloadData()
+
+                            // 스크롤 후 소켓 연결
+                            self?.scrollToBottom()
+
+                        }
+                    } errorHandler: {
+                        self?.alert(title: String.Alert.errorAlert, message: String.Alert.chatSaveError)
+                    }
+                    
 //                    self?.chat = value
 //                    self?.tableView.reloadData()
 //                    self?.tableView.scrollToRow(at: IndexPath(row: self!.chat.count - 1, section: 0),
@@ -291,7 +316,38 @@ extension ChatsViewController {
 //                                               animated: false)
 //                    SocketIOManager.shared.establishConnection()  // 과거의 채팅을 먼저 처리하기 위해 여기에서 구현
             case .failure(let error):
-                print("FAIL", error)
+                    print("FAIL", error)
+                    
+                    guard let statusCode = response.response?.statusCode else {
+                        print("fetchChatsAF statusCode 옵셔널 체이닝 실패")
+                        return
+                    }
+                    
+                    guard let definedError = QueueAPIError(rawValue: statusCode) else {
+                        print("fetchChatsAF error QueueAPIError 변경 실패")
+                        return
+                    }
+                    
+                    if definedError == .firebaseTokenError {
+                        self?.refreshIDToken {
+                            guard let areChatsEmpty = self?.chats.isEmpty else {
+                                print("areChatsEmpty 옵셔널 체이닝 실패")
+                                return
+                            }
+                            
+                            if areChatsEmpty {
+                                self?.fetchChatsAF(from: String.Chats.lastChatDateIfChatsEmpty)
+                            } else {
+                                guard let newestChatDateInDB = self?.repository.newestChatDateInDB() else {
+                                    print("최신 채팅 찾기 실패!!")
+                                    return
+                                }
+                                self?.fetchChatsAF(from: newestChatDateInDB)
+                            }
+                        }
+                    } else {
+                        print("🐰 firebaseTokenError 이외 다른 오류: \(definedError)")
+                    }
             }
         }
     }

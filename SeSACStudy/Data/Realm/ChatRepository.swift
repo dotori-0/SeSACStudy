@@ -45,4 +45,11 @@ final class ChatRepository: Repository {
         let newestChatDateInDB = newestChatInDB.createdAt
         return newestChatDateInDB
     }
+    
+    func deleteAll() {
+        try! realm.write {
+            // Delete all objects from the realm.
+            realm.deleteAll()
+        }
+    }
 }

@@ -45,6 +45,9 @@ final class HomeViewController: BaseViewController {
 //        showToast(message: "Main")
         
 //        hideNavigationBar()
+        
+//        let repository = ChatRepository()
+//        repository.deleteAll()
     }
 
     // MARK: - Setting Methods
