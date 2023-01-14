@@ -33,10 +33,11 @@ final class ChatsViewController: BaseViewController, HandlerType {
         print("🐰 Realm is located at:", repository.realm.configuration.fileURL!)
 
         setNavigationBar()
+        setActions()
 //        configureDummyChat()
         configureTableView()
         fetchQueueState()
-        fetchChatsAF(from: "")
+//        fetchChatsAF(from: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,20 +46,6 @@ final class ChatsViewController: BaseViewController, HandlerType {
         showToast(message: "Chats")
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        guard let headerView = chatsView.tableView.tableHeaderView else {
-//          return
-//        }
-//        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//        if headerView.frame.size.height != size.height {
-//           headerView.frame.size.height = size.height
-//            chatsView.tableView.tableHeaderView = headerView
-//            chatsView.tableView.layoutIfNeeded()
-//        }
-//    }
-    
     // MARK: - Setting Methods
     private func setNavigationBar() {
         navigationController?.navigationBar.scrollEdgeAppearance = AppAppearance.navigationBarAppearance
@@ -66,6 +53,17 @@ final class ChatsViewController: BaseViewController, HandlerType {
     
     private func setNavigationTitle(as title: String) {
         self.title = title
+    }
+    
+    
+    private func setActions() {
+        chatsView.sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
+    }
+    
+    // MARK: - Action Methods
+    @objc private func sendButtonClicked() {
+        print("전송 버튼 탭")
+        sendChat()
     }
     
     // MARK: - Realm Methods
@@ -188,6 +186,7 @@ extension ChatsViewController {
     }
 }
 
+// MARK: - Networking Methods
 extension ChatsViewController {
     private func fetchQueueState() {
         print(#function)
@@ -347,6 +346,35 @@ extension ChatsViewController {
                         }
                     } else {
                         print("🐰 firebaseTokenError 이외 다른 오류: \(definedError)")
+                    }
+            }
+        }
+    }
+    
+    private func sendChat() {
+        ChatAPIManager.sendChat(to: matchedUid, chat: chatsView.chatTextView.text) { [weak self] result in
+            switch result {
+                case .success(let chat):
+//                    print(chat)
+                    self?.chatsView.chatTextView.text.removeAll()
+                case .failure(let error):
+                    print("🐰 sendChat \(error)")
+                    if let definedError = error as? QueueAPIError {
+                        print("🧸 QueueAPIError: \(definedError)")
+                        if definedError == .firebaseTokenError {
+                            self?.refreshIDToken {
+                                self?.sendChat()
+                            }
+                        } else {
+                            print("🐰 ChatsVC \(definedError)")
+                        }
+                        return
+                    }
+                    
+                    if let definedError = error as? QueueAPIError.SendChat {
+                        print("🧸 QueueAPIError.SendChat: \(definedError)")
+                        print("🐚 SendChat 201")
+                        self?.alert(title: String.Chats.defaultState, message: String.Chats.matchingNeeded)
                     }
             }
         }
