@@ -33,7 +33,7 @@ final class HomeViewController: BaseViewController {
         print("🗺 locationManager: \(locationManager)")
         
         hideNavigationBar()
-        
+//        refreshIDToken()
 //        checkUserDeviceLocationServiceAuthorization()
         
         setActions()

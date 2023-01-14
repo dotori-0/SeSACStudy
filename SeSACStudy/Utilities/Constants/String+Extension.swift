@@ -8,6 +8,11 @@
 import Foundation
 
 extension String {
+    enum Alert {
+        static let errorAlert = "오류 안내"
+        static let chatSaveError = "채팅 저장에 실패했습니다.\n다시 시도해 주세요."
+    }
+    
     enum NetworkError {
         static let networkError = "네트워크 연결 에러"
         static let networkErrorMessage = "네트워크 연결이 원활하지 않습니다.\n연결 상태를 확인하고 다시 시도해 주세요."
@@ -92,6 +97,8 @@ extension String {
         static let notMatched = "매치된 상대가 없어요!"
         static let matchingNeeded = "다른 새싹과 매치되어야 채팅 기능을 이용할 수 있어요.\n주변 새싹에게 스터디 요청을 보내 보세요."
         static let defaultState = "일반 상태 안내"
+        
+        static let lastChatDateIfChatsEmpty = "2000-01-01T00:00:00.000Z"
         
         static let friends = "새싹친구"
         static let matchedWith = "님과 매칭되었습니다"

@@ -36,12 +36,19 @@ struct ChatAPIManager {
     
     /// 채팅 목록 가져오기
     static func fetchChat(from matchedUid: String, lastChatDate: String,
-                          completion: @escaping (Result<Payload, Error>) -> Void) {
+                          completion: @escaping (Result<PayloadStruct, Error>) -> Void) {
         provider.request(.fetchChat(matchedUid: matchedUid, lastChatDate: lastChatDate)) { result in
             do {
+//                print(result)
                 let response = try result.get()
-                let payload = try response.map(Payload.self)
+//                dump(response)
+                print("response.statusCode: ", response.statusCode)
+                print("response.response?.statusCode: ", response.response?.statusCode)
+                
+                let payload = try response.map(PayloadStruct.self)
+                dump(payload)
                 print("🥍 payload: \(payload)")
+                print("🥍 payload.payload.count: \(payload.payload.count)")
                 completion(.success(payload))
             } catch {
                 guard let definedError = definedError(error) else {

@@ -100,6 +100,9 @@
 		0A9348BF296F265500BC6129 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348BE296F265500BC6129 /* ChatAPIManager.swift */; };
 		0A9348C1296F26A600BC6129 /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348C0296F26A600BC6129 /* ChatAPI.swift */; };
 		0A9348C4296F3BE400BC6129 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348C3296F3BE400BC6129 /* Chat.swift */; };
+		0A9348C62970007500BC6129 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348C52970007500BC6129 /* ChatRepository.swift */; };
+		0A9348C8297082FF00BC6129 /* RealmKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348C7297082FE00BC6129 /* RealmKey.swift */; };
+		0A9348CA29715ECE00BC6129 /* HandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9348C929715ECE00BC6129 /* HandlerType.swift */; };
 		0A958E552928C89C00CA0D40 /* BirthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */; };
 		0A958E572928C8B900CA0D40 /* BirthDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E562928C8B900CA0D40 /* BirthDateView.swift */; };
 		0A958E592928C8DA00CA0D40 /* BirthDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A958E582928C8DA00CA0D40 /* BirthDateViewModel.swift */; };
@@ -237,6 +240,9 @@
 		0A9348BE296F265500BC6129 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		0A9348C0296F26A600BC6129 /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
 		0A9348C3296F3BE400BC6129 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		0A9348C52970007500BC6129 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		0A9348C7297082FE00BC6129 /* RealmKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmKey.swift; sourceTree = "<group>"; };
+		0A9348C929715ECE00BC6129 /* HandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerType.swift; sourceTree = "<group>"; };
 		0A958E542928C89C00CA0D40 /* BirthDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateViewController.swift; sourceTree = "<group>"; };
 		0A958E562928C8B900CA0D40 /* BirthDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateView.swift; sourceTree = "<group>"; };
 		0A958E582928C8DA00CA0D40 /* BirthDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateViewModel.swift; sourceTree = "<group>"; };
@@ -437,6 +443,7 @@
 			children = (
 				0A50194529221600001BB094 /* InputOutput.swift */,
 				0A7F0E9D293496FC004C9AC6 /* ReusableViewProtocol.swift */,
+				0A9348C929715ECE00BC6129 /* HandlerType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -474,6 +481,7 @@
 			children = (
 				0A2FE5D2291ACCE8000C63E3 /* FontName+Extension.swift */,
 				0A2FE5FE291C052D000C63E3 /* String+Extension.swift */,
+				0A9348C7297082FE00BC6129 /* RealmKey.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -685,6 +693,7 @@
 			children = (
 				0A9348BC296F256600BC6129 /* Payload.swift */,
 				0A9348C3296F3BE400BC6129 /* Chat.swift */,
+				0A9348C52970007500BC6129 /* ChatRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -929,6 +938,7 @@
 				0A9348C4296F3BE400BC6129 /* Chat.swift in Sources */,
 				0A38A370296D97A8002D3DF0 /* ReceivedTableViewCell.swift in Sources */,
 				0A7F0E9E293496FC004C9AC6 /* ReusableViewProtocol.swift in Sources */,
+				0A9348C8297082FF00BC6129 /* RealmKey.swift in Sources */,
 				0AC03A51291D1A8300CBE29C /* UserDefault.swift in Sources */,
 				0A38A373296DADFD002D3DF0 /* ChatLabel.swift in Sources */,
 				0A2FE5CF291AC8F9000C63E3 /* ViewController.swift in Sources */,
@@ -972,6 +982,7 @@
 				0A50194629221600001BB094 /* InputOutput.swift in Sources */,
 				0A5019382921649E001BB094 /* LogInViewController.swift in Sources */,
 				0A39349D2940AB39007093B4 /* Queue.swift in Sources */,
+				0A9348C62970007500BC6129 /* ChatRepository.swift in Sources */,
 				0A2FE5F3291BEF36000C63E3 /* XCAssets+Generated.swift in Sources */,
 				0A38A379296DC542002D3DF0 /* MatchedHeaderView.swift in Sources */,
 				0A7ACABC2966F4190040CECF /* MyQueueState.swift in Sources */,
@@ -985,6 +996,7 @@
 				0A50195A29236AF6001BB094 /* UserAPIError.swift in Sources */,
 				0A2FE5F5291BFC28000C63E3 /* BaseViewController.swift in Sources */,
 				0AC03A5B291F664C00CBE29C /* NoActionTextField.swift in Sources */,
+				0A9348CA29715ECE00BC6129 /* HandlerType.swift in Sources */,
 				0A38A377296DB1FF002D3DF0 /* ChatTableViewCell.swift in Sources */,
 				0A38A375296DAEA6002D3DF0 /* ChatTimeLabel.swift in Sources */,
 				0A176DE22938788E004EC5AE /* InfoManagementCollectionViewCell.swift in Sources */,

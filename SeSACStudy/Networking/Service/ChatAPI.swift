@@ -24,6 +24,7 @@ extension ChatAPI: TargetType {
                 return APIURL.v1Chat.endpoint(matchedUid: matchedUid)
             case .fetchChat(matchedUid: let matchedUid, lastChatDate: _):
                 return APIURL.v1Chat.endpoint(matchedUid: matchedUid)
+//                return "http://api.sesac.co.kr:1210/v1/chat/eT7g1xuSfDPfGl83Id23NkvgJvx1?lastchatDate=2000-01-01T00:00:00.000Z"
         }
     }
     
@@ -44,6 +45,7 @@ extension ChatAPI: TargetType {
             case .fetchChat(_, let lastChatDate):
                 let parameters: [String: Any] = ["lastchatDate": lastChatDate]
                 return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+//                return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
         }
     }
     
