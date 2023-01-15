@@ -22,4 +22,7 @@ extension UserDefaults {
     
     @UserDefault(key: Key.status, defaultValue: 0)
     static var status: Int
+    
+    @UserDefault(key: Key.id, defaultValue: "")
+    static var id: String
 }

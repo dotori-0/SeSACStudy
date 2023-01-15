@@ -116,6 +116,7 @@ final class LogInViewController: BaseViewController {
             .subscribe(with: self) { vc, user in  // onError에서도 vc 쓰기 위해서는 with: self로 해야 하는 것이 맞는지?❔
                 print("logInViewModel.user subscribe onNext")
                 UserDefaults.isLoggedIn = true
+                UserDefaults.id = user.id
                 // 홈화면으로 이동
 //                vc.transition(to: TabBarController())
                 vc.setRootVCToTabBarController()

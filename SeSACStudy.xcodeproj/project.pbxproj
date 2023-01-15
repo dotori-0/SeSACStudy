@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A100EC329732ACC006C4A70 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A100EC229732ACC006C4A70 /* IQKeyboardManagerSwift */; };
+		0A100EC529733D3E006C4A70 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100EC429733D3E006C4A70 /* SocketIOManager.swift */; };
+		0A100EC829733D95006C4A70 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 0A100EC729733D95006C4A70 /* SocketIO */; };
 		0A176DC6293631B3004EC5AE /* AddAttributes+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DC5293631B3004EC5AE /* AddAttributes+Extension.swift */; };
 		0A176DC8293634D0004EC5AE /* CellRegistrationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */; };
 		0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */; };
@@ -154,6 +156,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A100EC429733D3E006C4A70 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		0A176DC5293631B3004EC5AE /* AddAttributes+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddAttributes+Extension.swift"; sourceTree = "<group>"; };
 		0A176DC7293634D0004EC5AE /* CellRegistrationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationType.swift; sourceTree = "<group>"; };
 		0A176DCD2937B73C004EC5AE /* InfoManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManagementViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				0A2FE59A291A3EE7000C63E3 /* RxSwift in Frameworks */,
 				0A2FE5A0291A3F44000C63E3 /* SnapKit in Frameworks */,
 				0A2FE5C9291AC722000C63E3 /* FirebaseAuth in Frameworks */,
+				0A100EC829733D95006C4A70 /* SocketIO in Frameworks */,
 				0A100EC329732ACC006C4A70 /* IQKeyboardManagerSwift in Frameworks */,
 				0A2FE598291A3EE7000C63E3 /* RxCocoa in Frameworks */,
 				F6175C2DB59B3B1A47CF8851 /* Pods_SeSACStudy.framework in Frameworks */,
@@ -497,6 +501,7 @@
 				0A7ACAC02966F51C0040CECF /* APIManager */,
 				0A7ACABD2966F4F20040CECF /* Error */,
 				0A176DE9293A1BB0004EC5AE /* APIKey.swift */,
+				0A100EC429733D3E006C4A70 /* SocketIOManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 				0A9348B7296F246A00BC6129 /* Realm */,
 				0A9348B9296F246A00BC6129 /* RealmSwift */,
 				0A100EC229732ACC006C4A70 /* IQKeyboardManagerSwift */,
+				0A100EC729733D95006C4A70 /* SocketIO */,
 			);
 			productName = SeSACStudy;
 			productReference = 0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */;
@@ -837,6 +843,7 @@
 				0A39348F293B4832007093B4 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				0A9348B6296F246A00BC6129 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				0A100EC129732ACC006C4A70 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				0A100EC629733D94006C4A70 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 0A2FE580291A3B65000C63E3 /* Products */;
 			projectDirPath = "";
@@ -934,6 +941,7 @@
 				0AC03A43291C1AFB00CBE29C /* ThirdViewController.swift in Sources */,
 				0A9348BD296F256600BC6129 /* Payload.swift in Sources */,
 				0A176DCE2937B73C004EC5AE /* InfoManagementViewController.swift in Sources */,
+				0A100EC529733D3E006C4A70 /* SocketIOManager.swift in Sources */,
 				0A595068293368CB00074AA4 /* ShopViewController.swift in Sources */,
 				0A4EA7AE2924D581004DB24F /* NicknameViewModel.swift in Sources */,
 				0AC03A41291C1AE300CBE29C /* SecondViewController.swift in Sources */,
@@ -1283,6 +1291,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		0A100EC629733D94006C4A70 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
 		0A2FE596291A3EE7000C63E3 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1354,6 +1370,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A100EC129732ACC006C4A70 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		0A100EC729733D95006C4A70 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A100EC629733D94006C4A70 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		0A2FE597291A3EE7000C63E3 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;

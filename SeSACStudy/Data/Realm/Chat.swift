@@ -20,14 +20,14 @@ final class Chat: Object, Codable {
         case to, from, chat, createdAt
     }
 
-//    convenience init(id: String, to: String, from: String, chat: String, createdAt: String) {
-//        self.init()
-//        self.id = id
-//        self.to = to
-//        self.from = from
-//        self.chat = chat
-//        self.createdAt = createdAt
-//    }
+    convenience init(id: String, to: String, from: String, chat: String, createdAt: String) {
+        self.init()
+        self.id = id
+        self.to = to
+        self.from = from
+        self.chat = chat
+        self.createdAt = createdAt
+    }
 }
 
 

@@ -23,6 +23,16 @@ final class ChatRepository: Repository {
         return realm.objects(Chat.self)
     }
     
+    func add(_ item: Chat) {
+        do {
+            try realm.write {
+                realm.add(item)
+            }
+        } catch  {
+            print(error)
+        }
+    }
+    
     func add(_ items: List<Chat>, completionHandler: @escaping Handler, errorHandler: @escaping Handler) {
         do {
             try realm.write {

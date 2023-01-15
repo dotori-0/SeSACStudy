@@ -14,6 +14,7 @@ extension UserDefaults {
         static let phoneNumber = "phoneNumber"
         static let isLoggedIn = "isLoggedIn"
         static let status = "status"
+        static let id = "id"
     }
     
 //    static func delete(_ key: String) {

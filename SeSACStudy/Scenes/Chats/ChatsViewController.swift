@@ -33,6 +33,7 @@ final class ChatsViewController: BaseViewController, HandlerType {
         print("🐰 Realm is located at:", repository.realm.configuration.fileURL!)
 
         setNavigationBar()
+        setNotificationObserver()
         setActions()
 //        configureDummyChat()
         configureTableView()
@@ -44,6 +45,23 @@ final class ChatsViewController: BaseViewController, HandlerType {
         super.viewWillAppear(animated)
         
         showToast(message: "Chats")
+        
+//        UserAPIManager.logIn { result in
+//            switch result {
+//                case .success(let user):
+//                    print("유저 ID: \(user.id)")
+//                    UserDefaults.id = user.id
+//                case .failure(let failure):
+//                    print(failure)
+//            }
+//        }
+        print(UserDefaults.idToken)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        SocketIOManager.shared.closeConnection()
     }
     
     // MARK: - Setting Methods
@@ -55,6 +73,27 @@ final class ChatsViewController: BaseViewController, HandlerType {
         self.title = title
     }
     
+    private func setNotificationObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receiveChat(notification:)),
+                                               name: NSNotification.Name("receivedChat"),
+                                               object: nil)
+    }
+    
+    @objc func receiveChat(notification: NSNotification) {
+        let chatID = notification.userInfo!["chatID"] as! String
+        let chat = notification.userInfo!["chat"] as! String
+        let createdAt = notification.userInfo!["createdAt"] as! String
+        let from = notification.userInfo!["from"] as! String
+        let to = notification.userInfo!["to"] as! String
+        
+        let chatItem = Chat(id: chatID, to: to, from: from, chat: chat, createdAt: createdAt)
+        
+        repository.add(chatItem)
+        fetchChatsFromDB(isAfterFetchingFromServer: true)
+        chatsView.tableView.reloadData()
+        scrollToBottom()
+    }
     
     private func setActions() {
         chatsView.sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
@@ -90,6 +129,10 @@ final class ChatsViewController: BaseViewController, HandlerType {
             fetchChatsAF(from: newestChatDateInDB)
         }
     }
+    
+    private func createChatItemAndSaveToDB() {
+        
+    }
 }
 
 // MARK: -  UITableViewDataSource
@@ -124,8 +167,8 @@ extension ChatsViewController: UITableViewDataSource {
         
 //        let chat = dummy[indexPath.row]
         let chat = chats[indexPath.row]
-        print("\([indexPath.row]) chat.from: \(chat.from)")
-        print("\([indexPath.row]) matchedUid: \(matchedUid)")
+//        print("\([indexPath.row]) chat.from: \(chat.from)")
+//        print("\([indexPath.row]) matchedUid: \(matchedUid)")
         
 //        if indexPath.row.isMultiple(of: 2) {
         if chat.from == matchedUid {
@@ -302,18 +345,16 @@ extension ChatsViewController {
 
                             // 스크롤 후 소켓 연결
                             self?.scrollToBottom()
-
+                            
+                            if SocketIOManager.shared.socket.status == .connected {
+                                return
+                            } else {
+                                SocketIOManager.shared.establishConnection()  // 과거의 채팅을 먼저 처리하기 위해 여기에서 소켓 연결
+                            }
                         }
                     } errorHandler: {
                         self?.alert(title: String.Alert.errorAlert, message: String.Alert.chatSaveError)
                     }
-                    
-//                    self?.chat = value
-//                    self?.tableView.reloadData()
-//                    self?.tableView.scrollToRow(at: IndexPath(row: self!.chat.count - 1, section: 0),
-//                                               at: .bottom,
-//                                               animated: false)
-//                    SocketIOManager.shared.establishConnection()  // 과거의 채팅을 먼저 처리하기 위해 여기에서 구현
             case .failure(let error):
                     print("FAIL", error)
                     
@@ -357,6 +398,15 @@ extension ChatsViewController {
                 case .success(let chat):
 //                    print(chat)
                     self?.chatsView.chatTextView.text.removeAll()
+                    
+                    // 채팅 자체의 고유 id 때문에 API 통신으로 또 받아 오는데, 적절한 방법인지?
+                    // Chat 인스턴스를 만들어서 realm에 저장한다면,
+                    // 서버에 저장된 createdAt(채팅 보낸 시각)과도 상이할 것을 고려한다면 채팅을 보낼 때마다 API 통신을 하는 것이 적절해 보이기는 하다.
+                    guard let newestChatDateInDB = self?.repository.newestChatDateInDB() else {
+                        print("최신 채팅 찾기 실패!")
+                        return
+                    }
+                    self?.fetchChatsAF(from: newestChatDateInDB)
                 case .failure(let error):
                     print("🐰 sendChat \(error)")
                     if let definedError = error as? QueueAPIError {
