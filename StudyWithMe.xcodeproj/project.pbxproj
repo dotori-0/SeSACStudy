@@ -171,7 +171,7 @@
 		0A176DE52938FC1E004EC5AE /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
 		0A176DE72939CE80004EC5AE /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A176DE9293A1BB0004EC5AE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A2FE57F291A3B65000C63E3 /* StudyWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2FE582291A3B65000C63E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2FE584291A3B65000C63E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0A2FE589291A3B65000C63E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		0A4EA7B12925057A004DB24F /* FirebaseTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTokenManager.swift; sourceTree = "<group>"; };
 		0A4EA7B5292639DE004DB24F /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		0A4EA7B82927F18A004DB24F /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
-		0A50193629213C0E001BB094 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
+		0A50193629213C0E001BB094 /* StudyWithMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyWithMe.entitlements; sourceTree = "<group>"; };
 		0A5019372921649E001BB094 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		0A501939292164D2001BB094 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		0A50193B29217197001BB094 /* VerificationAndSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationAndSignUpView.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 			children = (
 				0A2FE5E8291BE8B1000C63E3 /* swiftgen.yml */,
 				0A2FE5BD291AC1DA000C63E3 /* .gitignore */,
-				0A2FE581291A3B65000C63E3 /* SeSACStudy */,
+				0A2FE581291A3B65000C63E3 /* StudyWithMe */,
 				0A2FE580291A3B65000C63E3 /* Products */,
 				0AFC7F3B2934942600CBACA1 /* Frameworks */,
 				ED0FF68FF1DCB13E1F019629 /* Pods */,
@@ -370,15 +370,15 @@
 		0A2FE580291A3B65000C63E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */,
+				0A2FE57F291A3B65000C63E3 /* StudyWithMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A2FE581291A3B65000C63E3 /* SeSACStudy */ = {
+		0A2FE581291A3B65000C63E3 /* StudyWithMe */ = {
 			isa = PBXGroup;
 			children = (
-				0A50193629213C0E001BB094 /* SeSACStudy.entitlements */,
+				0A50193629213C0E001BB094 /* StudyWithMe.entitlements */,
 				0A2FE5A8291AB807000C63E3 /* Utilities */,
 				0A2FE5B0291AB843000C63E3 /* Networking */,
 				0A2FE5B1291AB847000C63E3 /* Scenes */,
@@ -392,7 +392,7 @@
 				0A2FE590291A3B66000C63E3 /* Info.plist */,
 				0A50195B2923BF0D001BB094 /* GoogleService-Info.plist */,
 			);
-			path = SeSACStudy;
+			path = StudyWithMe;
 			sourceTree = "<group>";
 		};
 		0A2FE5A7291AB7E9000C63E3 /* App */ = {
@@ -772,9 +772,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A2FE57E291A3B65000C63E3 /* SeSACStudy */ = {
+		0A2FE57E291A3B65000C63E3 /* StudyWithMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A2FE593291A3B66000C63E3 /* Build configuration list for PBXNativeTarget "SeSACStudy" */;
+			buildConfigurationList = 0A2FE593291A3B66000C63E3 /* Build configuration list for PBXNativeTarget "StudyWithMe" */;
 			buildPhases = (
 				A75D4BC2023404632C397DF6 /* [CP] Check Pods Manifest.lock */,
 				0A2FE57B291A3B65000C63E3 /* Sources */,
@@ -788,7 +788,7 @@
 			);
 			dependencies = (
 			);
-			name = SeSACStudy;
+			name = StudyWithMe;
 			packageProductDependencies = (
 				0A2FE597291A3EE7000C63E3 /* RxCocoa */,
 				0A2FE599291A3EE7000C63E3 /* RxSwift */,
@@ -805,7 +805,7 @@
 				0A100EC729733D95006C4A70 /* SocketIO */,
 			);
 			productName = SeSACStudy;
-			productReference = 0A2FE57F291A3B65000C63E3 /* SeSACStudy.app */;
+			productReference = 0A2FE57F291A3B65000C63E3 /* StudyWithMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -823,7 +823,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A2FE57A291A3B65000C63E3 /* Build configuration list for PBXProject "SeSACStudy" */;
+			buildConfigurationList = 0A2FE57A291A3B65000C63E3 /* Build configuration list for PBXProject "StudyWithMe" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -849,7 +849,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A2FE57E291A3B65000C63E3 /* SeSACStudy */,
+				0A2FE57E291A3B65000C63E3 /* StudyWithMe */,
 			);
 		};
 /* End PBXProject section */
@@ -1197,12 +1197,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StudyWithMe/StudyWithMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D92DSFPJZF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SeSACStudy/Info.plist;
+				INFOPLIST_FILE = StudyWithMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1231,12 +1231,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StudyWithMe/StudyWithMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D92DSFPJZF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SeSACStudy/Info.plist;
+				INFOPLIST_FILE = StudyWithMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1262,7 +1262,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A2FE57A291A3B65000C63E3 /* Build configuration list for PBXProject "SeSACStudy" */ = {
+		0A2FE57A291A3B65000C63E3 /* Build configuration list for PBXProject "StudyWithMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A2FE591291A3B66000C63E3 /* Debug */,
@@ -1271,7 +1271,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A2FE593291A3B66000C63E3 /* Build configuration list for PBXNativeTarget "SeSACStudy" */ = {
+		0A2FE593291A3B66000C63E3 /* Build configuration list for PBXNativeTarget "StudyWithMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A2FE594291A3B66000C63E3 /* Debug */,
