@@ -30,7 +30,7 @@ extension String {
         static let firstHighlight = "위치 기반"
         static let second = "스터디를 원하는 친구를\n찾을 수 있어요"
         static let secondHighlight = "스터디를 원하는 친구"
-        static let third = "SeSAC Study"
+        static let third = "Study With Me"
     }
     
     enum Verification {

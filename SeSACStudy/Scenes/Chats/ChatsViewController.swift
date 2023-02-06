@@ -81,6 +81,7 @@ final class ChatsViewController: BaseViewController, HandlerType {
     }
     
     @objc func receiveChat(notification: NSNotification) {
+        print("채팅 도착!!")
         let chatID = notification.userInfo!["chatID"] as! String
         let chat = notification.userInfo!["chat"] as! String
         let createdAt = notification.userInfo!["createdAt"] as! String
@@ -178,7 +179,7 @@ extension ChatsViewController: UITableViewDataSource {
             }
 //            cell.chatLabel.text = chat
             cell.chatLabel.text = chat.chat
-            cell.timeLabel.text = "몇 시"
+            cell.timeLabel.text = chatDateToChatTime(chatDate: chat.createdAt)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SentTableViewCell.reuseIdentifier,
@@ -188,9 +189,28 @@ extension ChatsViewController: UITableViewDataSource {
             
 //            cell.chatLabel.text = chat
             cell.chatLabel.text = chat.chat
-            cell.timeLabel.text = "몇 시"
+            cell.timeLabel.text = chatDateToChatTime(chatDate: chat.createdAt)
             return cell
         }
+    }
+    
+    private func chatDateToChatTime(chatDate: String) -> String {
+//        let chatDate = "2023-01-14T19:15:25.664Z"
+                
+        let chatDateDateFormatter = DateFormatter()
+        chatDateDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        chatDateDateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+                
+        let date = chatDateDateFormatter.date(from: chatDate)
+                
+        let chatTimeDateFormatter = DateFormatter()
+        chatTimeDateFormatter.dateFormat = "HH:mm"
+//        chatTimeDateFormatter.locale = Locale(identifier:"ko_KR")
+        let chatTime = chatTimeDateFormatter.string(from: date!)
+        
+//        print("🐣", chatDate)
+//        print("🐥", chatTime)
+        return chatTime
     }
 }
 

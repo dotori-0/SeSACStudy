@@ -17,7 +17,7 @@ class SocketIOManager {
     
     private init() {
         manager = SocketManager(socketURL: URL(string: APIURL.baseURL)!, config: [
-            .log(true),  // 하나하나 다 출력
+//            .log(true),  // 하나하나 다 출력
             .forceWebsockets(true)
         ])
 
@@ -33,6 +33,7 @@ class SocketIOManager {
         // 소켓 연결 메서드
         socket.on(clientEvent: .connect) { [weak self] data, ack in
             print("Socket is connected", data, ack)
+            print("UserDefaults.id: \(UserDefaults.id)")
             self?.socket.emit("changesocketid", UserDefaults.id)
         }
         
@@ -43,7 +44,7 @@ class SocketIOManager {
         
         // 이벤트 수신
         socket.on("chat") { dataArray, ack in
-            print("CHAT RECEIVED", dataArray, ack)
+            print("CHAT", dataArray, ack)
             
             let data = dataArray[0] as! NSDictionary
             let chatID = data["_id"] as! String
